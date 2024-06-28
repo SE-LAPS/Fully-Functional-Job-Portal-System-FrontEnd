@@ -6,3 +6,6 @@
 
 
 ![Screenshot 2024-06-28 110642](https://github.com/SE-LAPS/Fully-functional-Job-Portal-System/assets/87580847/715e7108-9722-483b-9ed1-bc0785512ece)
+
+
+![Screenshot 2024-06-28 110700](https://github.com/SE-LAPS/Fully-functional-Job-Portal-System/assets/87580847/3df318d6-e29a-4eac-b882-5925209c757b)
