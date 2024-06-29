@@ -8,7 +8,13 @@
 ![Screenshot 2024-06-28 110642](https://github.com/SE-LAPS/Fully-functional-Job-Portal-System/assets/87580847/715e7108-9722-483b-9ed1-bc0785512ece)
 
 
-![Screenshot 2024-06-28 110700](https://github.com/SE-LAPS/Fully-functional-Job-Portal-System/assets/87580847/3df318d6-e29a-4eac-b882-5925209c757b)
+⿡ Frontend (React.js): The user interface for job seekers, employers, and admins.
+⿢ API Gateway: Acts as a single entry point for all client requests, routing them to the appropriate microservices.
+⿣ User Service: Manages user authentication, registration, and profiles.
+⿤ Job Service: Handles job postings, searches, and updates.
+⿥ AI Service: Implements AI-powered features such as intelligent job matching using machine learning algorithms.
+⿦ Application Service: Manages job applications and tracks their statuses.
+⿧ Notification Service: Sends notifications for job applications and postings.
 
 
 ![WhatsApp Image 2024-06-09 at 12 21 57_69e1a44d](https://github.com/SE-LAPS/Fully-functional-Job-Portal-System/assets/87580847/55597553-303f-4874-bb2b-8645689d8871)
