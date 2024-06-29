@@ -15,3 +15,13 @@
 
 
 ![Time-line](https://github.com/SE-LAPS/Fully-functional-Job-Portal-System/assets/87580847/6060c6fc-63ff-4204-86b5-d48c4af4b214)
+
+# Team Members 👯
+
+👨‍🎓**Lahiru Senavirathna** ([SE-LAPS](https://github.com/SE-LAPS))
+ 
+👨‍🎓**Thevindu Ransara** ([trsrathnayaka](https://github.com/trsrathnayaka))
+  
+👨‍🎓**Wasana Muthumali** ([muthumaliperera](https://github.com/muthumaliperera))
+  
+👨‍🎓**Prasitha Samaarachchi** ([Prasitha7](https://github.com/Prasitha7))
