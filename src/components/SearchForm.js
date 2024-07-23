@@ -1,8 +1,14 @@
 // src/components/SearchForm.js
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 const SearchForm = () => {
+  const navigate = useNavigate();
+
+  const handleFindJobsClick = () => {
+    navigate('/job_list');
+  };
+
   return (
     <section className="search-form">
       <div className="search-form-header">
@@ -15,7 +21,7 @@ const SearchForm = () => {
         <input type="text" placeholder="Keywords / Job Title" />
         <input type="text" placeholder="Location" />
         <input type="text" placeholder="Distance" />
-        <button className="find-jobs-button">Find Jobs</button>
+        <button className="find-jobs-button" onClick={handleFindJobsClick}>Find Jobs</button>
       </div>
       
       <button className="advanced-filters">Advanced Filters</button>
