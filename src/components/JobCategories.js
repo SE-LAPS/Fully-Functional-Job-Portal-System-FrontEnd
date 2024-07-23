@@ -1,8 +1,8 @@
 // src/components/JobCategories.js
 import React from 'react';
-import companyLogo1 from '../assets/com1.jpg'; // Update with correct path
-import companyLogo2 from '../assets/com1.jpg'; // Update with correct path
-import companyLogo3 from '../assets/com1.jpg'; // Update with correct path
+import companyLogo1 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyLogo2 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyLogo3 from '../assets/campanyimg1.jpg'; // Update with correct path
 
 const companies = [
   {
