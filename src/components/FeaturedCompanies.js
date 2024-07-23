@@ -1,12 +1,12 @@
 // src/components/FeaturedCompanies.js
 import React from 'react';
 import favoriteIcon from '../assets/22.jpeg'; // Update with correct path
-import companyImage1 from '../assets/com1.jpg'; // Update with correct path
-import companyImage2 from '../assets/com1.jpg'; // Update with correct path
-import companyImage3 from '../assets/com1.jpg'; // Update with correct path
-import companyImage4 from '../assets/com1.jpg'; // Update with correct path
-import companyImage5 from '../assets/com1.jpg'; // Update with correct path
-import companyImage6 from '../assets/com1.jpg'; // Update with correct path
+import companyImage1 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyImage2 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyImage3 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyImage4 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyImage5 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyImage6 from '../assets/campanyimg1.jpg'; // Update with correct path
 
 const companies = [
   { name: "Company 1", image: companyImage1 },
