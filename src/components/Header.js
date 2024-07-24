@@ -8,7 +8,7 @@ const Header = () => {
       <nav className="nav">
         <a href="/">Home</a>
         <a href="/search">Search Jobs</a>
-        <a href="/alerts">Job Alerts</a>
+        <a href="/job_alert">Job Alerts</a>
         <a href="/employers">Employers</a>
         <a href="/login">Login</a>
         <a href="/register">Register</a>

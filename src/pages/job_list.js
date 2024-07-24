@@ -1,4 +1,4 @@
-// src/components/JobList.js
+// src/pages/job_list.js
 import React from 'react';
 
 const JobList = () => {
