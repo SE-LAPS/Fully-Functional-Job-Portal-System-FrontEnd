@@ -27,16 +27,8 @@ const App = () => {
               <Testimonial />
             </>
           } />
-          <Route path="/job_list" element={
-            <>
-              <JobList />
-            </>
-          } />
-          <Route path="/job_alert" element={
-            <>
-              <JobAlerts />
-            </>
-          } />
+          <Route path="/job_list" element={<JobList />} />
+          <Route path="/job_alert" element={<JobAlerts />} />
         </Routes>
         <Footer />
       </div>
