@@ -432,3 +432,36 @@ button:hover {
 .dot.active {
     background-color: #007bff;
 }
+
+/* src/components/JobAlerts.css */
+.job-alerts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.job-alert {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.job-alert h2 {
+    margin: 0 0 1rem 0;
+}
+
+.job-alert button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.job-alert button:hover {
+    background-color: #0056b3;
+}
