@@ -14,15 +14,137 @@ body {
     align-items: center;
 }
 
-.logo {
+.header .logo {
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.nav a {
-    color: #fff;
-    margin-left: 1rem;
-    text-decoration: none;
+.header .nav {
+    display: flex;
 }
+.header .nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+.header .nav a:hover {
+    text-decoration: underline;
+}
+
+/* Login Page Styles */
+.login-page {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-page h2 {
+    margin-bottom: 1.5rem;
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.login-page input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-page button {
+    padding: 0.75rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-page button:hover {
+    background-color: #555;
+}
+/*job list */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-input-container {
+    position: relative;
+}
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ccc;
+}
+
+/* Forgot Password Page Styles */
+.forgot-password-page {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.forgot-password-page h2 {
+    margin-bottom: 1.5rem;
+}
+
+.forgot-password-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+.forgot-password-page label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.forgot-password-page input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.forgot-password-page button {
+    padding: 0.75rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.forgot-password-page button:hover {
+    background-color: #555;
+}
+
 
 /* src/components/SearchForm.css */
 .search-form {
@@ -170,7 +292,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 .company-logo {
     width: 250px;
@@ -494,41 +616,45 @@ button:hover {
 
 /*job list page css update*/
 /* src/styles.css */
+.job-list-container {
+    width: 80%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
 .job-list {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
 }
 
 .job-card {
-    width: calc(21% - 17px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    border: 1px solid #ddd;
-    margin: 13px;
-    background-color: #fff;
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
+    padding: 20px;
+    text-align: center;
 }
-
-.job-card img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 15px;
+.job-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
 }
-
 .job-info {
     text-align: center;
-    margin-bottom: 15px;
 }
 
 .job-info h2 {
-    margin: 0;
     font-size: 18px;
-    color: #333;
+    margin: 10px 0;
 }
 
 .job-info p {
@@ -537,43 +663,25 @@ button:hover {
 }
 
 .job-actions {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+    margin-top: 10px;
 }
 
-.job-actions .favorite-btn,
-.job-actions .save-btn,
-.job-actions .apply-btn {
-    padding: 6px 10px;
+.save-btn,
+.apply-btn {
+    padding: 8px 15px;
+    margin: 5px;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.job-actions .favorite-btn {
-    background-color: #f8c12d;
-    color: #fff;
+.save-btn {
+    background-color: #aadf2e;
 }
 
-.job-actions .save-btn {
-    background-color: #6c757d;
-    color: #fff;
-}
-
-.job-actions .apply-btn {
+.apply-btn {
     background-color: #007bff;
     color: #fff;
 }
 
-.job-actions .favorite-btn:hover {
-    background-color: #e6af00;
-}
 
-.job-actions .save-btn:hover {
-    background-color: #5a6268;
-}
-
-.job-actions .apply-btn:hover {
-    background-color: #0056b3;
-}

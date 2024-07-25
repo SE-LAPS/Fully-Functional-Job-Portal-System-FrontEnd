@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 
 const jobs = [
@@ -18,20 +19,44 @@ const jobs = [
   { company: 'COGNIZANT', title: 'Front-End Developer', location: 'Hyderabad', category: 'Frontend' },
   { company: 'IBM', title: 'Jr. Backend Developer', location: 'Bangalore', category: 'Backend' },
   { company: 'ACCENTURE', title: 'Sr. Devops Engineer', location: 'New Delhi', category: 'Devops' },
-  { company: 'ORACLE', title: 'Digital Marketing', location: 'Noida', category: 'Digital Marketing' },
-  { company: 'DELLOITE', title: 'Full Stack Engineer', location: 'Mumbai', category: 'Full Stack' },
-  { company: 'SAP LABS', title: 'Sr. Devops Engineer', location: 'Gurugram', category: 'Devops' },
-  { company: 'FACEBOOK', title: 'Full Stack Engineer', location: 'Mumbai', category: 'Full Stack' },
+  
 ];
 
 const JobList = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredJobs = jobs.filter(job =>
+    job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    job.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    job.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="job-list-container">
       <h1 className="title">Job Listings</h1>
+
+      <div className="search-container">
+        <div className="search-input-container">
+          <input
+            type="text"
+            placeholder="Search jobs..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+          <FaSearch className="search-icon" />
+        </div>
+      </div>
+
       <div className="job-list">
-        {jobs.map((job, index) => (
+        {filteredJobs.map((job, index) => (
           <div key={index} className="job-card">
-            <img src={`path/to/${job.company.toLowerCase()}.png`} alt={`${job.company} logo`} className="job-logo" />
+            <img
+              src={`path/to/${job.company.toLowerCase()}.png`}
+              alt={`${job.company} logo`}
+              className="job-logo"
+            />
             <div className="job-info">
               <h2>{job.title}</h2>
               <p>{job.company}</p>
@@ -39,7 +64,6 @@ const JobList = () => {
               <p>{job.category}</p>
             </div>
             <div className="job-actions">
-              <button className="favorite-btn">★</button>
               <button className="save-btn">Save</button>
               <button className="apply-btn">Apply Now</button>
             </div>
