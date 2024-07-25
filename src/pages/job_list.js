@@ -1,5 +1,5 @@
-// src/pages/job_list.js
 import React from 'react';
+
 
 const jobs = [
   { company: 'AMAZON', title: 'Fullstack Developer', location: 'Remote', category: 'Fullstack' },
@@ -26,12 +26,12 @@ const jobs = [
 
 const JobList = () => {
   return (
-    <div>
-      <h1>Job Listings</h1>
+    <div className="job-list-container">
+      <h1 className="title">Job Listings</h1>
       <div className="job-list">
         {jobs.map((job, index) => (
           <div key={index} className="job-card">
-            <img src={`path/to/${job.company.toLowerCase()}.png`} alt={`${job.company} logo`} />
+            <img src={`path/to/${job.company.toLowerCase()}.png`} alt={`${job.company} logo`} className="job-logo" />
             <div className="job-info">
               <h2>{job.title}</h2>
               <p>{job.company}</p>

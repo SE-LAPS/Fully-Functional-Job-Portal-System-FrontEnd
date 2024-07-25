@@ -278,53 +278,78 @@ body {
 }
 
 /* src/styles.css */
+/* Featured Companies */
+.featured-companies {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
 
-/* job-list section */
+.featured-companies h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-.job-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.featured-companies .company-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.featured-companies .company {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 150px;
+    margin: 1rem;
+}
+
+.featured-companies .company img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.featured-companies .job-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     gap: 1rem;
     padding: 2rem;
 }
 
-.job-item {
+.featured-companies .job-item {
     border: 1px solid #ccc;
     padding: 1rem;
     border-radius: 4px;
     background-color: #f9f9f9;
     position: relative;
-}
-.job-categories h2 {
+    width: 200px;
     text-align: center;
-    margin-bottom: 2rem;
 }
-.job-item h3 {
+
+.featured-companies .job-item h3 {
     margin: 0;
     font-size: 1.2rem;
 }
 
-.job-item p {
+.featured-companies .job-item p {
     margin: 0.5rem 0;
 }
 
-.job-item p:first-of-type {
+.featured-companies .job-item p:first-of-type {
     font-weight: bold;
 }
 
-.icon {
+.featured-companies .icon {
     width: 20px;
     height: 20px;
     position: absolute;
     top: 10px;
-}
-
-.favorite-icon {
     right: 10px;
-}
-
-.google-icon {
-    right: 40px;
 }
 
 button {
@@ -476,13 +501,13 @@ button:hover {
 }
 
 .job-card {
-    width: calc(20% - 20px);
+    width: calc(21% - 17px);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px;
     border: 1px solid #ddd;
-    margin: 10px;
+    margin: 13px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
