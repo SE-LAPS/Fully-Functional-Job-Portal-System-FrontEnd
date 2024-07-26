@@ -772,3 +772,74 @@ ul {
     background-color: #0056b3;
 }
 
+/* src/pages/ApplyJobs.css */
+.apply-jobs {
+    width: 100%;
+    margin: 3.125rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.apply-jobs h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.apply-jobs form {
+    background: #f9f9f9;
+    padding: 2.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 720px;
+}
+
+.apply-jobs .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.apply-jobs .form-group label {
+    display: block;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.apply-jobs .form-control {
+    display: block;
+    width: 100%;
+    height: 2.375rem;
+    padding: 0.375rem 0.75rem;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.apply-jobs .form-control:focus {
+    border-color: #70bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.apply-jobs .submit-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: Green;
+    color: White;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.apply-jobs .submit-button:hover {
+    background-color: darkgreen;
+}

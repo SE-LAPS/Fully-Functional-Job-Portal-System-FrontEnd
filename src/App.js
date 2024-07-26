@@ -13,6 +13,7 @@ import JobAlerts from './pages/job_alert';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './pages/JobDetails'; // Import JobDetails component
+import ApplyJobs from './pages/ApplyJobs'; // Import ApplyJobs component
 import './styles.css';
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot_password" element={<ForgotPassword />} />
           <Route path="/job_details" element={<JobDetails />} /> {/* Add route for JobDetails */}
+          <Route path="/apply_jobs" element={<ApplyJobs />} /> {/* Add route for ApplyJobs */}
         </Routes>
         <Footer />
       </div>

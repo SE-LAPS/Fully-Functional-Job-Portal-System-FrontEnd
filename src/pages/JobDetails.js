@@ -1,10 +1,15 @@
+// src/pages/JobDetails.js
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const JobDetails = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { job } = location.state || {};
+
+  const handleApplyNow = () => {
+    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
+  };
 
   return (
     <div className="job-details">
@@ -78,7 +83,7 @@ const JobDetails = () => {
             </ul>
           </div>
           <div className="apply-button">
-            <button>Apply Now</button>
+            <button onClick={handleApplyNow}>Apply Now</button>
           </div>
         </>
       ) : (

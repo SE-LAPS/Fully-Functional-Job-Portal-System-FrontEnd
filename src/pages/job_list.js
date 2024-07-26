@@ -4,22 +4,22 @@ import { FaSearch } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const jobs = [
-  { company: 'AMAZON', title: 'Fullstack Developer', location: 'Remote', category: 'Fullstack', jobType: 'Full-Time' },
-  { company: 'FLP', title: 'Digital Marketing', location: 'Remote', category: 'Digital Marketing', jobType: 'Part-Time' },
-  { company: 'PAYTM', title: 'Jr. Frontend Developer', location: 'Mumbai', category: 'Frontend', jobType: 'Full-Time' },
-  { company: 'TESLA', title: 'Software Engineer', location: 'Gurugram', category: 'Full Stack', jobType: 'Full-Time' },
-  { company: 'ELASTIC RUN', title: 'Jr. Backend Developer', location: 'Jaipur', category: 'Backend', jobType: 'Part-Time' },
-  { company: 'TCS', title: 'Jr. Devops Engineer', location: 'Bangalore', category: 'Devops', jobType: 'Full-Time' },
-  { company: 'MYNTRA', title: 'Jr. Frontend Developer', location: 'Remote', category: 'Frontend', jobType: 'Part-Time' },
-  { company: 'SYNOPSYS', title: 'Full Stack Engineer', location: 'Hyderabad', category: 'Fullstack', jobType: 'Full-Time' },
-  { company: 'OPTUM', title: 'Front-End Developer', location: 'New Delhi', category: 'Frontend', jobType: 'Full-Time' },
-  { company: 'INFOSYS', title: 'React Developer', location: 'Bangalore', category: 'Frontend', jobType: 'Full-Time' },
-  { company: 'TECH MAHINDRA', title: 'NodeJS Developer', location: 'Jaipur', category: 'Backend', jobType: 'Full-Time' },
-  { company: 'CLOUD MENTOR', title: 'Software Engineer', location: 'Surat', category: 'Full Stack', jobType: 'Full-Time' },
-  { company: 'FLIPKART', title: 'Sr. Devops Engineer', location: 'Mumbai', category: 'Devops', jobType: 'Full-Time' },
-  { company: 'COGNIZANT', title: 'Front-End Developer', location: 'Hyderabad', category: 'Frontend', jobType: 'Full-Time' },
-  { company: 'IBM', title: 'Jr. Backend Developer', location: 'Bangalore', category: 'Backend', jobType: 'Full-Time' },
-  { company: 'ACCENTURE', title: 'Sr. Devops Engineer', location: 'New Delhi', category: 'Devops', jobType: 'Part-Time' },
+  { company: 'AMAZON', title: 'Fullstack Developer', location: 'Colombo',  jobType: 'Full-Time' },
+  { company: 'FLP', title: 'Digital Marketing', location: 'Remote',  jobType: 'Part-Time' },
+  { company: 'PAYTM', title: 'Jr. Frontend Developer', location: 'Mumbai',  jobType: 'Full-Time' },
+  { company: 'TESLA', title: 'Software Engineer', location: 'Gurugram',  jobType: 'Full-Time' },
+  { company: 'ELASTIC RUN', title: 'Jr. Backend Developer', location: 'Jaipur',  jobType: 'Part-Time' },
+  { company: 'TCS', title: 'Jr. Devops Engineer', location: 'Bangalore',  jobType: 'Full-Time' },
+  { company: 'MYNTRA', title: 'Jr. Frontend Developer', location: 'Remote',  jobType: 'Part-Time' },
+  { company: 'SYNOPSYS', title: 'Full Stack Engineer', location: 'Hyderabad',  jobType: 'Full-Time' },
+  { company: 'OPTUM', title: 'Front-End Developer', location: 'New Delhi',  jobType: 'Full-Time' },
+  { company: 'INFOSYS', title: 'React Developer', location: 'Bangalore',  jobType: 'Full-Time' },
+  { company: 'TECH MAHINDRA', title: 'NodeJS Developer', location: 'Jaipur',  jobType: 'Full-Time' },
+  { company: 'CLOUD MENTOR', title: 'Software Engineer', location: 'Surat',  jobType: 'Full-Time' },
+  { company: 'FLIPKART', title: 'Sr. Devops Engineer', location: 'Mumbai',  jobType: 'Full-Time' },
+  { company: 'COGNIZANT', title: 'Front-End Developer', location: 'Hyderabad',  jobType: 'Full-Time' },
+  { company: 'IBM', title: 'Jr. Backend Developer', location: 'Bangalore',  jobType: 'Full-Time' },
+  { company: 'ACCENTURE', title: 'Sr. Devops Engineer', location: 'New Delhi', jobType: 'Part-Time' },
 ];
 
 const JobList = () => {
