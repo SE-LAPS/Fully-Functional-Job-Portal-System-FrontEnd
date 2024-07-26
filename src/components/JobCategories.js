@@ -25,11 +25,7 @@ const companies = [
     name: "Company Three",
     location: "London, UK",
   },
-   {
-    logo: companyLogo3,
-    name: "Company Three",
-    location: "London, UK",
-  },
+ 
  
   // Add more companies as needed
 ];
