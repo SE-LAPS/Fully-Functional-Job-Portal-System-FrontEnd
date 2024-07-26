@@ -1,4 +1,5 @@
 // src/components/JobList.js
+
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -86,6 +87,7 @@ const JobList = () => {
           </div>
         ))}
       </div>
+
     </div>
   );
 };
