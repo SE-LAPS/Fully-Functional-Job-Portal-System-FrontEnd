@@ -11,7 +11,8 @@ import Footer from './components/Footer';
 import JobList from './pages/job_list';
 import JobAlerts from './pages/job_alert';
 import Login from './pages/Login';
-import ForgotPassword from './pages/ForgotPassword'; // Import ForgotPassword component
+import ForgotPassword from './pages/ForgotPassword';
+import JobDetails from './pages/JobDetails'; // Import JobDetails component
 import './styles.css';
 
 const App = () => {
@@ -32,7 +33,8 @@ const App = () => {
           <Route path="/job_list" element={<JobList />} />
           <Route path="/job_alert" element={<JobAlerts />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/forgot_password" element={<ForgotPassword />} /> {/* Add route for ForgotPassword */}
+          <Route path="/forgot_password" element={<ForgotPassword />} />
+          <Route path="/job_details" element={<JobDetails />} /> {/* Add route for JobDetails */}
         </Routes>
         <Footer />
       </div>

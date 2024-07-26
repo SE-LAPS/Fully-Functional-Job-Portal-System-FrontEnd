@@ -1,36 +1,51 @@
-import React, { useState } from 'react';
+// src/components/JobList.js
+import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const jobs = [
-  { company: 'AMAZON', title: 'Fullstack Developer', location: 'Remote', category: 'Fullstack' },
-  { company: 'FLP', title: 'Digital Marketing', location: 'Remote', category: 'Digital Marketing' },
-  { company: 'PAYTM', title: 'Jr. Frontend Developer', location: 'Mumbai', category: 'Frontend' },
-  { company: 'TESLA', title: 'Software Engineer', location: 'Gurugram', category: 'Full Stack' },
-  { company: 'ELASTIC RUN', title: 'Jr. Backend Developer', location: 'Jaipur', category: 'Backend' },
-  { company: 'TCS', title: 'Jr. Devops Engineer', location: 'Bangalore', category: 'Devops' },
-  { company: 'MYNTRA', title: 'Jr. Frontend Developer', location: 'Remote', category: 'Frontend' },
-  { company: 'SYNOPSYS', title: 'Full Stack Engineer', location: 'Hyderabad', category: 'Fullstack' },
-  { company: 'OPTUM', title: 'Front-End Developer', location: 'New Delhi', category: 'Frontend' },
-  { company: 'INFOSYS', title: 'React Developer', location: 'Bangalore', category: 'Frontend' },
-  { company: 'TECH MAHINDRA', title: 'NodeJS Developer', location: 'Jaipur', category: 'Backend' },
-  { company: 'CLOUD MENTOR', title: 'Software Engineer', location: 'Surat', category: 'Full Stack' },
-  { company: 'FLIPKART', title: 'Sr. Devops Engineer', location: 'Mumbai', category: 'Devops' },
-  { company: 'COGNIZANT', title: 'Front-End Developer', location: 'Hyderabad', category: 'Frontend' },
-  { company: 'IBM', title: 'Jr. Backend Developer', location: 'Bangalore', category: 'Backend' },
-  { company: 'ACCENTURE', title: 'Sr. Devops Engineer', location: 'New Delhi', category: 'Devops' },
-  
+  { company: 'AMAZON', title: 'Fullstack Developer', location: 'Remote', category: 'Fullstack', jobType: 'Full-Time' },
+  { company: 'FLP', title: 'Digital Marketing', location: 'Remote', category: 'Digital Marketing', jobType: 'Part-Time' },
+  { company: 'PAYTM', title: 'Jr. Frontend Developer', location: 'Mumbai', category: 'Frontend', jobType: 'Full-Time' },
+  { company: 'TESLA', title: 'Software Engineer', location: 'Gurugram', category: 'Full Stack', jobType: 'Full-Time' },
+  { company: 'ELASTIC RUN', title: 'Jr. Backend Developer', location: 'Jaipur', category: 'Backend', jobType: 'Part-Time' },
+  { company: 'TCS', title: 'Jr. Devops Engineer', location: 'Bangalore', category: 'Devops', jobType: 'Full-Time' },
+  { company: 'MYNTRA', title: 'Jr. Frontend Developer', location: 'Remote', category: 'Frontend', jobType: 'Part-Time' },
+  { company: 'SYNOPSYS', title: 'Full Stack Engineer', location: 'Hyderabad', category: 'Fullstack', jobType: 'Full-Time' },
+  { company: 'OPTUM', title: 'Front-End Developer', location: 'New Delhi', category: 'Frontend', jobType: 'Full-Time' },
+  { company: 'INFOSYS', title: 'React Developer', location: 'Bangalore', category: 'Frontend', jobType: 'Full-Time' },
+  { company: 'TECH MAHINDRA', title: 'NodeJS Developer', location: 'Jaipur', category: 'Backend', jobType: 'Full-Time' },
+  { company: 'CLOUD MENTOR', title: 'Software Engineer', location: 'Surat', category: 'Full Stack', jobType: 'Full-Time' },
+  { company: 'FLIPKART', title: 'Sr. Devops Engineer', location: 'Mumbai', category: 'Devops', jobType: 'Full-Time' },
+  { company: 'COGNIZANT', title: 'Front-End Developer', location: 'Hyderabad', category: 'Frontend', jobType: 'Full-Time' },
+  { company: 'IBM', title: 'Jr. Backend Developer', location: 'Bangalore', category: 'Backend', jobType: 'Full-Time' },
+  { company: 'ACCENTURE', title: 'Sr. Devops Engineer', location: 'New Delhi', category: 'Devops', jobType: 'Part-Time' },
 ];
 
 const JobList = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredJobs, setFilteredJobs] = useState(jobs);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const filteredJobs = jobs.filter(job =>
-    job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    job.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    job.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    if (location.state) {
+      const { jobTitle, location: jobLocation, jobType } = location.state;
+
+      const filtered = jobs.filter(job =>
+        (!jobTitle || job.title.toLowerCase().includes(jobTitle.toLowerCase())) &&
+        (!jobLocation || job.location.toLowerCase().includes(jobLocation.toLowerCase())) &&
+        (!jobType || job.jobType.toLowerCase() === jobType.toLowerCase())
+      );
+      setFilteredJobs(filtered);
+    } else {
+      setFilteredJobs(jobs);
+    }
+  }, [location.state]);
+
+  const handleApplyClick = (job) => {
+    navigate('/job_details', { state: { job } });
+  };
 
   return (
     <div className="job-list-container">
@@ -62,10 +77,11 @@ const JobList = () => {
               <p>{job.company}</p>
               <p>{job.location}</p>
               <p>{job.category}</p>
+              <p>{job.jobType}</p>
             </div>
             <div className="job-actions">
               <button className="save-btn">Save</button>
-              <button className="apply-btn">Apply Now</button>
+              <button className="apply-btn" onClick={() => handleApplyClick(job)}>Apply Now</button>
             </div>
           </div>
         ))}
