@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './pages/JobDetails'; // Import JobDetails component
 import ApplyJobs from './pages/ApplyJobs'; // Import ApplyJobs component
+import About from './pages/About'; // Import About component
 import './styles.css';
 
 const App = () => {
@@ -25,8 +26,8 @@ const App = () => {
           <Route path="/" element={
             <>
               <SearchForm />
-              <FeaturedCompanies />
               <JobCategories />
+              <FeaturedCompanies />             
               <HowWeWork />
               <Testimonial />
             </>
@@ -35,8 +36,9 @@ const App = () => {
           <Route path="/job_alert" element={<JobAlerts />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot_password" element={<ForgotPassword />} />
-          <Route path="/job_details" element={<JobDetails />} /> {/* Add route for JobDetails */}
-          <Route path="/apply_jobs" element={<ApplyJobs />} /> {/* Add route for ApplyJobs */}
+          <Route path="/job_details" element={<JobDetails />} />
+          <Route path="/apply_jobs" element={<ApplyJobs />} />
+          <Route path="/about" element={<About />} /> {/* Add route for About */}
         </Routes>
         <Footer />
       </div>

@@ -20,7 +20,7 @@ const jobs = [
   { company: 'FLIPKART', title: 'Sr. Devops Engineer', location: 'Mumbai',  jobType: 'Full-Time' },
   { company: 'COGNIZANT', title: 'Front-End Developer', location: 'Hyderabad',  jobType: 'Full-Time' },
   { company: 'IBM', title: 'Jr. Backend Developer', location: 'Bangalore',  jobType: 'Full-Time' },
-  { company: 'ACCENTURE', title: 'Sr. Devops Engineer', location: 'New Delhi', jobType: 'Part-Time' },
+
 ];
 
 const JobList = () => {

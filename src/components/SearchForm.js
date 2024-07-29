@@ -17,9 +17,9 @@ const SearchForm = () => {
       <div className="search-form-header">
         <h1>Join the Next Generation of Job Hunters</h1>
         <p>Upload your Video CV now and increase your chances of being found by top employers.</p>
-        <button className="register-button">Register For Free</button>
+        <button className="register-button">Read Me</button>
       </div>
-      
+    
       <div className="search-fields">
         <input 
           type="text" 
@@ -41,8 +41,9 @@ const SearchForm = () => {
         />
         <button className="find-jobs-button" onClick={handleFindJobsClick}>Find Jobs</button>
       </div>
-      
-      <button className="advanced-filters">Advanced Filters</button>
+
+      {/* Optional extra spacing */}
+      <div className="spacer"></div>
     </section>
   );
 };
