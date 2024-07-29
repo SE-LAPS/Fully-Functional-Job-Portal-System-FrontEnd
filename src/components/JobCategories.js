@@ -1,32 +1,37 @@
-// src/components/JobCategories.js
 import React from 'react';
-import companyLogo1 from '../assets/campanyimg1.jpg'; // Update with correct path
-import companyLogo2 from '../assets/campanyimg1.jpg'; // Update with correct path
-import companyLogo3 from '../assets/campanyimg1.jpg'; // Update with correct path
+import companyLogo1 from '../assets/ibm.jpeg'; // Update with correct path
+import companyLogo2 from '../assets/myntra.png'; // Update with correct path
+import companyLogo3 from '../assets/naukri.png';
+import companyLogo4 from '../assets/cloud-mentor.jpeg';
+import companyLogo5 from '../assets/tech-mahindra.png'; // Update with correct path
 
 const companies = [
   {
     logo: companyLogo1,
-    name: "Company One",
+    name: "IBM",
     location: "New York, USA",
   },
   {
     logo: companyLogo2,
-    name: "Company Two",
+    name: "Myntra",
     location: "San Francisco, USA",
   },
   {
     logo: companyLogo3,
-    name: "Company Three",
+    name: "naukri",
     location: "London, UK",
   },
-   {
-    logo: companyLogo3,
-    name: "Company Three",
-    location: "London, UK",
+  {
+    logo: companyLogo4,
+    name: "Cloud Mentor",
+    location: "Tokyo, Japan",
   },
- 
- 
+    {
+    logo: companyLogo5,
+    name: "Tech mahindra",
+    location: "Tokyo, Japan",
+  },
+  
   // Add more companies as needed
 ];
 
