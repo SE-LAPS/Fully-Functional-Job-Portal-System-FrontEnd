@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -12,7 +11,6 @@ import SearchJobs from './pages/SearchJobs';
 import JobAlerts from './pages/job_alert';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
-import JobDetails from './pages/JobDetails'; // Import JobDetails component
 import './styles.css';
 
 const App = () => {
@@ -30,11 +28,10 @@ const App = () => {
               <Testimonial />
             </>
           } />
-          <Route path="/search" element={<SearchJobs/>} />
+          <Route path="/search" element={<SearchJobs />} />
           <Route path="/job_alert" element={<JobAlerts />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/forgot_password" element={<ForgotPassword />} />
-          <Route path="/job_details" element={<JobDetails />} /> {/* Add route for JobDetails */}
+          <Route path="/forgot_password" element={<ForgotPassword />} /> 
         </Routes>
         <Footer />
       </div>
