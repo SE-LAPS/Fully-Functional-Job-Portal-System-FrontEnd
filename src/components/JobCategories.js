@@ -1,7 +1,7 @@
 import React from 'react';
 import companyLogo1 from '../assets/ibm.jpeg'; // Update with correct path
-import companyLogo2 from '../assets/myntra.png'; // Update with correct path
-import companyLogo3 from '../assets/naukri.png';
+import companyLogo2 from '../assets/sap.jpeg'; // Update with correct path
+import companyLogo3 from '../assets/flipkart.jpeg';
 import companyLogo4 from '../assets/cloud-mentor.jpeg';
 import companyLogo5 from '../assets/tech-mahindra.png'; // Update with correct path
 
