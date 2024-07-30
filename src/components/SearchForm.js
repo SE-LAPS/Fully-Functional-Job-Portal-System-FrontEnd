@@ -8,7 +8,7 @@ const SearchForm = () => {
   const [jobType, setJobType] = useState('');
 
   const handleFindJobsClick = () => {
-    navigate('/job_list', { state: { jobTitle, location, jobType } });
+    navigate('/SearchJobs', { state: { jobTitle, location, jobType } });
   };
 
   return (
