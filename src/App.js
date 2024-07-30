@@ -9,12 +9,14 @@ import HowWeWork from './components/HowWeWork';
 import Testimonial from './components/Testimonial';
 import Footer from './components/Footer';
 import SearchJobs from './pages/SearchJobs';
-import JobAlerts from './pages/job_alert'; // Import job_alert with correct case
+import JobAlerts from './pages/job_alert'; 
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './pages/JobDetails';
 import About from './pages/About';
-import Contact from './pages/Contact'; // Import Contact component
+import Contact from './pages/Contact'; 
+import Faqs from './pages/Faqs'; // Import the Faqs component
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
 const App = () => {
@@ -38,7 +40,8 @@ const App = () => {
           <Route path="/forgot_password" element={<ForgotPassword />} />
           <Route path="/job_details" element={<JobDetails />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} /> {/* Add route for Contact */}
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faqs" element={<Faqs />} /> {/* Add route for FAQ */}
         </Routes>
         <Footer />
       </div>

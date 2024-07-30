@@ -1,6 +1,5 @@
 import React from 'react';
 import { getCompanyLogo } from '../utils/getCompanyLogo';
-
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';

@@ -1,6 +1,6 @@
 // src/pages/Contact.js
 import React from 'react';
-
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS if using npm
 
 const Contact = () => {
   return (
@@ -8,15 +8,15 @@ const Contact = () => {
       <h2>Contact For Any Query</h2>
       <div className="contact-info">
         <div className="contact-item">
-          <i className="fa fa-map-marker"></i>
+          <i className="fas fa-map-marker-alt"></i> {/* Updated icon class */}
           <p>123 Street, New York, USA</p>
         </div>
         <div className="contact-item">
-          <i className="fa fa-envelope"></i>
+          <i className="fas fa-envelope"></i> {/* Updated icon class */}
           <p>info@example.com</p>
         </div>
         <div className="contact-item">
-          <i className="fa fa-phone"></i>
+          <i className="fas fa-phone"></i> {/* Updated icon class */}
           <p>+012 345 6789</p>
         </div>
       </div>
