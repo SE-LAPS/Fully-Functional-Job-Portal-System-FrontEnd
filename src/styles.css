@@ -46,7 +46,6 @@ body {
     color: #fff;
     text-decoration: none;
     margin-left: 0.5rem;
-    /* Reduce space between buttons */
     font-size: 1rem;
 }
 
@@ -60,7 +59,7 @@ body {
 }
 .post-job-btn {
     background-color: #007bff;
-    color: #fff;
+    color: #4af017;
     padding: 8px 16px;
     border-radius: 4px;
     text-decoration: none;
@@ -70,6 +69,83 @@ body {
 
 .post-job-btn:hover {
     background-color: #0056b3;
+}
+
+.header .post-job-btn {
+    background-color: rgb(24, 226, 35);
+    color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-left: 1rem;
+}
+
+/* Form container */
+.post-job-form-container {
+    background-color: white;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.post-job-form-container h3 {
+    margin-bottom: 1.5rem;
+    color: #1bbde6;
+    text-align: center;
+}
+
+.post-job-form-container form div {
+    margin-bottom: 1.5rem;
+}
+
+.post-job-form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1452c5;
+}
+
+.post-job-form-container input,
+.post-job-form-container select,
+.post-job-form-container textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.post-job-form-container input[type="radio"],
+.post-job-form-container input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.post-job-form-container textarea {
+    height: 100px;
+}
+
+.post-job-form-container button {
+    background-color: #007bff;
+    color: rgb(70, 253, 46);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 60%;
+    font-size: 1rem;
+    display: block;
+    margin: 0 auto; /*button alignment center*/
+}
+
+.post-job-form-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .post-job-form-container {
+        padding: 1rem;
+    }
 }
 
 /* Login Page Styles */

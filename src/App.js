@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -9,13 +8,14 @@ import HowWeWork from './components/HowWeWork';
 import Testimonial from './components/Testimonial';
 import Footer from './components/Footer';
 import SearchJobs from './pages/SearchJobs';
-import JobAlerts from './pages/job_alert'; 
+import JobAlerts from './pages/job_alert';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './pages/JobDetails';
 import About from './pages/About';
-import Contact from './pages/Contact'; 
-import Faqs from './pages/Faqs'; // Import the Faqs component
+import Contact from './pages/Contact';
+import Faqs from './pages/Faqs';
+import PostJobForm from './components/PostJobForm'; // Import the PostJobForm component
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
@@ -29,7 +29,7 @@ const App = () => {
             <>
               <SearchForm />
               <JobCategories />
-              <FeaturedCompanies />             
+              <FeaturedCompanies />
               <HowWeWork />
               <Testimonial />
             </>
@@ -41,7 +41,8 @@ const App = () => {
           <Route path="/job_details" element={<JobDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/faqs" element={<Faqs />} /> {/* Add route for FAQ */}
+          <Route path="/faqs" element={<Faqs />} />
+          <Route path="/post-job" element={<PostJobForm />} /> {/* Add route for Job Posting Form */}
         </Routes>
         <Footer />
       </div>
