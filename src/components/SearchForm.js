@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const SearchForm = () => {
   const navigate = useNavigate();
   const [jobTitle, setJobTitle] = useState('');
@@ -20,24 +21,34 @@ const SearchForm = () => {
       </div>
       
       <div className="search-fields">
-        <input 
-          type="text" 
-          placeholder="Job Title" 
-          value={jobTitle}
-          onChange={(e) => setJobTitle(e.target.value)}
-        />
-        <input 
-          type="text" 
-          placeholder="Location" 
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-        <input 
-          type="text" 
-          placeholder="Full-Time / Part-Time" 
-          value={jobType}
-          onChange={(e) => setJobType(e.target.value)}
-        />
+          <input 
+            type="text" 
+            placeholder="Job Title" 
+            value={jobTitle}
+            onChange={(e) => setJobTitle(e.target.value)}
+          />
+          <select
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          >
+            <option value="">Location</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Chittagong">Chittagong</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Rajshahi">Rajshahi</option>
+            <option value="Sylhet">Sylhet</option>
+            <option value="Barisal">Barisal</option>
+            <option value="Rangpur">Rangpur</option>
+          </select>
+          <select
+            value={jobType}
+            onChange={(e) => setJobType(e.target.value)}
+          >
+            <option value="">Job Type</option>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Internship">Internship</option>
+          </select>
         <button className="find-jobs-button" onClick={handleFindJobsClick}>Find Jobs</button>
       </div>
       
