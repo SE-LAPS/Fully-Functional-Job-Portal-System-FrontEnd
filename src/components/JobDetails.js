@@ -45,7 +45,7 @@ const JobDetails = ({ job }) => {
   const jobID = jobDetails.find(j => j.id === job.id);
 
   return (
-    <Card sx={{ maxWidth: 560 }}>
+    <Card sx={{ maxWidth: 780, marginBottom: 5 }}>
       <CardHeader
         avatar={
           <Avatar alt={job.company} src={getCompanyLogo(job.company)} />
@@ -69,6 +69,18 @@ const JobDetails = ({ job }) => {
         <Typography variant="body2" color="text.secondary">
           {jobID.description}
         </Typography>
+        <Typography variant='h6' color="text.secondary">Responsibility:</Typography>
+          <Typography variant="body2" color="text.secondary">
+            {jobID.responsibilities.map((responsibility, index) => (
+              <li key={index}>{responsibility}</li>
+            ))}
+          </Typography>
+          <Typography variant='h6' color="text.secondary">Qualifications:</Typography>
+          <Typography variant="body2" color="text.secondary">
+            {jobID.qualifications.map((qualification, index) => (
+              <li key={index}>{qualification}</li>
+            ))}
+          </Typography>
       </CardContent>
       <Button variant="contained" href="/apply" sx={{margin: 2}}>Apply Now</Button>
       <CardActions disableSpacing>
@@ -89,17 +101,13 @@ const JobDetails = ({ job }) => {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography variant='h6'>Responsibility:</Typography>
-          <Typography paragraph>
-            {jobID.responsibilities.map((responsibility, index) => (
-              <li key={index}>{responsibility}</li>
-            ))}
+          <Typography variant='h6' color="text.secondary">Our Values:</Typography>
+          <Typography variant="body2" color="text.secondary">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Typography>
-          <Typography variant='h6'>Qualifications:</Typography>
-          <Typography paragraph>
-            {jobID.qualifications.map((qualification, index) => (
-              <li key={index}>{qualification}</li>
-            ))}
+          <Typography variant='h6' color="text.secondary">Job Benefits:</Typography>
+          <Typography variant="body2" color="text.secondary">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Typography>
         </CardContent>
       </Collapse>

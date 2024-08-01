@@ -106,7 +106,7 @@ function SearchJobs() {
           </FormControl>
         </div>
       </header>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <h3>Jobs Found</h3>
         <main style={{ display: 'flex' }}>
           <div style={{ flex: 2 }}>
