@@ -15,7 +15,8 @@ import JobDetails from './pages/JobDetails';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Faqs from './pages/Faqs';
-import PostJobForm from './components/PostJobForm'; // Import the PostJobForm component
+import PostJobForm from './components/PostJobForm';
+import Employers from './pages/Employee'; // Import the Employers component
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
@@ -42,7 +43,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faqs" element={<Faqs />} />
-          <Route path="/post-job" element={<PostJobForm />} /> {/* Add route for Job Posting Form */}
+          <Route path="/post-job" element={<PostJobForm />} />
+          <Route path="/employers" element={<Employers />} /> {/* Add route for Employers */}
         </Routes>
         <Footer />
       </div>

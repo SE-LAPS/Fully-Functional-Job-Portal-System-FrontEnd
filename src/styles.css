@@ -265,75 +265,102 @@ body {
 .search-form {
     background: url('/src/assets/12.jpg') no-repeat center center;
     background-size: cover;
-    padding: 6rem 1.5rem;
+    padding: 5rem 1.5rem;
     text-align: center;
     color: #fff;
-    border-radius: 0px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2rem;
 }
 
 .search-form-header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .search-form-header p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
     max-width: 600px;
     margin: 0 auto;
 }
 
 .register-button {
-    background-color: #007bff;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
     color: #fff;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
     margin-bottom: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .register-button:hover {
-    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .search-fields {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.search-fields select {
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
+/* Job Title, Location, Job Type Fields */
+.MuiTextField-root,
+.MuiFormControl-root {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.search-fields input {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    width: 200px;
-}
-
-.find-jobs-button {
-    background-color: #28a745;
+/* Search Jobs Button */
+.MuiButton-containedPrimary {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
     color: #fff;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
+    width: 500px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.find-jobs-button:hover {
-    background-color: #218838;
+.MuiButton-containedPrimary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .search-form {
+        padding: 3rem 1rem;
+    }
+
+    .search-form-header h1 {
+        font-size: 2rem;
+    }
+
+    .search-form-header p {
+        font-size: 1rem;
+    }
+
+    .register-button,
+    .MuiButton-containedPrimary {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .MuiButton-containedPrimary {
+        width: 100%;
+    }
 }
 
 /* How We Work Section */
@@ -1194,4 +1221,39 @@ h2 {
 
 .arrow.open {
     transform: rotate(90deg);
+}
+
+/* src/pages/Employees.css */
+.employers-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.employers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.employer-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.employer-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    text-decoration: none;
 }
