@@ -16,6 +16,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Faqs from './pages/Faqs';
 import PostJobForm from './components/PostJobForm'; // Import the PostJobForm component
+import SideNav from './components/Header'; // Import the SideNav component
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
@@ -24,6 +25,7 @@ const App = () => {
     <Router>
       <div className="app">
         <Header />
+        <SideNav /> {/* Add the SideNav component */}
         <Routes>
           <Route path="/" element={
             <>
