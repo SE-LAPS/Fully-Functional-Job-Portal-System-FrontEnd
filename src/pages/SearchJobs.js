@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import JobList from '../components/JobList';
 import JobDetails from '../components/JobDetails'; 
@@ -8,29 +8,40 @@ import Container from '@mui/material/Container';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import { Autocomplete } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 function SearchJobs() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [location, setLocation] = useState('');
-  const [type, setType] = useState('');
+  const location = useLocation();
+  const { jobTitle, location: loc, jobType } = location.state || {};
+
+  const [searchTerm, setSearchTerm] = useState(jobTitle || '');
+  const [jobLocation, setJobLocation] = useState(loc || '');
+  const [type, setType] = useState(jobType || '');
   const [selectedJob, setSelectedJob] = useState(null);
   const [filteredJobs, setFilteredJobs] = useState(jobs);
+
+  useEffect(() => {
+    if (jobTitle || loc || jobType) {
+      handleFindJobsClick();
+    }
+  }, [jobTitle, loc, jobType]);
 
   const handleJobSelect = (job) => {
     setSelectedJob(job);
   };
 
   const handleFindJobsClick = (e) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const filtered = jobs.filter(job => 
-    (job.title.toLowerCase().includes((searchTerm || '').toLowerCase())) &&
-    (job.location.toLowerCase().includes((location || '').toLowerCase())) &&
-    (job.jobType.toLowerCase().includes((type || '').toLowerCase()))
+      (job.title.toLowerCase().includes((searchTerm || '').toLowerCase())) &&
+      (job.location.toLowerCase().includes((jobLocation || '').toLowerCase())) &&
+      (job.jobType.toLowerCase().includes((type || '').toLowerCase()))
     );
     setFilteredJobs(filtered);
   };
@@ -56,9 +67,9 @@ function SearchJobs() {
                   sx={{ width: 150 }}
                   labelId="location-label"
                   id="location"
-                  value={location}
+                  value={jobLocation}
                   label="Location"
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={(e) => setJobLocation(e.target.value)}
                 >
                   <MenuItem value="">
                     <em>All</em>

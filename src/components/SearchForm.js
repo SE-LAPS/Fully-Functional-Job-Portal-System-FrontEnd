@@ -8,10 +8,13 @@ const SearchForm = () => {
   const [location, setLocation] = useState('');
   const [jobType, setJobType] = useState('');
 
-  const handleFindJobsClick = () => {
-    navigate('/SearchJobs', { state: { jobTitle, location, jobType } });
+  const handleFindJobsClick = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    navigate('/search', { state: { jobTitle, location, jobType } });
   };
-
+  
   return (
     <section className="search-form">
       <div className="search-form-header">
@@ -32,17 +35,16 @@ const SearchForm = () => {
             onChange={(e) => setLocation(e.target.value)}
           >
             <option value="">Location</option>
-            <option value="Dhaka">Dhaka</option>
-            <option value="Chittagong">Chittagong</option>
-            <option value="Khulna">Khulna</option>
-            <option value="Rajshahi">Rajshahi</option>
-            <option value="Sylhet">Sylhet</option>
-            <option value="Barisal">Barisal</option>
-            <option value="Rangpur">Rangpur</option>
+            <option value="Remote">Remote</option>
+            <option value="Colombo">Colombo</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Galle">Galle</option>
+            <option value="Jaffna">Jaffna</option>
+            <option value="Negombo">Negombo</option>
           </select>
           <select
             value={jobType}
-            onChange={(e) => setJobType(e.target.value)}
+            onChange={(e) => setJobType(e.target.value)}   
           >
             <option value="">Job Type</option>
             <option value="Full-Time">Full-Time</option>
