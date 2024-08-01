@@ -35,7 +35,7 @@ const JobList = ({ jobs = [], onJobSelect }) => {
       <div className="job-list">
         <div className="job-list-sidebar">
           {paginatedJobs.map(job => (
-            <List key={job.id} sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            <List key={job.id} sx={{ width: '100%', maxWidth: 360, color: 'background.paper' }}>
               <ListItemButton onClick={() => onJobSelect(job)}>
                 <ListItemAvatar>
                   <Avatar alt={job.company} src={getCompanyLogo(job.company)} />

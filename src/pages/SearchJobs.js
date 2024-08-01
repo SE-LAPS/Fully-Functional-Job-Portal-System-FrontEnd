@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import JobList from '../components/JobList';
 import JobDetails from '../components/JobDetails'; 
-import jobs from '../api/jobs_api'; 
+import {jobs} from '../api/jobs_api'; 
+
 
 import Container from '@mui/material/Container';
 import InputLabel from '@mui/material/InputLabel';
