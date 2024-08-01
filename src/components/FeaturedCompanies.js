@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const jobs = [
   {
@@ -77,6 +78,7 @@ const jobs = [
 
 const JobListing = () => {
   const [filter, setFilter] = useState('All');
+  const navigate = useNavigate();
 
   const handleFilterClick = (filterType) => {
     setFilter(filterType);
@@ -85,6 +87,10 @@ const JobListing = () => {
   const filteredJobs = filter === 'All' 
     ? jobs 
     : jobs.filter((job) => job.type === filter);
+
+  const handleApplyClick = (job) => {
+    navigate('/apply_jobs', { state: { job } });
+  };
 
   return (
     <div className="job-listing">
@@ -105,7 +111,7 @@ const JobListing = () => {
               <p>{job.salary}</p>
               <p>Date Line: {job.deadline}</p>
             </div>
-            <button className="apply-button">Apply Now</button>
+            <button className="apply-button" onClick={() => handleApplyClick(job)}>Apply Now</button>
           </div>
         ))}
       </div>

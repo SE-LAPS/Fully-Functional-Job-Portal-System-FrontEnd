@@ -58,8 +58,7 @@ body {
     /* Space between icon and text */
 }
 .post-job-btn {
-    background-color: #007bff;
-    color: #4af017;
+    color: #007bff,#00d4ff;
     padding: 8px 16px;
     border-radius: 4px;
     text-decoration: none;
@@ -72,7 +71,7 @@ body {
 }
 
 .header .post-job-btn {
-    background-color: rgb(24, 226, 35);
+    background-color: #00d4ff;
     color: #007bff;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -572,7 +571,7 @@ body {
     display: block;
     width: 100%;
     padding: 0.5rem;
-    background-color: #007bff;
+    background-color: #007bff,#00d4ff;
     color: white;
     border: none;
     border-radius: 4px;
@@ -587,7 +586,7 @@ body {
 .browse-more-button {
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
-    background-color: #11b1f0;
+    background-color: #00d4ff;
     color: white;
     border: none;
     border-radius: 4px;
@@ -901,23 +900,7 @@ button:hover {
     margin-top: 10px;
 }
 
-.save-btn,
-.apply-btn {
-    padding: 8px 15px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.save-btn {
-    background-color: #aadf2e;
-}
-
-.apply-btn {
-    background-color: #007bff;
-    color: #fff;
-}
 
 /* src/JobDetails.css */
 
@@ -935,7 +918,7 @@ button:hover {
 }
 
 .job-header h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 0;
 }
 
@@ -984,22 +967,17 @@ ul {
     text-align: center;
     margin-top: 20px;
 }
-
-.apply-button button {
-    background-color: #007bff;
-    color: white;
+.Job-Details-apply-button{
+    text-align: center;
+    margin-top: 20px;
+}
+.apply-button button {  
     border: none;
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 8px 16px;
+    font-size: 0.9em;
     border-radius: 5px;
     cursor: pointer;
 }
-
-.apply-button button:hover {
-    background-color: #0056b3;
-}
-
-v
 .apply-jobs {
     width: 100%;
     margin: 3.125rem auto 0 auto;
@@ -1231,29 +1209,41 @@ h2 {
 
 .employers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
 .employer-card {
     background-color: #fff;
-    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    /* Adjust height as needed */
 }
 
 .employer-logo {
-    max-width: 100%;
-    height: auto;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
 .read-more {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 5px;
+    margin-top: auto;
+    /* Push the button to the bottom */
+    padding: 8px 16px;
+    font-size: 14px;
     text-decoration: none;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
 }
+

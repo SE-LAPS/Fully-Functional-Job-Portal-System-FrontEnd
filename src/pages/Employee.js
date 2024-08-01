@@ -1,12 +1,34 @@
 import React from 'react';
+import ifsLogo from '../assets/companyLogos/ifs.png';
+import accentureLogo from '../assets/companyLogos/accenture.jpeg';
+import codegenLogo from '../assets/companyLogos/codegen_logo.png';
+import deloitteLogo from '../assets/companyLogos/deloitte.png';
+import infosysLogo from '../assets/companyLogos/infosys.png';
+import synopsysLogo from '../assets/companyLogos/synopsys.png';
+import optumLogo from '../assets/companyLogos/optum.png';
+import sltLogo from '../assets/companyLogos/slt.png';
 
+import orelLogo from '../assets/companyLogos/orel.png';
+import oracleLogo from '../assets/companyLogos/oracle.png';
+import myntraLogo from '../assets/companyLogos/myntra.png';
+import LogoLogo from '../assets/Logo.png';
 
 const Employers = () => {
-  const employers = new Array(16).fill({
-    name: 'SLIBTEC',
-    logo: 'path/to/slibtec-logo.png', // Replace with the actual path to your logo
-    link: '#',
-  });
+  const employers = [
+    { name: 'IFS', logo: ifsLogo, link: '#' },
+    { name: 'Accenture', logo: accentureLogo, link: '#' },
+    { name: 'CodeGen', logo: codegenLogo, link: '#' },
+    { name: 'Deloitte', logo: deloitteLogo, link: '#' },
+    { name: 'Infosys', logo: infosysLogo, link: '#' },
+    { name: 'Synopsys', logo: synopsysLogo, link: '#' },
+    { name: 'Optum', logo: optumLogo, link: '#' },
+    { name: 'SLT Mobitel', logo: sltLogo, link: '#' },
+
+    { name: 'OrelIT', logo: orelLogo, link: '#' },
+    { name: 'Oracle', logo: oracleLogo, link: '#' },
+    { name: 'Myntra', logo: myntraLogo, link: '#' },
+    { name: 'SLIBTEC', logo: LogoLogo, link: '#' },
+  ];
 
   return (
     <div className="employers-container">

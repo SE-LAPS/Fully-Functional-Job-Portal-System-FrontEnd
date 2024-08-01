@@ -1,8 +1,11 @@
-// src/pages/ApplyJobs.js
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 
 const ApplyJobs = () => {
+  const location = useLocation();
+  const job = location.state?.job; // Access job details from navigation state
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [resume, setResume] = useState(null);
@@ -10,12 +13,18 @@ const ApplyJobs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Application Submitted:', { name, email, resume });
+    console.log('Application Submitted:', { name, email, resume, job });
   };
 
   return (
     <div className="apply-jobs">
       <h1>Apply for a Job</h1>
+      {job && (
+        <div className="job-details-preview">
+          <h2>Applying for: {job.title}</h2>
+          <p><strong>Company:</strong> {job.company}</p>
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
