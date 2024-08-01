@@ -1,17 +1,24 @@
-// src/components/Header.js
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
 const Header = () => {
   return (
     <header className="header">
       <div className="logo">JobHunter</div>
       <nav className="nav">
-        <a href="/">Home</a>
-        <a href="/search">Search Jobs</a>
-        <a href="/job_alert">Job Alerts</a>
-        <a href="/employers">Employers</a>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/search">Search Jobs</Link>
+        <Link to="/job_alert">Job Alerts</Link>
+        <Link to="/employers">Employers</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/faqs">FAQs</Link>
+        <div className="auth-links">
+          <Link to="/login" className="auth-link"><FaSignInAlt /> Login</Link>
+          <Link to="/register" className="auth-link"><FaUserPlus /> Register</Link>
+        </div>
+        <Link to="/post-job" className="post-job-btn">Post a Job</Link> {/* Added Post a Job button */}
       </nav>
     </header>
   );
