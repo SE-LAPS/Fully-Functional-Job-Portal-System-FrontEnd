@@ -465,3 +465,90 @@ button:hover {
 .job-alert button:hover {
     background-color: #0056b3;
 }
+
+
+/*job list page css update*/
+/* src/styles.css */
+.job-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.job-card {
+    width: calc(20% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.job-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.job-info {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.job-info h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.job-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.job-actions {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.job-actions .favorite-btn,
+.job-actions .save-btn,
+.job-actions .apply-btn {
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.job-actions .favorite-btn {
+    background-color: #f8c12d;
+    color: #fff;
+}
+
+.job-actions .save-btn {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.job-actions .apply-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.job-actions .favorite-btn:hover {
+    background-color: #e6af00;
+}
+
+.job-actions .save-btn:hover {
+    background-color: #5a6268;
+}
+
+.job-actions .apply-btn:hover {
+    background-color: #0056b3;
+}
