@@ -1,27 +1,34 @@
-import React from 'react';
+// SideNav.js
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
+import '../Header.css';
 
-const Header = () => {
+const SideNav = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const expandNav = () => setIsExpanded(true);
+  const collapseNav = () => setIsExpanded(false);
+
   return (
-    <header className="header">
-      <div className="logo">JobHunter</div>
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/search">Jobs</Link>
-        <Link to="/job_alert">Job Alerts</Link>
-        <Link to="/employers">Employers</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/faqs">FAQs</Link>
-        <div className="auth-links">
-          <Link to="/login" className="auth-link"><FaSignInAlt /> Login</Link>
-          <Link to="/register" className="auth-link"><FaUserPlus /> Register</Link>
-        </div>
-        <Link to="/post-job" className="post-job-btn">Post a Job</Link> {/* Added Post a Job button */}
-      </nav>
-    </header>
+    <nav 
+      className={`side-nav ${isExpanded ? 'expanded' : ''}`}
+      onMouseEnter={expandNav}
+      onMouseLeave={collapseNav}
+    >
+      <div className="toggle-btn">
+        {isExpanded ? '▶' : '◀'}
+      </div>
+      <div className="nav-content">
+        <Link to="/" className="nav-item">Home</Link>
+        <Link to="/about" className="nav-item">About</Link>
+        <Link to="/search" className="nav-item">Jobs</Link>
+        <Link to="/job_alert" className="nav-item">Job Alerts</Link>
+        <Link to="/employers" className="nav-item">Employers</Link>
+        <Link to="/contact" className="nav-item">Contact</Link>
+        <Link to="/faqs" className="nav-item">FAQs</Link>
+      </div>
+    </nav>
   );
 };
 
-export default Header;
+export default SideNav;
