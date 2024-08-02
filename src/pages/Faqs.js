@@ -1,5 +1,12 @@
-// src/pages/Faqs.js
 import React, { useState } from 'react';
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Container,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const faqs = [
   {
@@ -45,27 +52,36 @@ const faqs = [
 ];
 
 const Faqs = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [expanded, setExpanded] = useState(false);
 
-  const toggleAnswer = index => {
-    setOpenIndex(openIndex === index ? null : index);
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
   };
 
   return (
-    <div className="faqs">
-      <h1>Frequently Asked Questions</h1>
-      <div className="faq-list">
-        {faqs.map((faq, index) => (
-          <div key={index} className="faq-item">
-            <div className="faq-question" onClick={() => toggleAnswer(index)}>
-              <h2>{faq.question}</h2>
-              <span className={`arrow ${openIndex === index ? 'open' : ''}`}>▶</span>
-            </div>
-            {openIndex === index && <div className="faq-answer"><p>{faq.answer}</p></div>}
-          </div>
-        ))}
-      </div>
-    </div>
+    <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Frequently Asked Questions
+      </Typography>
+      {faqs.map((faq, index) => (
+        <Accordion
+          key={index}
+          expanded={expanded === index}
+          onChange={handleChange(index)}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls={`panel${index}-content`}
+            id={`panel${index}-header`}
+          >
+            <Typography variant="h6">{faq.question}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>{faq.answer}</Typography>
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </Container>
   );
 };
 

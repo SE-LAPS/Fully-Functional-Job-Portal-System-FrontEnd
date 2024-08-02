@@ -97,7 +97,7 @@ const JobCategories = () => {
     const scrollContainer = scrollRef.current;
     if (scrollContainer) {
       const scrollWidth = scrollContainer.scrollWidth;
-      const animationDuration = scrollWidth / 50; // Adjust speed as needed
+      const animationDuration = scrollWidth / 100; // Adjust speed as needed
 
       scrollContainer.style.setProperty('--scroll-width', `${scrollWidth}px`);
       scrollContainer.style.setProperty('--animation-duration', `${animationDuration}s`);
