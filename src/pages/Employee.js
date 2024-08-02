@@ -1,6 +1,6 @@
 import React from 'react';
 import ifsLogo from '../assets/companyLogos/ifs.png';
-import accentureLogo from '../assets/companyLogos/accenture.jpeg';
+import accentureLogo from '../assets/companyLogos/accenture.png';
 import codegenLogo from '../assets/companyLogos/codegen_logo.png';
 import deloitteLogo from '../assets/companyLogos/deloitte.png';
 import infosysLogo from '../assets/companyLogos/infosys.png';
