@@ -39,10 +39,15 @@ const JobDetails = ({ job }) => {
     setExpanded(!expanded);
   };
 
+
   if (!job) {
     return <p>No job details available. Please select a job from the list.</p>;
   }
   const jobID = jobDetails.find(j => j.id === job.id);
+
+  const handleApplyNow = () => {
+    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
+  };
 
   return (
     <Card sx={{ maxWidth: 780, marginBottom: 5 }}>
@@ -112,7 +117,6 @@ const JobDetails = ({ job }) => {
         </CardContent>
       </Collapse>
     </Card>
-
   );
 };
 

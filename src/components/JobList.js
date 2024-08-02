@@ -83,6 +83,7 @@ const JobList = ({ jobs = [], onJobSelect }) => {
             onChange={handlePageChange} 
           />
         </Box>
+
         
       </div>
     </div>

@@ -1,63 +1,114 @@
-// src/components/FeaturedCompanies.js
-import React from 'react';
-import favoriteIcon from '../assets/22.jpeg'; // Update with correct path
-import companyImage1 from '../assets/campanyimg1.jpg'; // Update with correct path
-import companyImage2 from '../assets/campanyimg1.jpg'; // Update with correct path
-import companyImage3 from '../assets/campanyimg1.jpg'; // Update with correct path
-import companyImage4 from '../assets/campanyimg1.jpg'; // Update with correct path
-import companyImage5 from '../assets/campanyimg1.jpg'; // Update with correct path
-import companyImage6 from '../assets/campanyimg1.jpg'; // Update with correct path
-
-const companies = [
-  { name: "Company 1", image: companyImage1 },
-  { name: "Company 2", image: companyImage2 },
-  { name: "Company 3", image: companyImage3 },
-  { name: "Company 4", image: companyImage4 },
-  { name: "Company 5", image: companyImage5 },
-  { name: "Company 6", image: companyImage6 }
-];
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const jobs = [
-  { title: "Technical Support Specialist", type: "PART-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Junior Graphic Designer", type: "INTERNSHIP", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Software Engineer", type: "FULL-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Front End Developer", type: "PART-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Senior UX Designer", type: "FULL-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Interaction Designer", type: "PART-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Visual Designer", type: "FULL-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Senior UX Designer", type: "FULL-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Marketing Officer", type: "INTERNSHIP", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
-  { title: "Project Manager", type: "FULL-TIME", salary: "$20,000 - $25,000", company: "Google Inc.", location: "Dhaka, Bangladesh" },
+  {
+    id: 1,
+    title: 'Software Engineer',
+    companyLogo: require('../assets/companyLogos/codegen_logo.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Full Time',
+    salary: '$100 - $150',
+  },
+  {
+    id: 2,
+    title: 'UI/UX Engineer',
+    companyLogo: require('../assets/companyLogos/ifs.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Part Time',
+    salary: '$123 - $456',
+  },
+  {
+    id: 3,
+    title: 'Devops Engineer',
+    companyLogo: require('../assets/companyLogos/dialog.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Part Time',
+    salary: '$123 - $456',
+  },
+  {
+    id: 4,
+    title: 'Business Analysis',
+    companyLogo: require('../assets/companyLogos/codegen_logo.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Full Time',
+    salary: '$123 - $456',
+  },
+  {
+    id: 5,
+    title: 'Quality Assurance',
+    companyLogo: require('../assets/companyLogos/codegen_logo.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Part Time',
+    salary: '$123 - $456',
+  },
+  {
+    id: 6,
+    title: 'Frontend Developer',
+    companyLogo: require('../assets/companyLogos/codegen_logo.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Full Time',
+    salary: '$123 - $456',
+  },
+  {
+    id: 7,
+    title: 'Backend Developer',
+    companyLogo: require('../assets/companyLogos/codegen_logo.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Full Time',
+    salary: '$123 - $456',
+  },
+  {
+    id: 8,
+    title: 'Wordpress Developer',
+    companyLogo: require('../assets/companyLogos/codegen_logo.png'),
+    location: 'Colombo, Sri Lanka',
+    type: 'Full Time',
+    salary: '$123 - $456',
+  },
 ];
 
-const FeaturedCompanies = () => {
+const JobListing = () => {
+  const [filter, setFilter] = useState('All');
+  const navigate = useNavigate();
+
+  const handleFilterClick = (filterType) => {
+    setFilter(filterType);
+  };
+
+  const filteredJobs = filter === 'All' 
+    ? jobs 
+    : jobs.filter((job) => job.type === filter);
+
+  const handleViewDetailsClick = (job) => {
+    navigate('/view_job_details', { state: { job } });
+  };
+
   return (
-    <section className="featured-companies">
-      <h2>Featured Companies</h2>
-      <div className="company-list">
-        {companies.map((company, index) => (
-          <div key={index} className="company">
-            <img src={company.image} alt={company.name} className="company-image" />
-            <p>{company.name}</p>
+    <div className="job-listing">
+      <h2 className="heading">Job Listing</h2>
+      <div className="filters">
+        <button className="filter-button" onClick={() => handleFilterClick('All')}>Featured</button>
+        <button className="filter-button" onClick={() => handleFilterClick('Full Time')}>Full Time</button>
+        <button className="filter-button" onClick={() => handleFilterClick('Part Time')}>Part Time</button>
+      </div>
+      <div className="job-cards">
+        {filteredJobs.map((job) => (
+          <div key={job.id} className="job-card">
+            <img src={job.companyLogo} alt={`${job.title} logo`} className="company-logo" />
+            <div className="job-info">
+              <h3>{job.title}</h3>
+              <p>{job.location}</p>
+              <p>{job.type}</p>
+              <p>{job.salary}</p>
+            </div>
+            <button className="view-details-button" onClick={() => handleViewDetailsClick(job)}>View Details</button>
           </div>
         ))}
       </div>
-
-      <h2>Featured Jobs</h2>
-      <div className="job-list">
-        {jobs.map((job, index) => (
-          <div key={index} className="job-item">
-            <img src={favoriteIcon} alt="Favorite" className="icon favorite-icon" />
-            <h3>{job.title}</h3>
-            <p>{job.type} Salary: {job.salary}</p>
-            <p>{job.company} <br /> {job.location}</p>
-          </div>
-        ))}
-      </div>
-
-      <button>View All</button>
-    </section>
+      <button className="browse-more-button">Browse More Jobs</button>
+    </div>
   );
 };
 
-export default FeaturedCompanies;
+export default JobListing;
