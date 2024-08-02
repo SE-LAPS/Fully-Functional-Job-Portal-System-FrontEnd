@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, FormControl, InputLabel, MenuItem, Select, Button, Stack } from '@mui/material';
 
+
 const SearchForm = () => {
   const navigate = useNavigate();
   const [jobTitle, setJobTitle] = useState('');
@@ -14,7 +15,7 @@ const SearchForm = () => {
     }
     navigate('/search', { state: { jobTitle, location, jobType } });
   };
-
+  
   return (
     <section className="search-form">
       <div className="search-form-header">
@@ -67,6 +68,7 @@ const SearchForm = () => {
             Search Jobs
           </Button>
         </Stack>
+
       </div>
     </section>
   );
