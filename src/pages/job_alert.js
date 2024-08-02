@@ -1,5 +1,5 @@
-// src/pages/job_alert.js
 import React from 'react';
+
 
 const jobAlerts = [
   {
@@ -33,10 +33,14 @@ const JobAlerts = () => {
         <div className="job-alerts">
           {jobAlerts.map((alert, index) => (
             <div key={index} className="job-alert">
-              <h2>{alert.title}</h2>
-              <p>{alert.type} - {alert.company} / {alert.location}</p>
-              <p>{alert.description}</p>
-              <button>APPLY NOW</button>
+              <h2 className="job-title">{alert.title}</h2>
+              <p className="job-details">
+                <strong>Type:</strong> {alert.type} <br />
+                <strong>Company:</strong> {alert.company} <br />
+                <strong>Location:</strong> {alert.location}
+              </p>
+              <p className="job-description">{alert.description}</p>
+              <button className="apply-button">APPLY NOW</button>
             </div>
           ))}
         </div>

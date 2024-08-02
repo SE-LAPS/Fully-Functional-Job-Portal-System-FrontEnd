@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import JobList from '../components/JobList';
 import JobDetails from '../components/JobDetails'; 
@@ -25,17 +25,7 @@ function SearchJobs() {
   const [selectedJob, setSelectedJob] = useState(null);
   const [filteredJobs, setFilteredJobs] = useState(jobs);
 
-  useEffect(() => {
-    if (jobTitle || loc || jobType) {
-      handleFindJobsClick();
-    }
-  }, [jobTitle, loc, jobType]);
-
-  const handleJobSelect = (job) => {
-    setSelectedJob(job);
-  };
-
-  const handleFindJobsClick = (e) => {
+  const handleFindJobsClick = useCallback((e) => {
     if (e) {
       e.preventDefault();
     }
@@ -45,6 +35,16 @@ function SearchJobs() {
       (job.jobType.toLowerCase().includes((type || '').toLowerCase()))
     );
     setFilteredJobs(filtered);
+  }, [searchTerm, jobLocation, type]);
+
+  useEffect(() => {
+    if (jobTitle || loc || jobType) {
+      handleFindJobsClick();
+    }
+  }, [jobTitle, loc, jobType, handleFindJobsClick]);
+
+  const handleJobSelect = (job) => {
+    setSelectedJob(job);
   };
 
   return (
