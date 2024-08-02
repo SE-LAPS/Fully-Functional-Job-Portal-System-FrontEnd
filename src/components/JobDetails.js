@@ -4,7 +4,7 @@ import { jobDetails } from '../api/jobs_api';
 import { getCompanyLogo } from '../utils/getCompanyLogo';
 import companyImg from '../assets/company1.jpg';
 
-//Material UI components
+// Material UI components
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -15,7 +15,7 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+//import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -44,14 +44,14 @@ const JobDetails = ({ job }) => {
   if (!job) {
     return <p>No job details available. Please select a job from the list.</p>;
   }
-  const jobID = jobDetails.find(j => j.id === job.id);
 
+  const jobID = jobDetails.find(j => j.id === job.id);
   if (!jobID) {
     return <p>Job details not found.</p>;
   }
 
   const handleApplyNow = () => {
-    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
+    navigate('/apply_jobs', { state: { job } });
   };
 
   return (
@@ -91,7 +91,7 @@ const JobDetails = ({ job }) => {
           ))}
         </Typography>
       </CardContent>
-      <Button variant="contained" onClick={handleApplyNow} sx={{ margin: 2 }}>Apply Now</Button>
+      <Button variant="contained" onClick={handleApplyNow} sx={{margin: 2}}>Apply Now</Button>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
@@ -112,11 +112,11 @@ const JobDetails = ({ job }) => {
         <CardContent>
           <Typography variant='h6' color="text.secondary">Our Values:</Typography>
           <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Typography>
           <Typography variant='h6' color="text.secondary">Job Benefits:</Typography>
           <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Typography>
         </CardContent>
       </Collapse>

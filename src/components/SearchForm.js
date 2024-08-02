@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, FormControl, InputLabel, MenuItem, Select, Button, Stack } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import '../SearchForm.css'; 
+import job01Image from '../assets/job-01.png';
+import job02Image from '../assets/job-02.png';
+import job03Image from '../assets/job-03.png';
+import job04Image from '../assets/job-04.png';
+import job05Image from '../assets/job-05.png';
+import job06Image from '../assets/job-06.png';
+import job07Image from '../assets/job-07.png';
+
 
 
 const SearchForm = () => {
@@ -9,19 +20,94 @@ const SearchForm = () => {
   const [location, setLocation] = useState('');
   const [jobType, setJobType] = useState('');
 
+  const [items, setItems] = useState([
+    {
+      image: job01Image,
+      name: 'Join the Next Generation of Job Hunters',
+      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+    },
+    {
+      image: job02Image,
+      name: 'Join the Next Generation of Job Hunters',
+      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+    },
+    {
+      image: job03Image,
+      name: 'Join the Next Generation of Job Hunters',
+      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+    },
+    {
+      image: job04Image,
+      name: 'Join the Next Generation of Job Hunters',
+      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+    },
+    {
+      image: job05Image,
+      name: 'Join the Next Generation of Job Hunters',
+      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+    },
+    {
+      image: job06Image,
+      name: 'Join the Next Generation of Job Hunters',
+      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+    },
+    {
+      image: job07Image,
+      name: 'Join the Next Generation of Job Hunters',
+      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+    },
+  ]);
+
   const handleFindJobsClick = (e) => {
     if (e) {
       e.preventDefault();
     }
     navigate('/search', { state: { jobTitle, location, jobType } });
   };
+
+  const handleNext = () => {
+    setItems(prevItems => {
+      const [first, ...rest] = prevItems;
+      return [...rest, first];
+    });
+  };
+
+  const handlePrev = () => {
+    setItems(prevItems => {
+      const last = prevItems[prevItems.length - 1];
+      return [last, ...prevItems.slice(0, -1)];
+    });
+  };
+
   
   return (
     <section className="search-form">
-      <div className="search-form-header">
-        <h1>Join the Next Generation of Job Hunters</h1>
-        <p>Upload your Video CV now and increase your chances of being found by top employers.</p>
-        <button className="register-button">Register For Free</button>
+      <div className="image-slider">
+        <div className="container">
+          <div className="slide">
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className="item"
+                style={{ backgroundImage: `url(${item.image})` }}
+              >
+                <div className="content">
+                  <div className="name">{item.name}</div>
+                  <div className="des">{item.description}</div>
+                  <button>REGISTER FREE</button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="button">
+            <button className="prev" onClick={handlePrev}>
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+            <button className="next" onClick={handleNext}>
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="search-fields">
