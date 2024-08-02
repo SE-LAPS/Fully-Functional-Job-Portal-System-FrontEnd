@@ -1247,3 +1247,164 @@ h2 {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/*viewJobDetails.css page*/ 
+.view-job-details {
+    padding: 20px;
+}
+
+.company-logo {
+    width: 100px;
+    height: auto;
+}
+
+.apply-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.apply-button:hover {
+    background-color: #0056b3;
+}
+
+/* src/pages/About.css */
+.about-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-header h1 {
+    font-size: 3em;
+    color: #333;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.about-content .about-intro {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.about-content .about-intro h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+.about-content .about-intro p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.about-content .about-image {
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.how-it-works {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.how-it-works h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    max-width: 200px;
+    margin: 10px;
+}
+
+.step i {
+    font-size: 2em;
+    color: #1abc9c;
+    margin-bottom: 10px;
+}
+
+.step h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 1em;
+    color: #666;
+}
+
+.video-section {
+    text-align: center;
+}
+
+.video-section h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+}
+
+.video-thumbnail {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2em;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.video-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.info-item {
+    max-width: 200px;
+}
+
+.info-item h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    font-size: 1em;
+    color: #666;
+}
