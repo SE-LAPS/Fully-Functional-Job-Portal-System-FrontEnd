@@ -10,16 +10,16 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const faqs = [
   {
-    question: 'What is Remote Jobs by HBTech?',
-    answer: 'Remote Jobs by HBTech is a job board for remote jobs. We are a small team of developers and designers who are passionate about remote work and want to help others find remote jobs.',
+    question: 'What is the purpose of this job portal?',
+    answer: 'This job portal connects job seekers with potential employers, offering a platform to search for job opportunities and apply online.',
   },
   {
-    question: 'Who is HBTech?',
-    answer: 'HBTech is a small team of developers and designers who are passionate about remote work and want to help others find remote jobs. Check us out on our website.',
+    question: 'How do I create an account?',
+    answer: 'Click on the "Sign Up" button in the header, fill out the registration form with your details, and submit. You will receive a confirmation email to activate your account.',
   },
   {
-    question: 'How can I post a job?',
-    answer: 'You can post a job by clicking the "Post a job" button in the header. It costs $79 to post a job, and it will be live on the site for 35 days. You can also feature your post for $199 to attract more candidates.',
+    question: 'How do I post a job?',
+    answer: 'Employers can post a job by logging in, navigating to the "Post a Job" section, filling out the job details, and submitting the form. Jobs will be live on the site after admin approval.',
   },
   {
     question: 'How can I contact you?',

@@ -1,5 +1,5 @@
 import React from 'react';
-import howWeWorkImage from '../assets/campanyimg1.jpg'; // Update with correct path
+import howWeWorkImage from '../assets/job-07.png'; // Update with correct path
 
 const HowWeWork = () => {
   return (
