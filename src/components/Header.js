@@ -28,6 +28,7 @@ const SideNav = () => {
         <Link to="/faqs" className="nav-item">FAQs</Link>
       </div>
     </nav>
+
   );
 };
 

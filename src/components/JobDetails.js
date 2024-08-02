@@ -1,75 +1,126 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { jobDetails } from '../api/jobs_api';
+import { getCompanyLogo } from '../utils/getCompanyLogo';
+import companyImg from '../assets/company1.jpg';
 
+// Material UI components
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+//import { red } from '@mui/material/colors';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Button } from '@mui/material';
+
+const ExpandMore = styled((props) => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+}));
 
 const JobDetails = ({ job }) => {
+  const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   if (!job) {
     return <p>No job details available. Please select a job from the list.</p>;
   }
 
+  const jobID = jobDetails.find(j => j.id === job.id);
+  if (!jobID) {
+    return <p>Job details not found.</p>;
+  }
+
   const handleApplyNow = () => {
-    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
+    navigate('/apply_jobs', { state: { job } });
   };
 
   return (
-    <div className="job-details">
-      <div className="job-header">
-        <h1>{job.title}</h1>
-        <p>@ {job.company}</p>
-        <span className="badge full-time">{job.jobType}</span>
-      </div>
-      <div className="job-overview">
-        <h2>Job Overview</h2>
-        <ul>
-          <li><strong>Salary (USD):</strong> ${job.salary}</li>
-          <li><strong>Job Location:</strong> {job.location}</li>
-          <li><strong>Job Posted:</strong> {job.postedDate}</li>
-          <li><strong>Job Expires in:</strong> {job.expiryDate}</li>
-          <li><strong>Experience:</strong> {job.experience}</li>
-          <li><strong>Education:</strong> {job.education}</li>
-          <li><strong>Job Level:</strong> {job.level}</li>
-        </ul>
-      </div>
-
-      <div className="job-description">
-        <h2>Job Description</h2>
-        <p>Join Velstar, a leading Shopify Plus agency, where we create exceptional digital experiences. As a Full Stack Developer, you'll translate project specifications into clean, test-driven code while collaborating with designers, developers, and strategists. You'll be involved in all stages of development, from creating innovative features to maintaining secure, scalable solutions on the Shopify platform.</p>
-      </div>
-
-      <div className="job-requirements">
-        <h2>Requirements</h2>
-        <ul>
-          <li>Great troubleshooting and analytical skills combined with the desire to tackle challenges head-on</li>
-          <li>3+ years of experience in back-end development working either with multiple smaller projects simultaneously or large-scale applications</li>
-          <li>Experience with HTML, JavaScript, CSS, PHP, Symfony and/or Laravel</li>
-          <li>Working regularly with APIs and Web Services (REST, GraphQL, SOAP, etc)</li>
-          <li>Have experience/awareness in Agile application development, commercial off-the-shelf software, middleware, servers and storage, and database management</li>
-        </ul>
-      </div>
-
-      <div className="job-benefits">
-        <h2>Benefits</h2>
-        <ul>
-          <li>Early finish on Fridays for our end of week catch up (4:30 finish, and drink of your choice from the bar!)</li>
-          <li>28 days holiday (including bank holidays) rising by 1 day per year PLUS an additional day off on your birthday</li>
-          <li>Generous annual bonus</li>
-          <li>Healthcare package</li>
-          <li>Paid community days to volunteer for a charity of your choice</li>
-          <li>£100 contribution for your own personal learning and development</li>
-          <li>Free Breakfast on Mondays and free snacks in the office</li>
-          <li>Access to Perkbox with numerous discounts plus free points from the company to spend as you wish</li>
-          <li>Cycle 2 Work Scheme</li>
-          <li>Brand new MacBook Pro</li>
-          <li>Joining an agency on the cusp of exponential growth and being part of this exciting story</li>
-        </ul>
-      </div>
-
-      <div className="Job-Details-apply-button">
-        <button onClick={handleApplyNow}>Apply Now</button>
-      </div>
-    </div>
+    <Card sx={{ maxWidth: 780, marginBottom: 5 }}>
+      <CardHeader
+        avatar={
+          <Avatar alt={job.company} src={getCompanyLogo(job.company)} />
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={job.company}
+        subheader="September 14, 2016"
+      />
+      <CardMedia
+        component="img"
+        height="194"
+        image={companyImg}
+        alt="Company Image"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          {jobID.description}
+        </Typography>
+        <Typography variant='h6' color="text.secondary">Responsibility:</Typography>
+        <Typography variant="body2" color="text.secondary">
+          {jobID.responsibilities.map((responsibility, index) => (
+            <li key={index}>{responsibility}</li>
+          ))}
+        </Typography>
+        <Typography variant='h6' color="text.secondary">Qualifications:</Typography>
+        <Typography variant="body2" color="text.secondary">
+          {jobID.qualifications.map((qualification, index) => (
+            <li key={index}>{qualification}</li>
+          ))}
+        </Typography>
+      </CardContent>
+      <Button variant="contained" onClick={handleApplyNow} sx={{margin: 2}}>Apply Now</Button>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant='h6' color="text.secondary">Our Values:</Typography>
+          <Typography variant="body2" color="text.secondary">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+          <Typography variant='h6' color="text.secondary">Job Benefits:</Typography>
+          <Typography variant="body2" color="text.secondary">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
   );
 };
 

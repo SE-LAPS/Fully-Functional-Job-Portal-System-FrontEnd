@@ -13,6 +13,7 @@ import job06Image from '../assets/job-06.png';
 import job07Image from '../assets/job-07.png';
 
 
+
 const SearchForm = () => {
   const navigate = useNavigate();
   const [jobTitle, setJobTitle] = useState('');
@@ -78,6 +79,7 @@ const SearchForm = () => {
     });
   };
 
+  
   return (
     <section className="search-form">
       <div className="image-slider">
@@ -152,6 +154,7 @@ const SearchForm = () => {
             Search Jobs
           </Button>
         </Stack>
+
       </div>
     </section>
   );
