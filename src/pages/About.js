@@ -1,6 +1,7 @@
 import React from 'react';
-import companyImage from '../assets/company1.jpg'; // Adjust path as needed
-import videoThumbnail from '../assets/campanyimg1.jpg'; // Adjust path as needed
+import companyImage from '../assets/Img.png'; // Adjust path as needed
+import videoThumbnail from '../assets/Img.png'; // Adjust path as needed
+import videoFile from '../assets/123.mp4'; // Adjust path to match the case
 
 const About = () => {
   return (
@@ -10,8 +11,8 @@ const About = () => {
       </header>
       <section className="about-content">
         <div className="about-intro">
-          <h2>Et nunc ut tempus duis nisl sed massa</h2>
-          <p>Nunc sed a nisl purus. Nibh dis faucibus proin lacus tristique. Sit congue non vitae odio sit et ari...</p>
+          <h2>Empowering Your Career Journey</h2>
+          <p>At Sri Lanka Institute of BioTechnology, we are dedicated to connecting talented individuals with the right career opportunities. Our innovative platform streamlines the job search process, making it easier for you to find, apply for, and secure your ideal job.</p>
         </div>
         <img src={companyImage} alt="Team" className="about-image" />
       </section>
@@ -21,43 +22,45 @@ const About = () => {
           <div className="step">
             <i className="fas fa-user-plus"></i>
             <h3>Create Account</h3>
-            <p>Nunc sed a nisl purus. Nibh dis faucibus proin lacus...</p>
+            <p>Sign up on our platform with a few simple steps. Enter your personal details, set up your profile, and start exploring job opportunities.</p>
           </div>
           <div className="step">
             <i className="fas fa-file-upload"></i>
             <h3>Upload Resume</h3>
-            <p>Feils eu ultrices a sed massa. Commodo fringilla sed tempor...</p>
+            <p>Upload your resume to our system. Our platform supports various formats and provides tools to help you enhance your resume.</p>
           </div>
           <div className="step">
             <i className="fas fa-briefcase"></i>
             <h3>Find Jobs</h3>
-            <p>Commodo fringilla sed tempor risus laoreet ultrices ipsum...</p>
+            <p>Browse through a wide range of job listings tailored to your skills and interests. Use our advanced search filters to find the best matches.</p>
           </div>
           <div className="step">
             <i className="fas fa-check-circle"></i>
             <h3>Apply Job</h3>
-            <p>Nisi enim feugiat enim volutpat. Sem quis viverra...</p>
+            <p>Apply directly to the jobs you are interested in. Track your applications and receive notifications about your application status.</p>
           </div>
         </div>
       </section>
       <section className="video-section">
         <h2>Good Life Begins With A Good Company</h2>
         <div className="video-container">
-          <img src={videoThumbnail} alt="Video Thumbnail" className="video-thumbnail" />
-          <button className="play-button"><i className="fas fa-play"></i></button>
+          <video controls className="video-player">
+            <source src={videoFile} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="video-info">
           <div className="info-item">
             <h3>1</h3>
-            <p>Elit gravida lorem amet porta risus vitae at...</p>
+            <p>Our platform offers an intuitive user experience, making it easy for job seekers to navigate and find relevant opportunities.</p>
           </div>
           <div className="info-item">
             <h3>2</h3>
-            <p>Volutpat dui lacus mattis urna platea...</p>
+            <p>We provide personalized job recommendations based on your profile and preferences, ensuring you never miss a great opportunity.</p>
           </div>
           <div className="info-item">
             <h3>3</h3>
-            <p>Elementum faucibus netus gravida lacus lorem...</p>
+            <p>Our support team is always available to assist with any questions or issues you may encounter throughout your job search.</p>
           </div>
         </div>
       </section>

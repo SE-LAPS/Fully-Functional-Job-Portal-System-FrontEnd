@@ -1270,6 +1270,7 @@ h2 {
 }
 
 /* src/pages/About.css */
+
 .about-page {
     padding: 20px;
     max-width: 1200px;
@@ -1315,8 +1316,13 @@ h2 {
 }
 
 .how-it-works {
-    text-align: center;
+    background-color: #f9f9f9;
+    /* Light background color */
+    padding: 40px;
+    border-radius: 10px;
     margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
 }
 
 .how-it-works h2 {
@@ -1333,8 +1339,15 @@ h2 {
 
 .step {
     flex: 1;
-    max-width: 200px;
+    max-width: 250px;
     margin: 10px;
+    background-color: #ffffff;
+    /* White background for steps */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    text-align: center;
 }
 
 .step i {
@@ -1355,47 +1368,42 @@ h2 {
 }
 
 .video-section {
+    background-color: #e9ecef;
+    /* Light gray background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
     text-align: center;
-}
-
-.video-section h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
 }
 
 .video-container {
     position: relative;
     display: inline-block;
+    max-width: 100%;
+    margin-bottom: 20px;
 }
 
-.video-thumbnail {
+.video-player {
     max-width: 100%;
     border-radius: 10px;
-}
-
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 2em;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
 }
 
 .video-info {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .info-item {
-    max-width: 200px;
+    max-width: 300px;
+    background-color: #fff;
+    /* White background for info items */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    margin: 10px;
 }
 
 .info-item h3 {
