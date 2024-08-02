@@ -6,6 +6,7 @@ const PostJobForm = () => {
       <h2>Reach one of the largest remote job communities</h2>
       <h3>First, tell us about the position</h3>
       <form>
+        {/* Form fields remain the same as in your provided code */}
         <div>
           <label>Position Title</label>
           <input type="text" placeholder="Position Title" required />
