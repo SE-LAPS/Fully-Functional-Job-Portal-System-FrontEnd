@@ -14,7 +14,6 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -39,15 +38,24 @@ const JobDetails = ({ job }) => {
     setExpanded(!expanded);
   };
 
-
   if (!job) {
     return <p>No job details available. Please select a job from the list.</p>;
   }
-  const jobID = jobDetails.find(j => j.id === job.id);
 
-  const handleApplyNow = () => {
-    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
-  };
+  const jobID = jobDetails.find(j => j.id === job.id);
+  
+   try {
+    if (!jobID) {
+      throw new Error('Job ID not found');
+    }
+  } catch (error) {
+    console.log(error);
+    return <p>Unable to find job details. Please try again later.</p>;
+  }
+
+  //const handleApplyNow = () => {
+  //  navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
+  //};
 
   return (
     <Card sx={{ maxWidth: 780, marginBottom: 5 }}>
