@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import JobList from '../components/JobList';
 import JobDetails from '../components/JobDetails'; 
-import jobs from '../api/jobs_api'; 
+import {jobs} from '../api/jobs_api'; 
+
 
 import Container from '@mui/material/Container';
 import InputLabel from '@mui/material/InputLabel';
@@ -105,7 +106,7 @@ function SearchJobs() {
           </FormControl>
         </div>
       </header>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <h3>Jobs Found</h3>
         <main style={{ display: 'flex' }}>
           <div style={{ flex: 2 }}>
