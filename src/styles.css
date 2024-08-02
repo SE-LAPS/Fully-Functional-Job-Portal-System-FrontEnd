@@ -261,7 +261,7 @@ body {
     background-color: #555;
 }
 
-/* Search Form Styles */
+/* Search Form Styles 
 .search-form {
     background: url('/src/assets/12.jpg') no-repeat center center;
     background-size: cover;
@@ -310,6 +310,7 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
 }
+*/
 
 /* Job Title, Location, Job Type Fields */
 .MuiTextField-root,

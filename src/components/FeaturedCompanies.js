@@ -8,8 +8,7 @@ const jobs = [
     companyLogo: require('../assets/companyLogos/codegen_logo.png'),
     location: 'Colombo, Sri Lanka',
     type: 'Full Time',
-    salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
+    salary: '$100 - $150',
   },
   {
     id: 2,
@@ -18,7 +17,6 @@ const jobs = [
     location: 'Colombo, Sri Lanka',
     type: 'Part Time',
     salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
   },
   {
     id: 3,
@@ -27,7 +25,6 @@ const jobs = [
     location: 'Colombo, Sri Lanka',
     type: 'Part Time',
     salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
   },
   {
     id: 4,
@@ -36,7 +33,6 @@ const jobs = [
     location: 'Colombo, Sri Lanka',
     type: 'Full Time',
     salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
   },
   {
     id: 5,
@@ -45,7 +41,6 @@ const jobs = [
     location: 'Colombo, Sri Lanka',
     type: 'Part Time',
     salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
   },
   {
     id: 6,
@@ -54,7 +49,6 @@ const jobs = [
     location: 'Colombo, Sri Lanka',
     type: 'Full Time',
     salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
   },
   {
     id: 7,
@@ -63,7 +57,6 @@ const jobs = [
     location: 'Colombo, Sri Lanka',
     type: 'Full Time',
     salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
   },
   {
     id: 8,
@@ -72,7 +65,6 @@ const jobs = [
     location: 'Colombo, Sri Lanka',
     type: 'Full Time',
     salary: '$123 - $456',
-    deadline: '01 Aug, 2024',
   },
 ];
 
@@ -88,8 +80,8 @@ const JobListing = () => {
     ? jobs 
     : jobs.filter((job) => job.type === filter);
 
-  const handleApplyClick = (job) => {
-    navigate('/apply_jobs', { state: { job } });
+  const handleViewDetailsClick = (job) => {
+    navigate('/view_job_details', { state: { job } });
   };
 
   return (
@@ -109,9 +101,8 @@ const JobListing = () => {
               <p>{job.location}</p>
               <p>{job.type}</p>
               <p>{job.salary}</p>
-              <p>Date Line: {job.deadline}</p>
             </div>
-            <button className="apply-button" onClick={() => handleApplyClick(job)}>Apply Now</button>
+            <button className="view-details-button" onClick={() => handleViewDetailsClick(job)}>View Details</button>
           </div>
         ))}
       </div>
