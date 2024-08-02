@@ -17,7 +17,7 @@ const ApplyJobs = () => {
   };
 
   return (
-    <div className="apply-jobs">
+    <div className="apply-jobs-container">
       <h1>Apply for a Job</h1>
       {job && (
         <div className="job-details-preview">
@@ -25,7 +25,7 @@ const ApplyJobs = () => {
           <p><strong>Company:</strong> {job.company}</p>
         </div>
       )}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="apply-form">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
