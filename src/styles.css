@@ -364,7 +364,7 @@ body {
     }
 }
 
-/* How We Work Section */
+/* How We Work Section 
 .how-we-work {
     display: flex;
     justify-content: center;
@@ -445,6 +445,8 @@ body {
     border-radius: 8px;
 }
 
+*/
+
 /* Job Categories Section */
 .job-categories {
     padding: 2rem;
@@ -458,12 +460,16 @@ body {
     color: #333;
 }
 
+
+/*
 .companies-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 }
+*/
+
 
 .company-item {
     background-color: #fff;
@@ -520,7 +526,7 @@ body {
 
 /* company features section */
 
-/* JobListing.css */
+/* JobListing.css 
 
 .job-listing {
     text-align: center;
@@ -599,8 +605,9 @@ body {
 .browse-more-button:hover {
     background-color: #0056b3;
 }
+*/
 
-/* footer section */
+/* footer section 
 .footer {
     background: #333;
     color: #fff;
@@ -632,6 +639,7 @@ body {
     text-align: center;
     margin-top: 2rem;
 }
+*/
 
 /* src/styles.css */
 /* Featured Companies */
@@ -720,11 +728,12 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
 }
 
+
 /* src/styles.css */
-/* src/Testimonial.css */
+/* src/Testimonial.css 
 .testimonial-container {
     max-width: 800px;
     margin: 50px auto;
@@ -807,6 +816,7 @@ button:hover {
 .slick-dots li.slick-active button:before {
     color: #0056b3;
 }
+*/
 
 /* src/components/JobAlerts.css */
 .job-alerts-page {

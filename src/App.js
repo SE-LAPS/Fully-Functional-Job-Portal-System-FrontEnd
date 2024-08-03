@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import SideNav from './components/SideNav';
+import TopNav from './components/TopNav';
 import SearchForm from './components/SearchForm';
-import FeaturedCompanies from './components/FeaturedCompanies';
+import JobListing from './components/JobListing';
 import JobCategories from './components/JobCategories';
 import HowWeWork from './components/HowWeWork';
 import Testimonial from './components/Testimonial';
@@ -26,13 +27,14 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        <Header />
+        <SideNav />
+        <TopNav />
         <Routes>
           <Route path="/" element={
             <>
               <SearchForm />
               <JobCategories />
-              <FeaturedCompanies />
+              <JobListing />
               <HowWeWork />
               <Testimonial />
             </>
