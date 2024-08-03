@@ -1,18 +1,25 @@
-// src/pages/Faqs.js
 import React, { useState } from 'react';
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Container,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const faqs = [
   {
-    question: 'What is Remote Jobs by HBTech?',
-    answer: 'Remote Jobs by HBTech is a job board for remote jobs. We are a small team of developers and designers who are passionate about remote work and want to help others find remote jobs.',
+    question: 'What is the purpose of this job portal?',
+    answer: 'This job portal connects job seekers with potential employers, offering a platform to search for job opportunities and apply online.',
   },
   {
-    question: 'Who is HBTech?',
-    answer: 'HBTech is a small team of developers and designers who are passionate about remote work and want to help others find remote jobs. Check us out on our website.',
+    question: 'How do I create an account?',
+    answer: 'Click on the "Sign Up" button in the header, fill out the registration form with your details, and submit. You will receive a confirmation email to activate your account.',
   },
   {
-    question: 'How can I post a job?',
-    answer: 'You can post a job by clicking the "Post a job" button in the header. It costs $79 to post a job, and it will be live on the site for 35 days. You can also feature your post for $199 to attract more candidates.',
+    question: 'How do I post a job?',
+    answer: 'Employers can post a job by logging in, navigating to the "Post a Job" section, filling out the job details, and submitting the form. Jobs will be live on the site after admin approval.',
   },
   {
     question: 'How can I contact you?',
@@ -45,27 +52,36 @@ const faqs = [
 ];
 
 const Faqs = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [expanded, setExpanded] = useState(false);
 
-  const toggleAnswer = index => {
-    setOpenIndex(openIndex === index ? null : index);
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
   };
 
   return (
-    <div className="faqs">
-      <h1>Frequently Asked Questions</h1>
-      <div className="faq-list">
-        {faqs.map((faq, index) => (
-          <div key={index} className="faq-item">
-            <div className="faq-question" onClick={() => toggleAnswer(index)}>
-              <h2>{faq.question}</h2>
-              <span className={`arrow ${openIndex === index ? 'open' : ''}`}>▶</span>
-            </div>
-            {openIndex === index && <div className="faq-answer"><p>{faq.answer}</p></div>}
-          </div>
-        ))}
-      </div>
-    </div>
+    <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Frequently Asked Questions
+      </Typography>
+      {faqs.map((faq, index) => (
+        <Accordion
+          key={index}
+          expanded={expanded === index}
+          onChange={handleChange(index)}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls={`panel${index}-content`}
+            id={`panel${index}-header`}
+          >
+            <Typography variant="h6">{faq.question}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>{faq.answer}</Typography>
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </Container>
   );
 };
 
