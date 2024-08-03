@@ -23,38 +23,38 @@ const SearchForm = () => {
   const [items, setItems] = useState([
     {
       image: job01Image,
-      name: 'Join the Next Generation of Job Hunters',
-      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+      name: 'Hiring Without Boundaries™',
+      description: 'Move Faster and Hire Smarter with a Modern, All-in-One Hiring Platform.',
     },
     {
       image: job02Image,
-      name: 'Join the Next Generation of Job Hunters',
+      name: 'Join the Next Generation of Job Hunters™',
       description: 'Upload your Video CV now and increase your chances of being found by top employers.',
     },
     {
       image: job03Image,
-      name: 'Join the Next Generation of Job Hunters',
-      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+      name: 'Hiring Without Boundaries™',
+      description: 'Move Faster and Hire Smarter with a Modern, All-in-One Hiring Platform.',
     },
     {
       image: job04Image,
-      name: 'Join the Next Generation of Job Hunters',
+      name: 'Join the Next Generation of Job Hunters™',
       description: 'Upload your Video CV now and increase your chances of being found by top employers.',
     },
     {
       image: job05Image,
-      name: 'Join the Next Generation of Job Hunters',
-      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+      name: 'Hiring Without Boundaries™',
+      description: 'Move Faster and Hire Smarter with a Modern, All-in-One Hiring Platform.',
     },
     {
       image: job06Image,
-      name: 'Join the Next Generation of Job Hunters',
+      name: 'Join the Next Generation of Job Hunters™',
       description: 'Upload your Video CV now and increase your chances of being found by top employers.',
     },
     {
       image: job07Image,
-      name: 'Join the Next Generation of Job Hunters',
-      description: 'Upload your Video CV now and increase your chances of being found by top employers.',
+      name: 'Hiring Without Boundaries™',
+      description: 'Move Faster and Hire Smarter with a Modern, All-in-One Hiring Platform.',
     },
   ]);
 
@@ -92,10 +92,19 @@ const SearchForm = () => {
                 style={{ backgroundImage: `url(${item.image})` }}
               >
                 <div className="content">
-                  <div className="name">{item.name}</div>
-                  <div className="des">{item.description}</div>
-                  <button>REGISTER FREE</button>
-                </div>
+                <div className="name">{item.name}</div>
+                <div className="des">{item.description}</div>
+                <button className="btn" type="button">
+                  <strong>REGISTER FREE</strong>
+                  <div id="container-stars">
+                    <div id="stars"></div>
+                  </div>
+                  <div id="glow">
+                    <div className="circle"></div>
+                    <div className="circle"></div>
+                  </div>
+                </button>
+              </div>
               </div>
             ))}
           </div>
