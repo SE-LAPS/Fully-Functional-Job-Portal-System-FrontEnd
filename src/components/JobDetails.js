@@ -40,13 +40,17 @@ const JobDetails = ({ job }) => {
     setExpanded(!expanded);
   };
 
+  const handleApplyNow = () => {
+    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
+  };
+
   if (!job) {
     return <p>No job details available. Please select a job from the list.</p>;
   }
 
   const jobID = jobDetails.find(j => j.id === job.id);
   
-   try {
+  try {
     if (!jobID) {
       throw new Error('Job ID not found');
     }
@@ -54,10 +58,6 @@ const JobDetails = ({ job }) => {
     console.log(error);
     return <p>Unable to find job details. Please try again later.</p>;
   }
-
-  //const handleApplyNow = () => {
-  //  navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
-  //};
 
   return (
     <Card sx={{ maxWidth: 780, marginBottom: 5 }}>
