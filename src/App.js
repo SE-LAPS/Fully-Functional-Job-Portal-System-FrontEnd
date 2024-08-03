@@ -13,6 +13,7 @@ import JobAlerts from './pages/job_alert';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './components/JobDetails';
+import Register from './pages/Register';
 import ApplyJobs from './pages/ApplyJobs';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/search" element={<SearchJobs />} />
           <Route path="/job_alert" element={<JobAlerts />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/forgot_password" element={<ForgotPassword />} />
           <Route path="/job_details" element={<JobDetails />} />
           <Route path="/apply_jobs" element={<ApplyJobs />} />

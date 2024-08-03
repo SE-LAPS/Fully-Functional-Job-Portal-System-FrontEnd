@@ -1,4 +1,4 @@
-// src/pages/Login.js
+// src/pages/Register.js
 import React from 'react';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ const Container = styled.div`
   background-color: #f0f2f5;
 `;
 
-const LoginBox = styled.div`
+const RegisterBox = styled.div`
   width: 400px;
   padding: 40px;
   background: #fff;
@@ -64,7 +64,7 @@ const Button = styled.button`
   }
 `;
 
-const RegisterLink = styled.div`
+const LoginLink = styled.div`
   margin-top: 20px;
   color: #555;
 
@@ -79,12 +79,16 @@ const RegisterLink = styled.div`
   }
 `;
 
-const Login = () => {
+const Register = () => {
   return (
     <Container>
-      <LoginBox>
-        <Title>Login</Title>
+      <RegisterBox>
+        <Title>Register</Title>
         <Form>
+          <InputGroup>
+            <Label>Full Name</Label>
+            <Input type="text" placeholder="Enter your full name" required />
+          </InputGroup>
           <InputGroup>
             <Label>Email</Label>
             <Input type="email" placeholder="Enter your email" required />
@@ -93,14 +97,14 @@ const Login = () => {
             <Label>Password</Label>
             <Input type="password" placeholder="Enter your password" required />
           </InputGroup>
-          <Button type="submit">Login</Button>
+          <Button type="submit">Register</Button>
         </Form>
-        <RegisterLink>
-          Don't have an account? <a href="/register">Register</a>
-        </RegisterLink>
-      </LoginBox>
+        <LoginLink>
+          Already have an account? <a href="/login">Login</a>
+        </LoginLink>
+      </RegisterBox>
     </Container>
   );
 };
 
-export default Login;
+export default Register;
