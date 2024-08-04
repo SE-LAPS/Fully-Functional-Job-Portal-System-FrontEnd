@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { getCompanyLogo } from '../utils/getCompanyLogo';
-<<<<<<< HEAD
 
 // Material UI components
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-=======
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-//import ListItemIcon from '@mui/material/ListItemIcon';
->>>>>>> main
 import ListItemText from '@mui/material/ListItemText';
 import { Avatar, ListItemAvatar, Typography } from '@mui/material';
 import Pagination from '@mui/material/Pagination'; 
