@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import SearchJobs from './pages/SearchJobs';
 import JobAlerts from './pages/job_alert';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './components/JobDetails';
 import ApplyJobs from './pages/ApplyJobs';
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/search" element={<SearchJobs />} />
           <Route path="/job_alert" element={<JobAlerts />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/forgot_password" element={<ForgotPassword />} />
           <Route path="/job_details" element={<JobDetails />} />
           <Route path="/apply_jobs" element={<ApplyJobs />} />
