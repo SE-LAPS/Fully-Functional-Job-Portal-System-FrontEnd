@@ -1,7 +1,7 @@
 // SideNav.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../SideNav.css';
+import '../css/SideNav.css';
 
 const SideNav = () => {
   const [isExpanded, setIsExpanded] = useState(false);

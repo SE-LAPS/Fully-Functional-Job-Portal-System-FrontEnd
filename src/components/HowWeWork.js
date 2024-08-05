@@ -1,6 +1,6 @@
 import React from 'react';
 import howWeWorkImage from '../assets/campanyimg1.jpg'; // Update with correct path
-import '../HowWeWork.css';
+import '../css/HowWeWork.css';
 
 const HowWeWork = () => {
   return (

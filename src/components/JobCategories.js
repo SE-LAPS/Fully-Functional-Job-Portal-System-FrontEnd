@@ -13,7 +13,7 @@ import companyLogo11 from '../assets/companyLogos/sysco lab.png';
 import companyLogo12 from '../assets/companyLogos/virtusa.png'; 
 import companyLogo13 from '../assets/companyLogos/wavenet.png'; 
 import companyLogo14 from '../assets/companyLogos/mas.png'; 
-import '../JobCategories.css';
+import '../css/JobCategories.css';
 
 const companies = [
   {
