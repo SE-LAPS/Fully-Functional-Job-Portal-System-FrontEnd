@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, FormControl, InputLabel, MenuItem, Select, Button, Stack } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import '../css/SearchForm.css'; 
+import '../css/SearchForm.css';
 import job01Image from '../assets/job-01.png';
 import job02Image from '../assets/job-02.png';
 import job03Image from '../assets/job-03.png';
@@ -11,8 +11,6 @@ import job04Image from '../assets/job-04.png';
 import job05Image from '../assets/job-05.png';
 import job06Image from '../assets/job-06.png';
 import job07Image from '../assets/job-07.png';
-
-
 
 const SearchForm = () => {
   const navigate = useNavigate();
@@ -79,7 +77,16 @@ const SearchForm = () => {
     });
   };
 
-  
+  // Set up automatic image changing
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 5000); // Change image every 5 seconds
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <section className="search-form">
       <div className="image-slider">
@@ -92,19 +99,19 @@ const SearchForm = () => {
                 style={{ backgroundImage: `url(${item.image})` }}
               >
                 <div className="content">
-                <div className="name">{item.name}</div>
-                <div className="des">{item.description}</div>
-                <button className="btn" type="button">
-                  <strong>REGISTER FREE</strong>
-                  <div id="container-stars">
-                    <div id="stars"></div>
-                  </div>
-                  <div id="glow">
-                    <div className="circle"></div>
-                    <div className="circle"></div>
-                  </div>
-                </button>
-              </div>
+                  <div className="name">{item.name}</div>
+                  <div className="des">{item.description}</div>
+                  <button className="btn" type="button">
+                    <strong>REGISTER FREE</strong>
+                    <div id="container-stars">
+                      <div id="stars"></div>
+                    </div>
+                    <div id="glow">
+                      <div className="circle"></div>
+                      <div className="circle"></div>
+                    </div>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -163,7 +170,6 @@ const SearchForm = () => {
             Search Jobs
           </Button>
         </Stack>
-
       </div>
     </section>
   );
