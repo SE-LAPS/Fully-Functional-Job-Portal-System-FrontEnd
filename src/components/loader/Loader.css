@@ -10,15 +10,13 @@
    justify-content: center;
    align-items: center;
 }
-
 .loader svg{
    width: 100%;
 }
-
 .loading-text{
    width: 100%;
    font-weight: bold;
-   color: #fff;
+   color: #00d4ff;
    transform: translate(.4rem);
    margin-top: 1rem;
 }
