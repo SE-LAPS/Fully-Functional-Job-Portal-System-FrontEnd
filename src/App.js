@@ -1,5 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Loader from './components/loader/Loader';
 import SideNav from './components/SideNav';
 import TopNav from './components/TopNav';
 import SearchForm from './components/SearchForm';
@@ -18,61 +19,61 @@ import ApplyJobs from './pages/ApplyJobs';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Faqs from './pages/Faqs';
-<<<<<<< HEAD
 import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
-import ViewJobDetails from './pages/ViewJobDetails'; // Import the ViewJobDetails component
-=======
-import PostJobForm from './components/PostJobForm'; // Import the PostJobForm component
-import SideNav from './components/Header'; // Import the SideNav component
->>>>>>> main
+import ViewJobDetails from './pages/ViewJobDetails';
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
 const App = () => {
-  return (
-    <Router>
-      <div className="app">
-<<<<<<< HEAD
-        <SideNav />
-        <TopNav />
-=======
-        <Header />
-        <SideNav /> {/* Add the SideNav component */}
->>>>>>> main
-        <Routes>
-          <Route path="/" element={
-            <>
-              <SearchForm />
-              <JobCategories />
-              <JobListing />
-              <HowWeWork />
-              <Testimonial />
-            </>
-          } />
-          <Route path="/search" element={<SearchJobs />} />
-          <Route path="/job_alert" element={<JobAlerts />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot_password" element={<ForgotPassword />} />
-          <Route path="/job_details" element={<JobDetails />} />
-          <Route path="/apply_jobs" element={<ApplyJobs />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faqs" element={<Faqs />} />
-<<<<<<< HEAD
-          <Route path="/post-job" element={<PostJobForm />} />
-          <Route path="/employers" element={<Employers />} />
-          <Route path="/view_job_details" element={<ViewJobDetails />} /> {/* Added route for ViewJobDetails */}
-=======
-          <Route path="/post-job" element={<PostJobForm />} /> {/* Add route for Job Posting Form */}
->>>>>>> main
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-  );
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulate loading time
+    const fakeDataFetch = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 4000);
+    };
+    fakeDataFetch();
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+  
+  return (
+    <div className="app">
+      <SideNav />
+      <TopNav />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <SearchForm />
+            <JobCategories />
+            <JobListing />
+            <HowWeWork />
+            <Testimonial />
+          </>
+        } />
+        <Route path="/search" element={<SearchJobs />} />
+        <Route path="/job_alert" element={<JobAlerts />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot_password" element={<ForgotPassword />} />
+        <Route path="/job_details" element={<JobDetails />} />
+        <Route path="/apply_jobs" element={<ApplyJobs />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/post-job" element={<PostJobForm />} />
+        <Route path="/employers" element={<Employers />} />
+        <Route path="/view_job_details" element={<ViewJobDetails />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
 };
 
 export default App;
