@@ -11,16 +11,17 @@ import Footer from './components/Footer';
 import SearchJobs from './pages/SearchJobs';
 import JobAlerts from './pages/job_alert';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './components/JobDetails';
-import Register from './pages/Register';
 import ApplyJobs from './pages/ApplyJobs';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Faqs from './pages/Faqs';
 import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
-import ViewJobDetails from './pages/ViewJobDetails'; // Import the ViewJobDetails component
+import ViewJobDetails from './pages/ViewJobDetails';
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
@@ -52,13 +53,12 @@ const App = () => {
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/post-job" element={<PostJobForm />} />
           <Route path="/employers" element={<Employers />} />
-          <Route path="/view_job_details" element={<ViewJobDetails />} /> {/* Added route for ViewJobDetails */}
+          <Route path="/view_job_details" element={<ViewJobDetails />} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
-
 };
 
 export default App;

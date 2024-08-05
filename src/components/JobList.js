@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { getCompanyLogo } from '../utils/getCompanyLogo';
-
-// Material UI components
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';

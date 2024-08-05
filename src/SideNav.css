@@ -1,3 +1,4 @@
+/* src/components/SideNav.css */
 .side-nav {
     position: fixed;
     top: 50%;
@@ -6,7 +7,7 @@
     height: auto;
     width: 45px;
     background-color: transparent;
-    transition: all 0.04s ease-in-out;
+    transition: all 0.3s ease-in-out;
     z-index: 1000;
     overflow: hidden;
     border-top-left-radius: 20px;
@@ -41,7 +42,7 @@
     flex-direction: column;
     padding: 20px 0;
     opacity: 0;
-    transition: opacity 0.04s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .expanded .nav-content {
@@ -53,7 +54,7 @@
     text-decoration: none;
     color: white;
     font-size: 16px;
-    transition: background-color 0.04s ease;
+    transition: background-color 0.3s ease;
     white-space: nowrap;
 }
 
@@ -66,4 +67,27 @@
         width: 100%;
         border-radius: 0;
     }
+}
+
+.side-nav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.side-nav a:hover {
+    background-color: #575757;
+}
+
+.side-nav.down {
+    transform: translateY(100%);
+    /* Slide down when scrolling down */
+}
+
+.side-nav.up {
+    transform: translateY(0);
+    /* Slide back up when scrolling up */
 }

@@ -51,7 +51,7 @@ const Input = styled.input`
 const Button = styled.button`
   width: 100%;
   padding: 10px;
-  background: #6c63ff;
+ background: linear-gradient(45deg, #007bff, #00d4ff);
   color: #fff;
   border: none;
   border-radius: 4px;
