@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../JobListing.css';
+import '../css/JobListing.css';
 
 const jobs = [
   {

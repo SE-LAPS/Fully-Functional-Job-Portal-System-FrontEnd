@@ -1,7 +1,7 @@
 // TopNav.js
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../TopNav.css';
+import '../css/TopNav.css';
 import logoImage from '../assets/companyLogos/2.png';
 
 const TopNav = () => {

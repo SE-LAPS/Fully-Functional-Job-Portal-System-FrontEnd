@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, FormControl, InputLabel, MenuItem, Select, Button, Stack } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import '../SearchForm.css'; 
+import '../css/SearchForm.css'; 
 import job01Image from '../assets/job-01.png';
 import job02Image from '../assets/job-02.png';
 import job03Image from '../assets/job-03.png';
