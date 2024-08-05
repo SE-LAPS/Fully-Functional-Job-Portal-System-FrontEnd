@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Loader from './components/loader/Loader';
 import SideNav from './components/SideNav';
 import TopNav from './components/TopNav';
 import SearchForm from './components/SearchForm';
@@ -20,11 +21,27 @@ import Contact from './pages/Contact';
 import Faqs from './pages/Faqs';
 import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
-import ViewJobDetails from './pages/ViewJobDetails'; // Import the ViewJobDetails component
+import ViewJobDetails from './pages/ViewJobDetails';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const fakeDataFetch = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 4000);
+    };
+    fakeDataFetch();
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <Router>
       <div className="app">
@@ -52,13 +69,12 @@ const App = () => {
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/post-job" element={<PostJobForm />} />
           <Route path="/employers" element={<Employers />} />
-          <Route path="/view_job_details" element={<ViewJobDetails />} /> {/* Added route for ViewJobDetails */}
+          <Route path="/view_job_details" element={<ViewJobDetails />} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
-
 };
 
 export default App;
