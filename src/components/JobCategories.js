@@ -96,7 +96,7 @@ const JobCategories = () => {
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (scrollContainer) {
-      const scrollWidth = scrollContainer.scrollWidth;
+      const scrollWidth = scrollContainer.scrollWidth / 2;
       const animationDuration = scrollWidth / 50; // Adjust speed as needed
 
       scrollContainer.style.setProperty('--scroll-width', `${scrollWidth}px`);
@@ -109,7 +109,7 @@ const JobCategories = () => {
       <h2>TOP COMPANIES</h2>
       <div className="companies-container">
         <div className="companies-list" ref={scrollRef}>
-          {companies.concat(companies).map((company, index) => (
+          {[...companies, ...companies].map((company, index) => (
             <div key={index} className="company-item">
               <img src={company.logo} alt={`${company.name} logo`} className="company-logo" />
               <div className="company-info">
