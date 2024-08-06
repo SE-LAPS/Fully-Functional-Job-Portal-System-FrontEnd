@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import '../SideNav.css'; // Ensure the correct relative path
+import '../css/SideNav.css'; // Ensure the correct relative path
 
 const SideNav = () => {
   const [scrollDirection, setScrollDirection] = useState('up');

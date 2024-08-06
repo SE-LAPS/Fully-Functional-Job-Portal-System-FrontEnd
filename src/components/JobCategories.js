@@ -13,7 +13,7 @@ import companyLogo11 from '../assets/companyLogos/sysco lab.png';
 import companyLogo12 from '../assets/companyLogos/virtusa.png'; 
 import companyLogo13 from '../assets/companyLogos/wavenet.png'; 
 import companyLogo14 from '../assets/companyLogos/mas.png'; 
-import '../JobCategories.css';
+import '../css/JobCategories.css';
 
 const companies = [
   {
@@ -96,8 +96,8 @@ const JobCategories = () => {
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (scrollContainer) {
-      const scrollWidth = scrollContainer.scrollWidth;
-      const animationDuration = scrollWidth / 100; // Adjust speed as needed
+      const scrollWidth = scrollContainer.scrollWidth / 2;
+      const animationDuration = scrollWidth / 50; // Adjust speed as needed
 
       scrollContainer.style.setProperty('--scroll-width', `${scrollWidth}px`);
       scrollContainer.style.setProperty('--animation-duration', `${animationDuration}s`);
@@ -109,7 +109,7 @@ const JobCategories = () => {
       <h2>TOP COMPANIES</h2>
       <div className="companies-container">
         <div className="companies-list" ref={scrollRef}>
-          {companies.concat(companies).map((company, index) => (
+          {[...companies, ...companies].map((company, index) => (
             <div key={index} className="company-item">
               <img src={company.logo} alt={`${company.name} logo`} className="company-logo" />
               <div className="company-info">
