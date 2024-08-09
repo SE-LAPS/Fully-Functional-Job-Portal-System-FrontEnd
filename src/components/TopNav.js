@@ -7,7 +7,7 @@ const TopNav = () => {
   const navigate = useNavigate();
 
   const handlePostJobClick = () => {
-    navigate('/post-job');
+    navigate('/admin-dashboard');
   };
 
   const handleWantJobClick = () => {

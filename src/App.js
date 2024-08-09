@@ -22,6 +22,7 @@ import Faqs from './pages/Faqs';
 import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
 import ViewJobDetails from './pages/ViewJobDetails';
+import AdminDashboard from './components/AdminDashboard';
 import WantJob from './pages/WantJob'; // Import the new WantJob component
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -59,6 +60,7 @@ const App = () => {
           </>
         } />
         <Route path="/search" element={<SearchJobs />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/job_alert" element={<JobAlerts />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
