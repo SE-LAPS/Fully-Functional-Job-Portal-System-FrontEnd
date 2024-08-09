@@ -1,6 +1,6 @@
-// src/pages/Login.js
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -51,7 +51,7 @@ const Input = styled.input`
 const Button = styled.button`
   width: 100%;
   padding: 10px;
- background: linear-gradient(45deg, #007bff, #00d4ff);
+  background: linear-gradient(45deg, #007bff, #00d4ff);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -80,11 +80,22 @@ const RegisterLink = styled.div`
 `;
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const redirectTo = new URLSearchParams(location.search).get('redirect') || '/';
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform login logic
+    localStorage.setItem('authToken', 'dummy-token'); // Example token, replace with real authentication
+    navigate(redirectTo);
+  };
+
   return (
     <Container>
       <LoginBox>
         <Title>Login</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <InputGroup>
             <Label>Email</Label>
             <Input type="email" placeholder="Enter your email" required />

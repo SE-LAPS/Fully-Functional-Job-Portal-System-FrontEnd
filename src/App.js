@@ -22,7 +22,8 @@ import Faqs from './pages/Faqs';
 import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
 import ViewJobDetails from './pages/ViewJobDetails';
-import WantJob from './pages/WantJob'; // Import the new WantJob component
+import WantJob from './pages/WantJob';
+import Dashboard from './components/Dashboard';  // Import Dashboard component
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
@@ -31,7 +32,6 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
     const fakeDataFetch = () => {
       setTimeout(() => {
         setIsLoading(false);
@@ -70,8 +70,9 @@ const App = () => {
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/post-job" element={<PostJobForm />} />
         <Route path="/employers" element={<Employers />} />
+        <Route path="/admin" element={<Dashboard />} /> {/* Changed to Dashboard */}
         <Route path="/view_job_details" element={<ViewJobDetails />} />
-        <Route path="/want-job" element={<WantJob />} /> {/* Add this route */}
+        <Route path="/want-job" element={<WantJob />} /> 
       </Routes>
       <Footer />
     </div>

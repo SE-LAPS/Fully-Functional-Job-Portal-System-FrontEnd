@@ -1,12 +1,17 @@
 import React from 'react';
 
+
 const PostJobForm = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add form submission logic here
+  };
+
   return (
     <div className="post-job-form-container">
       <h2>Reach one of the largest remote job communities</h2>
       <h3>First, tell us about the position</h3>
-      <form>
-        {/* Form fields remain the same as in your provided code */}
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Position Title</label>
           <input type="text" placeholder="Position Title" required />
@@ -15,15 +20,7 @@ const PostJobForm = () => {
           <label>Category</label>
           <select>
             <option value="Full-Stack Programming">Full-Stack Programming</option>
-            <option value="Front-End Programming">Front-End Programming</option>
-            <option value="Back-End Programming">Back-End Programming</option>
-            <option value="DevOps and Sysadmin">DevOps and Sysadmin</option>
-            <option value="UI/UX Engineer">UI/UX Engineer</option>
-            <option value="Business Analysis">Business Analysis</option>
-            <option value="Quality Assurance Engineer">Quality Assurance Engineer</option>
-            <option value="Intern Software Engineer">Intern Software Engineer</option>
-            <option value="All Other">All Other</option>
-            {/* Add more categories as needed */}
+            {/* Add other options */}
           </select>
         </div>
         <div>
@@ -72,10 +69,9 @@ const PostJobForm = () => {
         </div>
         <center><h3>Finally, confirm and pay</h3></center>
         <div>
-          <center><input type="checkbox" name="jobType" value="Full-Time" /> Feature this position for $30</center>
           <center><p>Featured positions will appear on top of the list Preview</p></center>
         </div>
-        <button type="submit">Proceed to Payment</button>
+        <button type="submit">Proceed to Job Post</button>
       </form>
     </div>
   );

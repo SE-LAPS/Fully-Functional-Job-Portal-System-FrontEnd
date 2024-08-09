@@ -7,7 +7,14 @@ const TopNav = () => {
   const navigate = useNavigate();
 
   const handlePostJobClick = () => {
-    navigate('/post-job');
+    // Check if user is authenticated (this is a placeholder logic)
+    const isAuthenticated = false; // Replace with actual authentication check
+
+    if (isAuthenticated) {
+      navigate('/post-job');
+    } else {
+      navigate('/login?redirect=/post-job');
+    }
   };
 
   const handleWantJobClick = () => {
