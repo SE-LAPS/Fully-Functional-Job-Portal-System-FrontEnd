@@ -1,4 +1,3 @@
-// src/components/Metrics.js
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
@@ -16,7 +15,7 @@ const data = [
 function Metrics() {
   return (
     <div className="metrics">
-      <h2>Employee Dashboard Metrics</h2>
+      <h2>Company Dashboard Metrics</h2>
       <div className="metrics-summary">
         <div className="metric-item">
           <h3>Job Posts</h3>
