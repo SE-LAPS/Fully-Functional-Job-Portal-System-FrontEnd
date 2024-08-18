@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { PieChart, Pie, Tooltip, Cell } from 'recharts';
 
-const RecentJobPosts = () => {
-  const [filter, setFilter] = useState('monthly');
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-  const handleFilterChange = (e) => {
-    setFilter(e.target.value);
-  };
-
-  // Sample data for recent job posts
-  const jobPosts = [
-    { title: 'Software Engineer', category: 'IT', applications: 100, status: 'Active' },
-    { title: 'Product Manager', category: 'Management', applications: 50, status: 'Inactive' },
-    { title: 'Data Scientist', category: 'Data', applications: 80, status: 'Active' },
-    { title: 'Marketing Specialist', category: 'Marketing', applications: 60, status: 'Active' },
-  ];
+const RecentJobPosts = ({ jobPosts }) => {
+  // Prepare data for the pie chart
+  const categoryData = jobPosts.reduce((acc, job) => {
+    const existingCategory = acc.find(item => item.name === job.category);
+    if (existingCategory) {
+      existingCategory.value += 1;
+    } else {
+      acc.push({ name: job.category, value: 1 });
+    }
+    return acc;
+  }, []);
 
   return (
     <div className="recent-job-posts">
       <div className="filter-options">
-        <button onClick={() => setFilter('today')} className={filter === 'today' ? 'active' : ''}>Today</button>
-        <button onClick={() => setFilter('weekly')} className={filter === 'weekly' ? 'active' : ''}>Weekly</button>
-        <button onClick={() => setFilter('monthly')} className={filter === 'monthly' ? 'active' : ''}>Monthly</button>
+        {/* You can add filter options if needed */}
       </div>
       <table>
         <thead>
@@ -34,14 +32,16 @@ const RecentJobPosts = () => {
         <tbody>
           {jobPosts.map((job, index) => (
             <tr key={index}>
-              <td>{job.title}</td>
+              <td>{job.positionTitle}</td>
               <td>{job.category}</td>
-              <td>{job.applications}</td>
-              <td>{job.status}</td>
+              <td>{job.applications || 0}</td> {/* Assuming you have an applications field */}
+              <td>{job.status || 'Active'}</td> {/* Default to 'Active' if status is not provided */}
             </tr>
           ))}
         </tbody>
       </table>
+      
+
     </div>
   );
 };
