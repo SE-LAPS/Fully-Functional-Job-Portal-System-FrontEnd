@@ -6,11 +6,34 @@ import '../css/Dashboard.css';
 
 function Dashboard() {
   const [jobPosts, setJobPosts] = useState([]);
+  const [metrics, setMetrics] = useState({
+    totalJobPosts: 0,
+    totalApplications: 0,
+    totalMeetings: 0,
+    totalHirings: 0,
+  });
 
   const fetchJobPosts = async () => {
-    const response = await fetch('http://localhost:8080/api/jobs');
-    const data = await response.json();
-    setJobPosts(data);
+    try {
+      const response = await fetch('http://localhost:8080/api/jobs');
+      const data = await response.json();
+      setJobPosts(data);
+
+      // Calculate metrics based on job posts data
+      const totalJobPosts = data.length;
+      const totalApplications = data.reduce((acc, job) => acc + job.applications, 0); // Assuming `applications` is a field in your job data
+      const totalMeetings = 125; // You can replace this with dynamic data if available
+      const totalHirings = 2456; // Replace with dynamic data if available
+
+      setMetrics({
+        totalJobPosts,
+        totalApplications,
+        totalMeetings,
+        totalHirings,
+      });
+    } catch (error) {
+      console.error('Error fetching job posts:', error);
+    }
   };
 
   useEffect(() => {
@@ -19,17 +42,11 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <div className="header">
-        <h1>Company Dashboard</h1>
-        <p>Welcome back! Here’s a snapshot of the current status.</p>
+      <div className="metrics">
+        <Metrics metrics={metrics} />
       </div>
-      <div className="dashboard-content">
-        <div className="metrics-section">
-          <Metrics />
-        </div>
-        <div className="recent-jobs-section">
-          <RecentJobPosts jobPosts={jobPosts} />
-        </div>
+      <div className="recent-job-posts">
+        <RecentJobPosts jobPosts={jobPosts} />
       </div>
     </div>
   );

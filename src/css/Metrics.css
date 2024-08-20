@@ -1,37 +1,40 @@
 .metrics {
-    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .metrics-summary {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .metric-item {
+    flex: 1;
+    margin-right: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
     text-align: center;
-}
-
-.metric-item h3 {
-    font-size: 20px;
-    color: #555;
-}
-
-.metric-item p {
-    font-size: 24px;
-    color: #333;
-    font-weight: bold;
 }
 
 .charts-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
 }
 
-.chart-item {
+.bar-chart-container {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-chart-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

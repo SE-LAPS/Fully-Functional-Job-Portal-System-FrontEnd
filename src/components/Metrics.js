@@ -2,45 +2,49 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import '../css/Metrics.css';
 
-const data = [
-  { name: 'Jan', applications: 4000, hirings: 2400 },
-  { name: 'Feb', applications: 3000, hirings: 1398 },
-  // ... Add more data as needed
-];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6347']; // Added a new color for the total job posts segment
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+function Metrics({ metrics }) {
+  const data = [
+    { name: 'Jan', applications: 4000, hirings: 2400 },
+    { name: 'Feb', applications: 3000, hirings: 1398 },
+    { name: 'Jan', applications: 4000, hirings: 2400 },
+    { name: 'Feb', applications: 3000, hirings: 1398 },
+    { name: 'Jan', applications: 4000, hirings: 2400 },
+    { name: 'Feb', applications: 3000, hirings: 1398 },
+    // Add more data as needed
+  ];
 
-const categoryData = [
-  { name: 'Engineering', value: 10 },
-  { name: 'Marketing', value: 20 },
-  // ... Add more categories as needed
-];
+  const categoryData = [
+    { name: 'Engineering', value: 10 },
+    { name: 'Total Job Posts', value: metrics.totalJobPosts }, // Added the total job posts segment
+    // Add more categories as needed
+  ];
 
-function Metrics() {
   return (
     <div className="metrics">
       <h2>Dashboard Metrics</h2>
       <div className="metrics-summary">
         <div className="metric-item">
           <h3>Job Posts</h3>
-          <p>2,456</p>
+          <p>{metrics.totalJobPosts}</p>
         </div>
         <div className="metric-item">
           <h3>Applications</h3>
-          <p>4,561</p>
+          <p>{metrics.totalApplications}</p>
         </div>
         <div className="metric-item">
           <h3>Meetings</h3>
-          <p>125</p>
+          <p>{metrics.totalMeetings}</p>
         </div>
         <div className="metric-item">
           <h3>Hirings</h3>
-          <p>2,456</p>
+          <p>{metrics.totalHirings}</p>
         </div>
       </div>
 
       <div className="charts-container">
-        <div className="chart-item">
+        <div className="bar-chart-container">
           <BarChart width={500} height={300} data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -52,7 +56,7 @@ function Metrics() {
           </BarChart>
         </div>
 
-        <div className="chart-item">
+        <div className="pie-chart-container">
           <PieChart width={400} height={400}>
             <Pie
               data={categoryData}

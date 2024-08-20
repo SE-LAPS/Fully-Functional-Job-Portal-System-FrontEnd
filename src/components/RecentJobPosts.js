@@ -2,16 +2,6 @@ import React from 'react';
 import '../css/RecentJobPosts.css';
 
 const RecentJobPosts = ({ jobPosts }) => {
-  const categoryData = jobPosts.reduce((acc, job) => {
-    const existingCategory = acc.find(item => item.name === job.category);
-    if (existingCategory) {
-      existingCategory.value += 1;
-    } else {
-      acc.push({ name: job.category, value: 1 });
-    }
-    return acc;
-  }, []);
-
   return (
     <div className="recent-job-posts">
       <h2>Recent Job Posts</h2>
