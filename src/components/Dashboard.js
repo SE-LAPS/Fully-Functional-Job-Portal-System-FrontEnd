@@ -19,9 +19,17 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <div className="metrics">
-        <Metrics />
-        <RecentJobPosts jobPosts={jobPosts} />
+      <div className="header">
+        <h1>Company Dashboard</h1>
+        <p>Welcome back! Here’s a snapshot of the current status.</p>
+      </div>
+      <div className="dashboard-content">
+        <div className="metrics-section">
+          <Metrics />
+        </div>
+        <div className="recent-jobs-section">
+          <RecentJobPosts jobPosts={jobPosts} />
+        </div>
       </div>
     </div>
   );

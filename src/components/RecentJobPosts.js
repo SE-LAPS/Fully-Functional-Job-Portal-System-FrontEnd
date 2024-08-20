@@ -1,10 +1,7 @@
 import React from 'react';
-import { PieChart, Pie, Tooltip, Cell } from 'recharts';
-
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+import '../css/RecentJobPosts.css';
 
 const RecentJobPosts = ({ jobPosts }) => {
-  // Prepare data for the pie chart
   const categoryData = jobPosts.reduce((acc, job) => {
     const existingCategory = acc.find(item => item.name === job.category);
     if (existingCategory) {
@@ -17,16 +14,14 @@ const RecentJobPosts = ({ jobPosts }) => {
 
   return (
     <div className="recent-job-posts">
-      <div className="filter-options">
-        {/* You can add filter options if needed */}
-      </div>
-      <table>
+      <h2>Recent Job Posts</h2>
+      <table className="job-posts-table">
         <thead>
           <tr>
             <th>Job Title</th>
             <th>Category</th>
-            <th>Applications</th>
-            <th>Status</th>
+            <th>Location</th>
+            <th>Company Website</th>
           </tr>
         </thead>
         <tbody>
@@ -34,14 +29,12 @@ const RecentJobPosts = ({ jobPosts }) => {
             <tr key={index}>
               <td>{job.positionTitle}</td>
               <td>{job.category}</td>
-              <td>{job.applications || 0}</td> {/* Assuming you have an applications field */}
-              <td>{job.status || 'Active'}</td> {/* Default to 'Active' if status is not provided */}
+              <td>{job.location || 'N/A'}</td>
+              <td><a href={job.companyWebsite} target="_blank" rel="noopener noreferrer">Visit</a></td>
             </tr>
           ))}
         </tbody>
       </table>
-      
-
     </div>
   );
 };

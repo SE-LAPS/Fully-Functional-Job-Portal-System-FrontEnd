@@ -1,123 +1,37 @@
 .dashboard {
     padding: 20px;
+    background-color: #f4f6f9;
 }
 
-.charts-container {
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.header p {
+    font-size: 18px;
+    color: #777;
+}
+
+.dashboard-content {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    gap: 20px;
 }
 
-.metrics {
-    margin-bottom: 20px;
-}
-
-.metrics-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.metric-item {
+.metrics-section {
     flex: 1;
-    margin-right: 10px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    text-align: center;
 }
 
-.metric-item:last-child {
-    margin-right: 0;
-}
-
-.pie-chart-container,
-.bar-chart-container {
+.recent-jobs-section {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.metric-item:last-child {
-    margin-right: 0;
-}
-
-.metrics .metric-item:last-child {
-    margin-right: 0;
-}
-
-.recent-job-posts {
-    margin-top: 20px;
-}
-
-.recent-job-posts table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.recent-job-posts th,
-.recent-job-posts td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.recent-job-posts th {
-    background-color: #f2f2f2;
-    text-align: left;
-}
-
-.post-job-form-container {
-    margin-top: 20px;
-}
-
-.post-job-form-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-.post-job-form-container form div {
-    margin-bottom: 10px;
-}
-
-.post-job-form-container form label {
-    font-weight: bold;
-}
-
-.post-job-form-container form input,
-.post-job-form-container form select,
-.post-job-form-container form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.post-job-form-container form button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.post-job-form-container form button:hover {
-    background-color: #45a049;
-}
-
-.submitted-message {
-    margin-top: 20px;
-    color: green;
-    font-weight: bold;
-    text-align: center;
-}
-.pie-chart-container {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.pie-chart-container h3 {
-    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }

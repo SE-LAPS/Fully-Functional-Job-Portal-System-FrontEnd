@@ -1,0 +1,34 @@
+.recent-job-posts {
+    margin-top: 20px;
+}
+
+.recent-job-posts h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.job-posts-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.job-posts-table th,
+.job-posts-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.job-posts-table th {
+    background-color: #f8f9fa;
+}
+
+.job-posts-table td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.job-posts-table td a:hover {
+    text-decoration: underline;
+}

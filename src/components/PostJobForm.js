@@ -13,26 +13,21 @@ const PostJobForm = ({ onJobPosted }) => {
     companyWebsite: '',
     emailAddress: '',
     companyDescription: '',
-    jobImage: null // Add image field
+    location: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-     [name]: type === 'checkbox' ? checked : (name === 'jobImage' ? files[0] : value)
+      [name]: type === 'checkbox' ? checked : value
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-  const formDataToSend = new FormData();
-    for (let key in formData) {
-      formDataToSend.append(key, formData[key]);
-    }
 
     const response = await fetch('http://localhost:8080/api/jobs', {
       method: 'POST',
@@ -57,16 +52,6 @@ const PostJobForm = ({ onJobPosted }) => {
       <h2>Reach one of the largest remote job communities</h2>
       <h3>First, tell us about the position</h3>
       <form onSubmit={handleSubmit}>
-         <div>
-          <label>Job Image</label>
-          <input
-            type="file"
-            name="jobImage"
-            accept="image/*"
-            onChange={handleChange}
-            required
-          />
-        </div>
         <div>
           <label>Position Title</label>
           <input
@@ -81,10 +66,15 @@ const PostJobForm = ({ onJobPosted }) => {
         <div>
           <label>Category</label>
           <select name="category" value={formData.category} onChange={handleChange}>
-            <option value="Full-Stack Programming">Full-Stack Programming</option>
-            {/* Add other options as needed */}
+            <option value="Full-Stack Programming">Full-Stack Development</option>
+            <option value="Frontend Development">Frontend Development</option>
+            <option value="Backend Development">Backend Development</option>
+            <option value="Devops Engineer">Devops Engineer</option>
+            <option value="UI/UX Engineer">UI/UX Engineer</option>
+            <option value="QA Engineer">QA Engineer</option>
           </select>
         </div>
+
         <div>
           <label>Salary Range</label>
           <input
@@ -95,23 +85,7 @@ const PostJobForm = ({ onJobPosted }) => {
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>Worldwide Position?</label>
-          <input
-            type="radio"
-            name="worldwidePosition"
-            value={true}
-            checked={formData.worldwidePosition === true}
-            onChange={handleChange}
-          /> Yes
-          <input
-            type="radio"
-            name="worldwidePosition"
-            value={false}
-            checked={formData.worldwidePosition === false}
-            onChange={handleChange}
-          /> No
-        </div>
+        
         <div>
           <label>Job Type</label>
           <input
@@ -198,6 +172,18 @@ const PostJobForm = ({ onJobPosted }) => {
             onChange={handleChange}
           ></textarea>
         </div>
+        <div>
+          <label>Location</label>
+          <input
+            type="text"
+            name="location"
+            placeholder="Location Name"
+            value={formData.location}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         <center><h3>Finally, confirm and pay</h3></center>
         <div>
           <center><p>Featured positions will appear on top of the list Preview</p></center>

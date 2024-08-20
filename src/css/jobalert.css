@@ -1,79 +1,77 @@
-/* src/css/jobalert.css */
-
 .job-alerts-page {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: #f0f2f5;
-    min-height: 100vh;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #333;
-    font-size: 36px;
+    background-color: #f5f5f5;
 }
 
 .job-alerts {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    /* Allows the job alerts to wrap onto new lines */
     gap: 20px;
-    align-items: center;
+    justify-content: center;
+    /* Center align the job alerts */
 }
 
 .job-alert {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
     background-color: #ffffff;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 600px;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+    max-width: 400px;
+    /* Smaller width for job alert */
     width: 100%;
+    /* Full width within the max-width limit */
+    flex: 1 1 calc(33.333% - 40px);
+    /* 3 per row with space between */
 }
 
 .job-alert:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.job-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    transform: scale(1.02);
 }
 
 .job-title {
-    font-size: 24px;
+    font-size: 1.5em;
+    color: #0073b1;
     margin-bottom: 10px;
-    color: #0073e6;
 }
 
 .job-details {
-    font-size: 16px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.job-description {
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 1em;
     color: #555;
 }
 
+.job-description {
+    font-size: 0.9em;
+    color: #777;
+    margin: 10px 0;
+}
+
 .apply-button {
-    background-color: #0073e6;
-    color: white;
-    border: none;
+    background-color: #0073b1;
+    color: #ffffff;
     padding: 10px 20px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .apply-button:hover {
-    background-color: #005bb5;
-    transform: scale(1.05);
+    background-color: #005a8d;
+}
+
+.show-more-button {
+    background-color: #e1e1e1;
+    color: #0073b1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.show-more-button:hover {
+    background-color: #c5c5c5;
 }
