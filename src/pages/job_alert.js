@@ -3,7 +3,8 @@ import '../css/jobalert.css';
 
 const JobAlerts = () => {
   const [jobAlerts, setJobAlerts] = useState([]);
-  const [visibleJobAlerts, setVisibleJobAlerts] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
+  const alertsPerPage = 6;
 
   useEffect(() => {
     const fetchJobPosts = async () => {
@@ -15,8 +16,16 @@ const JobAlerts = () => {
     fetchJobPosts();
   }, []);
 
-  const showMoreJobs = () => {
-    setVisibleJobAlerts(prev => prev + 6);
+  // Calculate indices for the current page
+  const indexOfLastAlert = currentPage * alertsPerPage;
+  const indexOfFirstAlert = indexOfLastAlert - alertsPerPage;
+  const currentJobAlerts = jobAlerts.slice(indexOfFirstAlert, indexOfLastAlert);
+
+  // Calculate total number of pages
+  const totalPages = Math.ceil(jobAlerts.length / alertsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   return (
@@ -24,7 +33,7 @@ const JobAlerts = () => {
       <main>
         <h1>Job Alerts</h1>
         <div className="job-alerts">
-          {jobAlerts.slice(0, visibleJobAlerts).map((alert, index) => (
+          {currentJobAlerts.map((alert, index) => (
             <div key={index} className="job-alert">
               {alert.jobImage && <img src={alert.jobImage} alt={alert.title} className="job-image" />}
               <h2 className="job-title">{alert.positionTitle}</h2>
@@ -33,15 +42,24 @@ const JobAlerts = () => {
                 <strong>Company Name:</strong> {alert.companyName} <br />
                 <strong>Location:</strong> {alert.location}
               </p>
-             
               <button className="apply-button">APPLY NOW</button>
             </div>
           ))}
         </div>
-        {visibleJobAlerts < jobAlerts.length && (
-          <button className="show-more-button" onClick={showMoreJobs}>
-            Show All
-          </button>
+        
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="pagination">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={currentPage === index + 1 ? 'active' : ''}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         )}
       </main>
     </div>

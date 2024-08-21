@@ -16,7 +16,7 @@ function Metrics({ metrics }) {
   ];
 
   const categoryData = [
-    { name: 'Engineering', value: 10 },
+    { name: 'Total Application', value: metrics.totalApplications },
     { name: 'Total Job Posts', value: metrics.totalJobPosts }, // Added the total job posts segment
     // Add more categories as needed
   ];
@@ -30,15 +30,15 @@ function Metrics({ metrics }) {
           <p>{metrics.totalJobPosts}</p>
         </div>
         <div className="metric-item">
-          <h3>Applications</h3>
+          <h3>Total Applications</h3>
           <p>{metrics.totalApplications}</p>
         </div>
         <div className="metric-item">
-          <h3>Meetings</h3>
+          <h3>Shortlisted Candidates</h3>
           <p>{metrics.totalMeetings}</p>
         </div>
         <div className="metric-item">
-          <h3>Hirings</h3>
+          <h3>Rejected Candidates</h3>
           <p>{metrics.totalHirings}</p>
         </div>
       </div>
@@ -52,7 +52,7 @@ function Metrics({ metrics }) {
             <Tooltip />
             <Legend />
             <Bar dataKey="applications" fill="#8884d8" />
-            <Bar dataKey="hirings" fill="#82ca9d" />
+            <Bar dataKey="hirings" fill="#FF8042" />
           </BarChart>
         </div>
 

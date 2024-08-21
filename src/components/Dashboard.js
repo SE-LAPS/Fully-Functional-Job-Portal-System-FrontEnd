@@ -22,8 +22,8 @@ function Dashboard() {
       // Calculate metrics based on job posts data
       const totalJobPosts = data.length;
       const totalApplications = data.reduce((acc, job) => acc + job.applications, 0); // Assuming `applications` is a field in your job data
-      const totalMeetings = 125; // You can replace this with dynamic data if available
-      const totalHirings = 2456; // Replace with dynamic data if available
+      const totalMeetings = 12; // You can replace this with dynamic data if available
+      const totalHirings = 24; // Replace with dynamic data if available
 
       setMetrics({
         totalJobPosts,
