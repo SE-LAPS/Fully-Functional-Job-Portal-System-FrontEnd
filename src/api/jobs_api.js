@@ -112,4 +112,3 @@ const jobDetails = [
 export {jobs, jobDetails};
 
 
-

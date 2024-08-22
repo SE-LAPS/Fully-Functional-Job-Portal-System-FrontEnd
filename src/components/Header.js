@@ -1,34 +1,35 @@
-// SideNav.js
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import '../Header.css';
+import '../css/SideNav.css'; // Ensure the correct relative path
 
 const SideNav = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState('up');
+  const [lastScrollY, setLastScrollY] = useState(window.scrollY);
 
-  const expandNav = () => setIsExpanded(true);
-  const collapseNav = () => setIsExpanded(false);
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > lastScrollY) {
+      setScrollDirection('down');
+    } else {
+      setScrollDirection('up');
+    }
+    setLastScrollY(window.scrollY);
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
   return (
-    <nav 
-      className={`side-nav ${isExpanded ? 'expanded' : ''}`}
-      onMouseEnter={expandNav}
-      onMouseLeave={collapseNav}
-    >
-      <div className="toggle-btn">
-        {isExpanded ? '▶' : '◀'}
-      </div>
-      <div className="nav-content">
-        <Link to="/" className="nav-item">Home</Link>
-        <Link to="/about" className="nav-item">About</Link>
-        <Link to="/search" className="nav-item">Jobs</Link>
-        <Link to="/job_alert" className="nav-item">Job Alerts</Link>
-        <Link to="/employers" className="nav-item">Employers</Link>
-        <Link to="/contact" className="nav-item">Contact</Link>
-        <Link to="/faqs" className="nav-item">FAQs</Link>
-      </div>
-    </nav>
-
+    <div className={`side-nav ${scrollDirection}`}>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/search">Jobs</Link>
+      <Link to="/job_alert">Job Alerts</Link>
+      <Link to="/employers">Employers</Link>
+      <Link to="/contact">Contact</Link>
+      <Link to="/faqs">FAQs</Link>
+    </div>
   );
 };
 

@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
-import {jobDetails} from '../api/jobs_api';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { jobDetails } from '../api/jobs_api';
 import { getCompanyLogo } from '../utils/getCompanyLogo';
 import companyImg from '../assets/company1.jpg';
 
-//Material UI components
+// Material UI components
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -14,7 +15,6 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -34,20 +34,30 @@ const ExpandMore = styled((props) => {
 
 const JobDetails = ({ job }) => {
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const handleApplyNow = () => {
+    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
+  };
 
   if (!job) {
     return <p>No job details available. Please select a job from the list.</p>;
   }
-  const jobID = jobDetails.find(j => j.id === job.id);
 
-  const handleApplyNow = () => {
-    navigate('/apply_jobs', { state: { job } }); // Pass job details to ApplyJobs page if needed
-  };
+  const jobID = jobDetails.find(j => j.id === job.id);
+  
+  try {
+    if (!jobID) {
+      throw new Error('Job ID not found');
+    }
+  } catch (error) {
+    console.log(error);
+    return <p>Unable to find job details. Please try again later.</p>;
+  }
 
   return (
     <Card sx={{ maxWidth: 780, marginBottom: 5 }}>
@@ -62,7 +72,6 @@ const JobDetails = ({ job }) => {
         }
         title={job.company}
         subheader="September 14, 2016"
-
       />
       <CardMedia
         component="img"
@@ -75,19 +84,19 @@ const JobDetails = ({ job }) => {
           {jobID.description}
         </Typography>
         <Typography variant='h6' color="text.secondary">Responsibility:</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {jobID.responsibilities.map((responsibility, index) => (
-              <li key={index}>{responsibility}</li>
-            ))}
-          </Typography>
-          <Typography variant='h6' color="text.secondary">Qualifications:</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {jobID.qualifications.map((qualification, index) => (
-              <li key={index}>{qualification}</li>
-            ))}
-          </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {jobID.responsibilities.map((responsibility, index) => (
+            <li key={index}>{responsibility}</li>
+          ))}
+        </Typography>
+        <Typography variant='h6' color="text.secondary">Qualifications:</Typography>
+        <Typography variant="body2" color="text.secondary">
+          {jobID.qualifications.map((qualification, index) => (
+            <li key={index}>{qualification}</li>
+          ))}
+        </Typography>
       </CardContent>
-      <Button variant="contained" href="/apply" sx={{margin: 2}}>Apply Now</Button>
+      <Button variant="contained" onClick={handleApplyNow} sx={{margin: 2}}>Apply Now</Button>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
@@ -96,10 +105,10 @@ const JobDetails = ({ job }) => {
           <ShareIcon />
         </IconButton>
         <ExpandMore
-        expand={expanded}
-        onClick={handleExpandClick}
-        aria-expanded={expanded}
-        aria-label="show more"
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
         >
           <ExpandMoreIcon />
         </ExpandMore>

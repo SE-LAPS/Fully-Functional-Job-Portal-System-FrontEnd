@@ -57,8 +57,9 @@ body {
     margin-right: 0.5rem;
     /* Space between icon and text */
 }
+
 .post-job-btn {
-    color: #007bff,#00d4ff;
+    color: #007bff, #00d4ff;
     padding: 8px 16px;
     border-radius: 4px;
     text-decoration: none;
@@ -133,7 +134,8 @@ body {
     width: 60%;
     font-size: 1rem;
     display: block;
-    margin: 0 auto; /*button alignment center*/
+    margin: 0 auto;
+    /*button alignment center*/
 }
 
 .post-job-form-container button:hover {
@@ -260,7 +262,7 @@ body {
     background-color: #555;
 }
 
-/* Search Form Styles */
+/* Search Form Styles 
 .search-form {
     background: url('/src/assets/12.jpg') no-repeat center center;
     background-size: cover;
@@ -308,7 +310,7 @@ body {
     margin-top: 1rem;
     flex-wrap: wrap;
     gap: 1rem;
-}
+}*/
 
 /* Job Title, Location, Job Type Fields */
 .MuiTextField-root,
@@ -362,7 +364,7 @@ body {
     }
 }
 
-/* How We Work Section */
+/* How We Work Section 
 .how-we-work {
     display: flex;
     justify-content: center;
@@ -443,6 +445,8 @@ body {
     border-radius: 8px;
 }
 
+*/
+
 /* Job Categories Section */
 .job-categories {
     padding: 2rem;
@@ -456,12 +460,16 @@ body {
     color: #333;
 }
 
+
+/*
 .companies-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 }
+*/
+
 
 .company-item {
     background-color: #fff;
@@ -518,7 +526,7 @@ body {
 
 /* company features section */
 
-/* JobListing.css */
+/* JobListing.css 
 
 .job-listing {
     text-align: center;
@@ -571,7 +579,7 @@ body {
     display: block;
     width: 100%;
     padding: 0.5rem;
-    background-color: #007bff,#00d4ff;
+    background-color: #007bff, #00d4ff;
     color: white;
     border: none;
     border-radius: 4px;
@@ -597,8 +605,9 @@ body {
 .browse-more-button:hover {
     background-color: #0056b3;
 }
+*/
 
-/* footer section */
+/* footer section 
 .footer {
     background: #333;
     color: #fff;
@@ -630,6 +639,7 @@ body {
     text-align: center;
     margin-top: 2rem;
 }
+*/
 
 /* src/styles.css */
 /* Featured Companies */
@@ -718,11 +728,12 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
 }
 
+
 /* src/styles.css */
-/* src/Testimonial.css */
+/* src/Testimonial.css 
 .testimonial-container {
     max-width: 800px;
     margin: 50px auto;
@@ -805,39 +816,62 @@ button:hover {
 .slick-dots li.slick-active button:before {
     color: #0056b3;
 }
+*/
+
 /* src/components/JobAlerts.css */
+.job-alerts-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
 .job-alerts {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .job-alert {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
     background-color: #f9f9f9;
 }
 
-.job-alert h2 {
-    margin: 0 0 1rem 0;
+.job-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #0073e6;
 }
 
-.job-alert button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #007bff;
+.job-details {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.job-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.apply-button {
+    background-color: #0073e6;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.job-alert button:hover {
-    background-color: #0056b3;
+.apply-button:hover {
+    background-color: #005bb5;
 }
-
 
 /*job list page css update*/
 /* src/styles.css */
@@ -850,6 +884,7 @@ button:hover {
     text-align: center;
     margin-bottom: 2rem;
 }
+
 .job-list-container {
     width: 80%;
     margin: auto;
@@ -859,7 +894,7 @@ button:hover {
 .title {
     text-align: center;
     margin-bottom: 20px;
-    
+
 }
 
 .job-list {
@@ -877,11 +912,13 @@ button:hover {
     padding: 20px;
     text-align: center;
 }
+
 .job-logo {
     width: 100px;
     height: auto;
     margin-bottom: 10px;
 }
+
 .job-info {
     text-align: center;
 }
@@ -935,6 +972,7 @@ button:hover {
     color: #fff;
     font-size: 0.9em;
 }
+
 .full-time {
     background-color: #28a745;
 }
@@ -959,10 +997,12 @@ button:hover {
     font-size: 20px;
     margin-bottom: 10px;
 }
+
 ul {
     list-style-type: none;
     padding: 0;
 }
+
 .apply-jobs-container {
     max-width: 600px;
     margin: 0 auto;
@@ -985,6 +1025,7 @@ ul {
     border-radius: 8px;
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .job-details-preview h2 {
@@ -1234,7 +1275,7 @@ h2 {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/*viewJobDetails.css page*/ 
+/*viewJobDetails.css page*/
 .view-job-details-container {
     max-width: 800px;
     margin: 0 auto;
@@ -1483,4 +1524,3 @@ h2 {
     font-size: 1em;
     color: #666;
 }
-

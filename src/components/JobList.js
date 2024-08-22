@@ -1,14 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { getCompanyLogo } from '../utils/getCompanyLogo';
-
-//Material UI components
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Avatar, ListItemAvatar, Typography } from '@mui/material';
 import Pagination from '@mui/material/Pagination'; 
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
@@ -17,25 +13,15 @@ const JobList = ({ jobs = [], onJobSelect }) => {
   const itemsPerPage = 10; // Define number of items per page
 
   const handlePageChange = (event, value) => {
-    setPage(value); // Update page state when pagination changes
+    setPage(value);
   };
 
   const paginatedJobs = jobs.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   return (
     <div className="job-list-container">
-      
       <div className="job-list">
-        <Box sx={{ justifyContent: 'center', display: 'flex',
-        flexWrap: 'wrap', maxWidth:320, height: 690, overflowY: 'scroll'
-        }}>
-          <Pagination 
-            hidePrevButton
-            hideNextButton
-            count={Math.ceil(jobs.length / itemsPerPage)} 
-            page={page} 
-            onChange={handlePageChange} 
-          />
+        <Box sx={{ justifyContent: 'center', display: 'flex', flexWrap: 'wrap', maxWidth: 320, height: 690, overflowY: 'scroll' }}>
           {paginatedJobs.map(job => (
             <List key={job.id} sx={{ width: '90%', color: 'background.paper' }}>
               <Paper elevation={3}>
@@ -75,16 +61,14 @@ const JobList = ({ jobs = [], onJobSelect }) => {
               </Paper>
             </List>
           ))}
+        </Box>
+        <Box sx={{ justifyContent: 'center', display: 'flex', flexWrap: 'wrap', maxWidth: 320, mt: 2 }}>
           <Pagination 
-            hidePrevButton
-            hideNextButton
             count={Math.ceil(jobs.length / itemsPerPage)} 
             page={page} 
             onChange={handlePageChange} 
           />
         </Box>
-
-        
       </div>
     </div>
   );
