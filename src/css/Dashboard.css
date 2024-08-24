@@ -1,49 +1,81 @@
 .dashboard {
-    padding: 20px;
-    background-color: #e9ecef;
-    font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  background-color: #f0f2f5;
+  font-family: 'Roboto', sans-serif;
 }
 
 .metrics {
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    margin-bottom: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
 }
 
 .metrics-summary {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
 .metric-item {
-    flex: 1;
-    padding: 15px;
-    margin: 0 10px;
-    background-color: #15ebeb;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s ease;
+  flex: 1;
+  padding: 15px;
+  margin: 0 10px;
+  background-color: #15ebeb;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .metric-item:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .metric-item h3 {
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 10px;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .metric-item p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #007bff;
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
 }
 
-.chart-item {
-    margin-bottom: 20px;
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar-chart-container, .pie-chart-container {
+  flex: 1;
+  margin: 0 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-job-form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-job-form-modal .post-job-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
 }

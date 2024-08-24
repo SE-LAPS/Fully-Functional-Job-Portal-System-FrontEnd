@@ -1,11 +1,14 @@
+// src/components/Dashboard.js
+
 import React, { useState, useEffect } from 'react';
 import Metrics from './Metrics';
 import RecentJobPosts from './RecentJobPosts';
-
+// Import the new component
 import '../css/Dashboard.css';
 
 function Dashboard() {
   const [jobPosts, setJobPosts] = useState([]);
+  const [applicationCounts, setApplicationCounts] = useState({});
   const [metrics, setMetrics] = useState({
     totalJobPosts: 0,
     totalApplications: 0,
@@ -19,25 +22,49 @@ function Dashboard() {
       const data = await response.json();
       setJobPosts(data);
 
-      // Calculate metrics based on job posts data
       const totalJobPosts = data.length;
-      const totalApplications = data.reduce((acc, job) => acc + job.applications, 0); // Assuming `applications` is a field in your job data
-      const totalMeetings = 12; // You can replace this with dynamic data if available
+      const totalMeetings = 12; // Replace with dynamic data if available
       const totalHirings = 24; // Replace with dynamic data if available
 
-      setMetrics({
+      setMetrics((prevMetrics) => ({
+        ...prevMetrics,
         totalJobPosts,
-        totalApplications,
         totalMeetings,
         totalHirings,
-      });
+      }));
     } catch (error) {
       console.error('Error fetching job posts:', error);
     }
   };
 
+  const fetchTotalApplications = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/total-applications');
+      const totalApplications = await response.json();
+
+      setMetrics((prevMetrics) => ({
+        ...prevMetrics,
+        totalApplications,
+      }));
+    } catch (error) {
+      console.error('Error fetching total applications:', error);
+    }
+  };
+
+  const fetchApplicationCounts = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/application-counts'); // Assume this endpoint exists
+      const counts = await response.json();
+      setApplicationCounts(counts);
+    } catch (error) {
+      console.error('Error fetching application counts:', error);
+    }
+  };
+
   useEffect(() => {
     fetchJobPosts();
+    fetchTotalApplications();
+    fetchApplicationCounts(); // Fetch application counts
   }, []);
 
   return (
@@ -48,6 +75,7 @@ function Dashboard() {
       <div className="recent-job-posts">
         <RecentJobPosts jobPosts={jobPosts} />
       </div>
+   
     </div>
   );
 }

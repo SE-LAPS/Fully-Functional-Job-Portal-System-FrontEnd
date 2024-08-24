@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css/RecentJobPosts.css';
 
-const RecentJobPosts = ({ jobPosts }) => {
+const RecentJobPosts = ({ jobPosts = [] }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 7; // Number of rows per page
 
@@ -20,44 +20,57 @@ const RecentJobPosts = ({ jobPosts }) => {
   return (
     <div className="recent-job-posts">
       <h2>Recent Job Posts</h2>
-      <table className="job-posts-table">
-        <thead>
-          <tr>
-            <th>Job Title</th>
-            <th>Category</th>
-            <th>Location</th>
-            <th>Job Type</th>
-            <th>Company Website</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentJobPosts.map((job, index) => (
-            <tr key={index}>
-              <td>{job.positionTitle}</td>
-              <td>{job.category}</td>
-              <td>{job.location || 'N/A'}</td>
-              <td>{job.jobType}</td>
-              <td><a href={job.companyWebsite} target="_blank" rel="noopener noreferrer">Visit</a></td>
-              
-              
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {jobPosts.length === 0 ? (
+        <p>No job posts available.</p>
+      ) : (
+        <>
+          <table className="job-posts-table">
+            <thead>
+              <tr>
+                <th>Job Title</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Job Type</th>
+                <th>Company Website</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentJobPosts.map((job) => (
+                <tr key={job.id}> {/* Use a unique id for the key */}
+                  <td>{job.positionTitle || 'N/A'}</td>
+                  <td>{job.category || 'N/A'}</td>
+                  <td>{job.location || 'N/A'}</td>
+                  <td>{job.jobType || 'N/A'}</td>
+                  <td>
+                    {job.companyWebsite ? (
+                      <a href={job.companyWebsite} target="_blank" rel="noopener noreferrer">
+                        Visit
+                      </a>
+                    ) : (
+                      'N/A'
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-      {/* Pagination Controls */}
-      {totalPages > 1 && (
-        <div className="pagination">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => handlePageChange(index + 1)}
-              className={currentPage === index + 1 ? 'active' : ''}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="pagination">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index + 1}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={currentPage === index + 1 ? 'active' : ''}
+                  aria-label={`Page ${index + 1}`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

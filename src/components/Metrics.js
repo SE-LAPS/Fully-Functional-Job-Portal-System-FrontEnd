@@ -52,7 +52,7 @@ function Metrics({ metrics }) {
             <Tooltip />
             <Legend />
             <Bar dataKey="applications" fill="#8884d8" />
-            <Bar dataKey="hirings" fill="#FF8042" />
+            <Bar dataKey="hirings" fill="#82ca9d" />
           </BarChart>
         </div>
 
