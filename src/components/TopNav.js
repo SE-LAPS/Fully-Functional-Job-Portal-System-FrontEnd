@@ -4,12 +4,36 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../css/TopNav.css';
 import logoImage from '../assets/companyLogos/2.png';
 
+
 const TopNav = () => {
   const navigate = useNavigate();
   
+
+/*
   const handlePostJobClick = () => {
-    navigate('/post-job');
+    navigate('/admin_dashboard');
   };
+
+  const handleWantJobClick = () => {
+    navigate('/want-job');
+  };
+*/
+
+
+const handlePostJobClick = () => {
+  // Check if user is authenticated (this is a placeholder logic)
+  const isAuthenticated = false; // Replace with actual authentication check
+
+  if (isAuthenticated) {
+    navigate('/post-job');
+  } else {
+    navigate('/login?redirect=/post-job');
+  }
+};
+
+const handleWantJobClick = () => {
+  navigate('/want-job');
+};
 
   return (
     <nav className="top-nav">
@@ -28,6 +52,13 @@ const TopNav = () => {
             <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
           </svg>
           POST A JOB
+        </button>
+
+        <button className="top-nav-btn post-job-btn" onClick={handleWantJobClick}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+            <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+          </svg>
+          WANT A JOB
         </button>
       </div>
     </nav>

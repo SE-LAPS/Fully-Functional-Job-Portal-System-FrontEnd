@@ -26,6 +26,7 @@ const SideNav = () => {
         <Link to="/employers" className="nav-item">Employers</Link>
         <Link to="/contact" className="nav-item">Contact</Link>
         <Link to="/faqs" className="nav-item">FAQs</Link>
+        <Link to="/admin"className="nav-item">Company</Link>
       </div>
     </nav>
   );
