@@ -22,6 +22,7 @@ import Faqs from './pages/Faqs';
 import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
 import ViewJobDetails from './pages/ViewJobDetails';
+import UserProfile from './pages/UserProfile';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
@@ -70,6 +71,7 @@ const App = () => {
         <Route path="/post-job" element={<PostJobForm />} />
         <Route path="/employers" element={<Employers />} />
         <Route path="/view_job_details" element={<ViewJobDetails />} />
+        <Route path="/user_profile" element={<UserProfile />} />
       </Routes>
       <Footer />
     </div>
