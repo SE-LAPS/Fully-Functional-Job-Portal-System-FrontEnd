@@ -23,6 +23,8 @@ import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
 import ViewJobDetails from './pages/ViewJobDetails';
 import UserProfile from './pages/UserProfile';
+import EmployerProfile from './pages/EmployerProfile';
+import AdminProfile from './pages/AdminProfile';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
@@ -72,6 +74,8 @@ const App = () => {
         <Route path="/employers" element={<Employers />} />
         <Route path="/view_job_details" element={<ViewJobDetails />} />
         <Route path="/user_profile" element={<UserProfile />} />
+        <Route path="/employer_profile" element={<EmployerProfile />} />
+        <Route path="/admin_profile" element={<AdminProfile />} />
       </Routes>
       <Footer />
     </div>
