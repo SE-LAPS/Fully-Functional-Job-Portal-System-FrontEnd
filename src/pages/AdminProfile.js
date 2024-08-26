@@ -4,7 +4,7 @@ import { Avatar, Button, Grid, Paper, Typography, TextField, List, ListItem } fr
 const AdminProfile = () => {
   return (
     <Paper elevation={3} style={{ padding: '20px', margin: '20px' }}>
-      {/* Profile Header */}
+      {/* Header */}
       <Grid container alignItems="center" spacing={2}>
         <Grid item>
           <Avatar alt="Admin" src="/admin-pic.jpg" sx={{ width: 100, height: 100 }} />
