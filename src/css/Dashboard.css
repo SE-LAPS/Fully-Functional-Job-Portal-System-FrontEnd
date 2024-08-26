@@ -1,9 +1,15 @@
 .dashboard {
+  margin-left: 250px;
+  /* Adjust for the side menu width */
   padding: 20px;
   background-color: #f0f2f5;
   font-family: 'Roboto', sans-serif;
+  width: calc(100% - 250px);
+  /* Adjust width for the side menu */
 }
-
+.dashboard-container {
+  display: flex;
+}
 .metrics {
   padding: 20px;
   background-color: #ffffff;

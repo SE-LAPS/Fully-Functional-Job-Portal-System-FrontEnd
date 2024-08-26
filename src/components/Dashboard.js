@@ -1,9 +1,7 @@
-// src/components/Dashboard.js
-
 import React, { useState, useEffect } from 'react';
 import Metrics from './Metrics';
 import RecentJobPosts from './RecentJobPosts';
-// Import the new component
+import SideMenu from './SideMenu'; // Import the SideMenu component
 import '../css/Dashboard.css';
 
 function Dashboard() {
@@ -68,14 +66,16 @@ function Dashboard() {
   }, []);
 
   return (
-    <div className="dashboard">
-      <div className="metrics">
-        <Metrics metrics={metrics} />
+    <div className="dashboard-container">
+      <SideMenu />
+      <div className="dashboard">
+        <div className="metrics">
+          <Metrics metrics={metrics} />
+        </div>
+        <div className="recent-job-posts">
+          <RecentJobPosts jobPosts={jobPosts} />
+        </div>
       </div>
-      <div className="recent-job-posts">
-        <RecentJobPosts jobPosts={jobPosts} />
-      </div>
-   
     </div>
   );
 }

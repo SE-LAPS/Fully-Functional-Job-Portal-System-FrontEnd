@@ -1,0 +1,43 @@
+.side-menu {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+}
+
+.side-menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+}
+
+.side-menu ul li a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.dashboard-container {
+    display: flex;
+    margin-left: 250px;
+    /* This matches the width of the side menu */
+}
+
+.dashboard {
+    padding: 20px;
+    background-color: #f0f2f5;
+    width: 100%;
+}

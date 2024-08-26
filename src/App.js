@@ -23,6 +23,8 @@ import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
 import ViewJobDetails from './pages/ViewJobDetails';
 import WantJob from './pages/WantJob';
+import JobPositionTable from './components/JobPositionTable';
+import ApplyJobHistory from './components/ApplyJobHistory';
 import Dashboard from './components/Dashboard';  // Import Dashboard component
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -72,6 +74,8 @@ const App = () => {
         <Route path="/employers" element={<Employers />} />
         <Route path="/admin" element={<Dashboard />} /> {/* Changed to Dashboard */}
         <Route path="/view_job_details" element={<ViewJobDetails />} />
+        <Route path="/job-positions" element={<JobPositionTable />} />
+        <Route path="/apply-job-history" element={<ApplyJobHistory/>} />
         <Route path="/want-job" element={<WantJob />} /> 
       </Routes>
       <Footer />
