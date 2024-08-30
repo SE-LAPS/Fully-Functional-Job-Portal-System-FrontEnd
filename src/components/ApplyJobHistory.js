@@ -5,8 +5,13 @@ function ApplyJobHistory() {
   const [jobPositions, setJobPositions] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/jobs')
-      .then((response) => response.json())
+    fetch('http://localhost:8080/api/jobs/apply/total-applications')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => setJobPositions(data))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
