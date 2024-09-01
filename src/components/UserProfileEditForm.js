@@ -18,6 +18,11 @@ const UserProfileEditForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [title, setTitle] = useState('');
+    const [address, setAddress] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [education, setEducation] = useState('');
+    const [experience, setExperience] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
