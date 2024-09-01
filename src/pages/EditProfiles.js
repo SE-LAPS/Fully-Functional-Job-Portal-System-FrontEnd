@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import UserProfileEditForm from '../components/UserProfileEditForm';
 
 function EditProfiles() {
@@ -7,4 +7,6 @@ function EditProfiles() {
             <UserProfileEditForm />
         </div>
     );
-}
+};
+
+export default EditProfiles;

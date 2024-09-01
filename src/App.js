@@ -25,6 +25,7 @@ import ViewJobDetails from './pages/ViewJobDetails';
 import UserProfile from './pages/UserProfile';
 import EmployerProfile from './pages/EmployerProfile';
 import AdminProfile from './pages/AdminProfile';
+import EditProfile from './pages/EditProfiles';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
@@ -76,6 +77,7 @@ const App = () => {
         <Route path="/user_profile" element={<UserProfile />} />
         <Route path="/employer_profile" element={<EmployerProfile />} />
         <Route path="/admin_profile" element={<AdminProfile />} />
+        <Route path="/edit_profile" element={<EditProfile />} />
       </Routes>
       <Footer />
     </div>
