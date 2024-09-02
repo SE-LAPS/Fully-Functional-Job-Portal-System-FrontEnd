@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Metrics from './Metrics';
 import RecentJobPosts from './RecentJobPosts';
-import SideMenu from './SideMenu'; // Import the SideMenu component
+import SideMenu from './SideMenu'; 
+import ApplyJobHistory from './ApplyJobHistory'; 
 import '../css/Dashboard.css';
 
 function Dashboard() {
   const [jobPosts, setJobPosts] = useState([]);
-  const [applicationCounts, setApplicationCounts] = useState({});
   const [metrics, setMetrics] = useState({
     totalJobPosts: 0,
     totalApplications: 0,
@@ -49,21 +49,17 @@ function Dashboard() {
     }
   };
 
-  const fetchApplicationCounts = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/api/application-counts'); // Assume this endpoint exists
-      const counts = await response.json();
-      setApplicationCounts(counts);
-    } catch (error) {
-      console.error('Error fetching application counts:', error);
-    }
-  };
-
   useEffect(() => {
     fetchJobPosts();
     fetchTotalApplications();
-    fetchApplicationCounts(); // Fetch application counts
   }, []);
+
+  const handleApplicationCountChange = (count) => {
+    setMetrics((prevMetrics) => ({
+      ...prevMetrics,
+      totalApplications: count,
+    }));
+  };
 
   return (
     <div className="dashboard-container">
@@ -74,6 +70,9 @@ function Dashboard() {
         </div>
         <div className="recent-job-posts">
           <RecentJobPosts jobPosts={jobPosts} />
+        </div>
+        <div className="apply-job-history">
+          <ApplyJobHistory onCountChange={handleApplicationCountChange} />
         </div>
       </div>
     </div>

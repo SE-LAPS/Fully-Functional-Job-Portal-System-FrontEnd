@@ -1,87 +1,26 @@
-.dashboard {
-  margin-left: 250px;
-  /* Adjust for the side menu width */
-  padding: 20px;
-  background-color: #f0f2f5;
-  font-family: 'Roboto', sans-serif;
-  width: calc(100% - 250px);
-  /* Adjust width for the side menu */
-}
 .dashboard-container {
   display: flex;
 }
-.metrics {
+
+.dashboard {
+  flex: 1;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  margin-bottom: 30px;
-  transition: all 0.3s ease-in-out;
 }
 
-.metrics-summary {
+.metrics,
+.recent-job-posts {
+  margin-bottom: 20px;
+}
+
+.metrics-container {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 30px;
 }
 
-.metric-item {
+.metric {
+  border: 1px solid #ddd;
+  padding: 20px;
   flex: 1;
-  padding: 15px;
   margin: 0 10px;
-  background-color: #15ebeb;
-  border-radius: 8px;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.metric-item:hover {
-  transform: scale(1.05);
-}
-
-.metric-item h3 {
-  font-size: 20px;
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-.metric-item p {
-  font-size: 24px;
-  font-weight: bold;
-  color: #007bff;
-}
-
-.charts-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.bar-chart-container, .pie-chart-container {
-  flex: 1;
-  margin: 0 10px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.post-job-form-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.post-job-form-modal .post-job-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 600px;
 }

@@ -2,23 +2,22 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import '../css/Metrics.css';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6347']; // Added a new color for the total job posts segment
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6347']; // Colors for pie chart segments
 
 function Metrics({ metrics }) {
   const data = [
     { name: 'Jan', applications: 4000, hirings: 2400 },
     { name: 'Feb', applications: 3000, hirings: 1398 },
-    { name: 'Jan', applications: 4000, hirings: 2400 },
-    { name: 'Feb', applications: 3000, hirings: 1398 },
-    { name: 'Jan', applications: 4000, hirings: 2400 },
-    { name: 'Feb', applications: 3000, hirings: 1398 },
+    { name: 'Mar', applications: 2000, hirings: 9800 },
+    { name: 'Apr', applications: 2780, hirings: 3908 },
     // Add more data as needed
   ];
 
   const categoryData = [
-    { name: 'Total Application', value: metrics.totalApplications },
-    { name: 'Total Job Posts', value: metrics.totalJobPosts }, // Added the total job posts segment
-    // Add more categories as needed
+    { name: 'Total Applications', value: metrics.totalApplications },
+    { name: 'Total Job Posts', value: metrics.totalJobPosts },
+    { name: 'Shortlisted Candidates', value: metrics.totalMeetings },
+    { name: 'Rejected Candidates', value: metrics.totalHirings },
   ];
 
   return (
@@ -30,7 +29,7 @@ function Metrics({ metrics }) {
           <p>{metrics.totalJobPosts}</p>
         </div>
         <div className="metric-item">
-          <h3>Total Applications</h3>
+          <h3>Total Apply Jobs</h3>
           <p>{metrics.totalApplications}</p>
         </div>
         <div className="metric-item">
