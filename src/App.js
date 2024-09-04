@@ -30,7 +30,8 @@ import UserProfile from './components/UserProfileEditForm';
 import EmployerProfile from './pages/EmployerProfile';
 import AdminProfile from './pages/AdminProfile';
 import EditProfile from './pages/EditProfiles';
-import Dashboard from './components/Dashboard';  // Import Dashboard component
+import Dashboard from './components/Dashboard';
+import AdminDashboard from './components/AdminDashboard';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
