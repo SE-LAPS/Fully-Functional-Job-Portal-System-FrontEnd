@@ -14,16 +14,19 @@ const ApplyJobs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare form data
+    if (!name || !email || !resume) {
+      alert('Please fill out all fields.');
+      return;
+    }
+
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
-    formData.append('companyName', job.companyName); // Use job.companyName from state
-    formData.append('positionTitle', job.positionTitle); // Store job title in form data
+    formData.append('companyName', job.companyName);
+    formData.append('positionTitle', job.positionTitle);
     formData.append('resume', resume);
 
     try {
-      // Make a POST request to the backend API
       const response = await axios.post('http://localhost:8080/api/jobs/apply', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -31,13 +34,13 @@ const ApplyJobs = () => {
       });
 
       if (response.status === 201) {
-        console.log('Application Submitted:', response.data);
         alert('Your application has been submitted successfully!');
+        // Optionally, redirect or clear form fields
       } else {
         alert('Failed to submit your application. Please try again.');
       }
     } catch (error) {
-      console.error('There was an error submitting the application:', error);
+      console.error('Error submitting the application:', error);
       alert('An error occurred while submitting your application.');
     }
   };

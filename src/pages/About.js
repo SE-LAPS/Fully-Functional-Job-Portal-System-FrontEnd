@@ -1,7 +1,7 @@
 import React from 'react';
 import companyImage from '../assets/Img.png'; // Adjust path as needed
 import videoThumbnail from '../assets/Img.png'; // Adjust path as needed
-import videoFile from '../assets/123.mp4'; // Adjust path as needed
+import videoFile from '../assets/124.mp4'; // Adjust path as needed
 
 const About = () => {
   return (

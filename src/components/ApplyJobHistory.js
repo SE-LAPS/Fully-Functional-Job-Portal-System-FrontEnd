@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../css/ApplyJobHistory.css'; 
+import '../css/ApplyJobHistory.css';
 
 function ApplyJobHistory({ onCountChange }) {
   const [jobPositions, setJobPositions] = useState([]);
@@ -16,6 +16,7 @@ function ApplyJobHistory({ onCountChange }) {
         return response.json();
       })
       .then((data) => {
+        console.log('Fetched data:', data);  // Debugging: Check the fetched data
         setJobPositions(data);
         if (onCountChange) {
           onCountChange(data.length); // Notify parent component of the count
