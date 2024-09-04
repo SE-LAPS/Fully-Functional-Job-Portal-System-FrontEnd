@@ -1,0 +1,40 @@
+.metrics {
+   padding: 20px;
+   background-color: #ffffff;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+}
+
+.metrics-summary {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+}
+
+.metric-item {
+   flex: 1;
+   margin-right: 10px;
+   padding: 20px;
+   background-color: #10b3f3;
+   border-radius: 8px;
+   text-align: center;
+}
+
+.charts-container {
+   display: flex;
+   justify-content: space-between;
+}
+
+.bar-chart-container {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.pie-chart-container {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 const Container = styled.div`
   display: flex;
@@ -45,7 +47,7 @@ const Input = styled.input`
 const Button = styled.button`
   width: 100%;
   padding: 10px;
- background: linear-gradient(45deg, #007bff, #00d4ff);
+  background: linear-gradient(45deg, #007bff, #00d4ff);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -95,6 +97,7 @@ function Login() {
     } catch (error) {
       setError('Invalid credentials');
     }
+
   };
 
   return (
@@ -102,6 +105,7 @@ function Login() {
       <LoginBox>
         <Title>Login</Title>
         <Form onSubmit={handleLogin}>
+
           <InputGroup>
             <Label>Email</Label>
             <Input type="email" placeholder="Enter your email" value={email}
