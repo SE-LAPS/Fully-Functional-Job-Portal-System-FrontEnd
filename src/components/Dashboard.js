@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Metrics from './Metrics';
 import RecentJobPosts from './RecentJobPosts';
 
+import SideMenu from './SideMenu'; 
+import ApplyJobHistory from './ApplyJobHistory'; 
+
 import '../css/Dashboard.css';
 
 function Dashboard() {
@@ -19,34 +22,63 @@ function Dashboard() {
       const data = await response.json();
       setJobPosts(data);
 
-      // Calculate metrics based on job posts data
+
       const totalJobPosts = data.length;
-      const totalApplications = data.reduce((acc, job) => acc + job.applications, 0); // Assuming `applications` is a field in your job data
-      const totalMeetings = 12; // You can replace this with dynamic data if available
+      const totalMeetings = 12; // Replace with dynamic data if available
       const totalHirings = 24; // Replace with dynamic data if available
 
-      setMetrics({
+      setMetrics((prevMetrics) => ({
+        ...prevMetrics,
         totalJobPosts,
-        totalApplications,
         totalMeetings,
         totalHirings,
-      });
+      }));
+
     } catch (error) {
       console.error('Error fetching job posts:', error);
     }
   };
 
+
+  const fetchTotalApplications = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/total-applications');
+      const totalApplications = await response.json();
+
+      setMetrics((prevMetrics) => ({
+        ...prevMetrics,
+        totalApplications,
+      }));
+    } catch (error) {
+      console.error('Error fetching total applications:', error);
+    }
+  };
+
   useEffect(() => {
     fetchJobPosts();
+    fetchTotalApplications();
   }, []);
 
+  const handleApplicationCountChange = (count) => {
+    setMetrics((prevMetrics) => ({
+      ...prevMetrics,
+      totalApplications: count,
+    }));
+  };
+
   return (
-    <div className="dashboard">
-      <div className="metrics">
-        <Metrics metrics={metrics} />
-      </div>
-      <div className="recent-job-posts">
-        <RecentJobPosts jobPosts={jobPosts} />
+    <div className="dashboard-container">
+      <SideMenu />
+      <div className="dashboard">
+        <div className="metrics">
+          <Metrics metrics={metrics} />
+        </div>
+        <div className="recent-job-posts">
+          <RecentJobPosts jobPosts={jobPosts} />
+        </div>
+        <div className="apply-job-history">
+          <ApplyJobHistory onCountChange={handleApplicationCountChange} />
+        </div>
       </div>
     </div>
   );

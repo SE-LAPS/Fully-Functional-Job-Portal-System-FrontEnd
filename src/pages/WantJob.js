@@ -17,7 +17,6 @@ const WantJob = () => {
     { category: 'Advertising', openPositions: 309 },
     { category: 'Writing', openPositions: 150 },
     { category: 'Office & Admin', openPositions: 123 },
-    { category: 'Software Development', openPositions: 405 },
   ];
 
   const allHotJobs = [
@@ -75,3 +74,4 @@ const WantJob = () => {
 };
 
 export default WantJob;
+

@@ -23,14 +23,14 @@ import PostJobForm from './components/PostJobForm';
 import Employers from './pages/Employee';
 import ViewJobDetails from './pages/ViewJobDetails';
 
-import UserProfile from './pages/UserProfile';
+import WantJob from './pages/WantJob';
+import JobPositionTable from './components/JobPositionTable';
+import ApplyJobHistory from './components/ApplyJobHistory';
+import UserProfile from './components/UserProfileEditForm';
 import EmployerProfile from './pages/EmployerProfile';
 import AdminProfile from './pages/AdminProfile';
 import EditProfile from './pages/EditProfiles';
-import WantJob from './pages/WantJob';
-import Dashboard from './components/Dashboard';
-import AdminDashboard from './components/AdminDashboard';
-
+import Dashboard from './components/Dashboard';  // Import Dashboard component
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
@@ -66,7 +66,9 @@ const App = () => {
           </>
         } />
         <Route path="/search" element={<SearchJobs />} />
+
         <Route path="/admin_dashboard" element={<AdminDashboard />} />
+
         <Route path="/job_alert" element={<JobAlerts />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -87,6 +89,14 @@ const App = () => {
         <Route path="/edit_profile" element={<EditProfile />} />
         <Route path="/want-job" element={<WantJob />} /> 
 
+
+        <Route path="/job-positions" element={<JobPositionTable />} />
+        <Route path="/apply-job-history" element={<ApplyJobHistory/>} />
+        <Route path="/want-job" element={<WantJob />} /> 
+        <Route path="/admin_profile" element={<AdminProfile />} />
+        <Route path="/edit_profile" element={<EditProfile />} />
+        <Route path="/user_profile" element={<UserProfile />} />
+        <Route path="/employer_profile" element={<EmployerProfile />} />
       </Routes>
       <Footer />
     </div>

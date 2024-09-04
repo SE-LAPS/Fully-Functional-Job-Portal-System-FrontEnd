@@ -1,9 +1,7 @@
-// src/pages/Login.js
-import React, {useState} from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
 
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -12,6 +10,7 @@ const Container = styled.div`
   justify-content: center;
   background-color: #f0f2f5;
 `;
+
 const LoginBox = styled.div`
   width: 400px;
   padding: 40px;
@@ -22,28 +21,34 @@ const LoginBox = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 const Title = styled.h2`
   margin-bottom: 20px;
   color: #333;
 `;
+
 const Form = styled.form`
   width: 100%;
 `;
+
 const InputGroup = styled.div`
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 `;
+
 const Label = styled.label`
   margin-bottom: 8px;
   color: #555;
 `;
+
 const Input = styled.input`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
 `;
+
 const Button = styled.button`
   width: 100%;
   padding: 10px;
@@ -59,6 +64,7 @@ const Button = styled.button`
     background: #574b90;
   }
 `;
+
 const RegisterLink = styled.div`
   margin-top: 20px;
   color: #555;
@@ -74,10 +80,11 @@ const RegisterLink = styled.div`
   }
 `;
 
-function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const redirectTo = new URLSearchParams(location.search).get('redirect') || '/';
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -97,6 +104,7 @@ function Login() {
     } catch (error) {
       setError('Invalid credentials');
     }
+
 
   };
 

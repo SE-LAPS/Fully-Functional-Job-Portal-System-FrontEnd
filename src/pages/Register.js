@@ -13,7 +13,9 @@ const Container = styled.div`
 
 const RegisterBox = styled.div`
   width: 400px;
-  padding: 80px;
+
+  padding: 40px;
+
   background: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -81,6 +83,7 @@ const LoginLink = styled.div`
 `;
 
 const Register = () => {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -137,6 +140,7 @@ const Register = () => {
     }
     
   };
+
   return (
     <Container>
       <RegisterBox>
