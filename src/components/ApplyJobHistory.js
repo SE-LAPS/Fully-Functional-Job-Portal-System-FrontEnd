@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import '../css/ApplyJobHistory.css'; 
 
 function ApplyJobHistory({ onCountChange }) {
-  const [jobPositions, setJobPositions] = useState([]);
-  const [error, setError] = useState(null);
-  const [editMode, setEditMode] = useState(false);
-  const [currentJob, setCurrentJob] = useState(null);
+  const [jobPositions, setJobPositions] = useState([]); // State - hold job positions
+  const [error, setError] = useState(null); // State - hold error messages
+  const [editMode, setEditMode] = useState(false); // State - toggle edit mode
+  const [currentJob, setCurrentJob] = useState(null); // State - hold the currently edited job
 
+  // Fetch job positions on component mount
   useEffect(() => {
     fetch('http://localhost:8080/api/jobs/apply/total-applications')
       .then((response) => {
@@ -18,12 +19,13 @@ function ApplyJobHistory({ onCountChange }) {
       .then((data) => {
         setJobPositions(data);
         if (onCountChange) {
-          onCountChange(data.length); // Notify parent component of the count
+          onCountChange(data.length); // Notify parent component of the job count
         }
       })
       .catch((error) => setError(`Error fetching data: ${error.message}`));
   }, [onCountChange]);
 
+  // Handle job deletion
   const handleDelete = (id) => {
     fetch(`http://localhost:8080/api/jobs/apply/applications/${id}`, {
       method: 'DELETE',
@@ -33,20 +35,22 @@ function ApplyJobHistory({ onCountChange }) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         setJobPositions((prevJobPositions) =>
-          prevJobPositions.filter((job) => job.id !== id)
+          prevJobPositions.filter((job) => job.id !== id) // Remove deleted job from state
         );
         if (onCountChange) {
-          onCountChange(jobPositions.length - 1); // Update count after delete
+          onCountChange(jobPositions.length - 1); // Update count after deletion
         }
       })
       .catch((error) => setError(`Error deleting data: ${error.message}`));
   };
 
+  // Handle job edit mode activation
   const handleEdit = (job) => {
     setCurrentJob(job);
-    setEditMode(true);
+    setEditMode(true); // Enable edit mode
   };
 
+  // Handle form input changes
   const handleChange = (e) => {
     setCurrentJob({
       ...currentJob,
@@ -54,6 +58,7 @@ function ApplyJobHistory({ onCountChange }) {
     });
   };
 
+  // Handle form submission for updating job details
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -73,10 +78,10 @@ function ApplyJobHistory({ onCountChange }) {
       .then((updatedJob) => {
         setJobPositions((prevJobPositions) =>
           prevJobPositions.map((job) =>
-            job.id === updatedJob.id ? updatedJob : job
+            job.id === updatedJob.id ? updatedJob : job // Update job in state
           )
         );
-        setEditMode(false);
+        setEditMode(false); // Disable edit mode
         setCurrentJob(null);
       })
       .catch((error) => setError(`Error updating data: ${error.message}`));
@@ -88,6 +93,7 @@ function ApplyJobHistory({ onCountChange }) {
       {error && <p className="error">{error}</p>}
 
       {editMode ? (
+        // Edit form if in edit mode
         <form onSubmit={handleSubmit} className="edit-form">
           <h3>Edit Job Position</h3>
           <label>
@@ -130,6 +136,7 @@ function ApplyJobHistory({ onCountChange }) {
           <button type="button" onClick={() => setEditMode(false)}>Cancel</button>
         </form>
       ) : (
+        // Job positions table if not in edit mode
         <table>
           <thead>
             <tr>

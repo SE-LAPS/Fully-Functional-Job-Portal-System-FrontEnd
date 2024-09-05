@@ -1,11 +1,11 @@
 // src/pages/Register.js
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Radio } from '@mui/material';
 
 const Container = styled.div`
   display: flex;
-  height: 100vh;
   align-items: center;
   justify-content: center;
   background-color: #f0f2f5;
@@ -13,9 +13,7 @@ const Container = styled.div`
 
 const RegisterBox = styled.div`
   width: 400px;
-
   padding: 40px;
-
   background: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -31,6 +29,12 @@ const Title = styled.h2`
 
 const Form = styled.form`
   width: 100%;
+`;
+
+const RadioBox = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 `;
 
 const InputGroup = styled.div`
@@ -54,7 +58,7 @@ const Input = styled.input`
 const Button = styled.button`
   width: 100%;
   padding: 10px;
- background: linear-gradient(45deg, #007bff, #00d4ff);
+  background: linear-gradient(45deg, #007bff, #00d4ff);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -86,9 +90,10 @@ const Register = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [confirmpassword, setConfirmPassword] = useState('');
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
+  const [username, setUserName] = useState('');
   const [role, setRole] = useState('USER');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -96,49 +101,41 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    // Basic form validation
-    if (password !== confirmPassword) {
+    if (password !== confirmpassword) {
       setError('Passwords do not match');
       return;
     }
 
     try {
-      // Registration Post Request
-  const response = await axios.post('http://localhost:8080/api/v1/auth/register', 
-    JSON.stringify({
-      firstName,
-      lastName,
-      email,
-      password,
-      role
-    }), 
-    {
-      headers: {
-        'Content-Type': 'application/json' // Explicitly setting the header (optional)
-      }
-    }
-  );
+      const response = await axios.post('http://localhost:8080/api/users/register', 
+        JSON.stringify({
+          username,
+          email,
+          password,
+          role
+        }), 
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
 
-      // Handle successful registration (e.g., redirect or show success message)
       setSuccess('Registration successful! You can now log in.');
       setError('');
     } catch (error) {
       if (error.response) {
-        // Server responded with a status other than 2xx
         console.error('Error response:', error.response.data);
         setError(error.response.data.message || 'Registration failed. Please try again.');
       } else if (error.request) {
-        // No response from the server
         console.error('Error request:', error.request);
         setError('No response from the server. Please try again later.');
       } else {
-        // Other errors
         console.error('Error:', error.message);
         setError('An unexpected error occurred. Please try again.');
       }
       setSuccess('');
     }
-    
   };
 
   return (
@@ -148,47 +145,50 @@ const Register = () => {
         <Form onSubmit={handleRegister}>
           <InputGroup>
             <Label>Role</Label>
-            <div>
-              <input
-                type="radio"
-                id="applicant"
-                name="role"
-                value="APPLICANT"
-                checked={role === 'APPLICANT'}
-                onChange={(e) => setRole(e.target.value)}
-              />
-              <label htmlFor="applicant">Applicant</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="company"
-                name="role"
-                value="COMPANY"
-                checked={role === 'COMPANY'}
-                onChange={(e) => setRole(e.target.value)}
-              />
-              <label htmlFor="company">Company</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="admin"
-                name="role"
-                value="ADMIN"
-                checked={role === 'ADMIN'}
-                onChange={(e) => setRole(e.target.value)}
-              />
-              <label htmlFor="admin">Admin</label>
-            </div>
+            <RadioBox>
+              <div>
+                <Radio
+                  id="applicant"
+                  name="role"
+                  value="JOB_SEEKER"
+                  checked={role === 'JOB_SEEKER'}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                <label htmlFor="applicant">Job Seeker</label>
+              </div>
+              <div>
+                <Radio
+                  id="company"
+                  name="role"
+                  value="COMPANY"
+                  checked={role === 'COMPANY'}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                <label htmlFor="company">Company</label>
+              </div>
+              <div>
+                <Radio
+                  id="admin"
+                  name="role"
+                  value="ADMIN"
+                  checked={role === 'ADMIN'}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                <label htmlFor="admin">Admin</label>
+              </div>
+            </RadioBox>
           </InputGroup>
           <InputGroup>
             <Label>First Name</Label>
-            <Input type="text" placeholder="Enter your first name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+            <Input type="text" placeholder="Enter your first name" value={firstname} onChange={(e) => setFirstName(e.target.value)} required />
           </InputGroup>
           <InputGroup>
             <Label>Last Name</Label>
-            <Input type="text" placeholder="Enter your last name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+            <Input type="text" placeholder="Enter your last name" value={lastname} onChange={(e) => setLastName(e.target.value)} required />
+          </InputGroup>
+          <InputGroup>
+            <Label>Username</Label>
+            <Input type="text" placeholder="Enter your username" value={username} onChange={(e) => setUserName(e.target.value)} required />
           </InputGroup>
           <InputGroup>
             <Label>Email</Label>
@@ -200,7 +200,7 @@ const Register = () => {
           </InputGroup>
           <InputGroup>
             <Label>Confirm Password</Label>
-            <Input type="password" placeholder="Confirm your password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+            <Input type="password" placeholder="Confirm your password" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           </InputGroup>
           <Button type="submit">Register</Button>
           {error && <p style={{ color: 'red' }}>{error}</p>}

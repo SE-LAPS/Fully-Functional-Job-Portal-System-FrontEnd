@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import '../css/applyjobs.css'; // Import CSS for styling
+import '../css/applyjobs.css'; //CSS styling
 
 const ApplyJobs = () => {
   const location = useLocation();
   const job = location.state?.job; // Access job details from navigation state
 
+  // state - manage form input
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [resume, setResume] = useState(null);
 
+  // Function - handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare form data
+    // form data prepare
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
