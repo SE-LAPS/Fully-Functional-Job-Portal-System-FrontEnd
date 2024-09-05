@@ -10,7 +10,7 @@
 # 🟦 FrontEnd Project Structure 🟦
 
 <p align="center">
-<img src="![Frontend Structure](https://github.com/user-attachments/assets/cf3fa22b-93ab-4a80-adf0-5e241445cd39" />
+<img src="https://github.com/user-attachments/assets/cf3fa22b-93ab-4a80-adf0-5e241445cd39" />
 </p>
 
 ## App.js ▶
