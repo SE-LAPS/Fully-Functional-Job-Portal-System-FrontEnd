@@ -25,9 +25,8 @@ import ViewJobDetails from './pages/ViewJobDetails';
 import WantJob from './pages/WantJob';
 import JobPositionTable from './components/JobPositionTable';
 import ApplyJobHistory from './components/ApplyJobHistory';
-
 import Dashboard from './components/Dashboard';  // Import Dashboard component
-
+import GetMobileApps from './components/GetMobileApps';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
@@ -59,6 +58,7 @@ const App = () => {
             <JobListing />
             <HowWeWork />
             <Testimonial />
+            <GetMobileApps />
           </>
         } />
         <Route path="/search" element={<SearchJobs />} />
