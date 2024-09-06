@@ -9,13 +9,15 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
 const JobList = ({ jobs = [], onJobSelect }) => {
-  const [page, setPage] = useState(1); // State to manage current page
-  const itemsPerPage = 10; // Define number of items per page
+  const [page, setPage] = useState(1); // State - manage current page
+  const itemsPerPage = 10; // number of items per page
 
+  // Handle - page change in pagination
   const handlePageChange = (event, value) => {
     setPage(value);
   };
 
+  // Get - jobs for the current page
   const paginatedJobs = jobs.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   return (
@@ -25,8 +27,10 @@ const JobList = ({ jobs = [], onJobSelect }) => {
           {paginatedJobs.map(job => (
             <List key={job.id} sx={{ width: '90%', color: 'background.paper' }}>
               <Paper elevation={3}>
+                {/* List item for each job */}
                 <ListItemButton onClick={() => onJobSelect(job)}>
                   <ListItemAvatar>
+                    {/* Display company logo */}
                     <Avatar alt={job.company} src={getCompanyLogo(job.company)} />
                   </ListItemAvatar>
                   <ListItemText 
@@ -38,7 +42,7 @@ const JobList = ({ jobs = [], onJobSelect }) => {
                           variant="body1"
                           color="text.primary"
                         >
-                          {job.title}
+                          {job.title} {/* Job title */}
                         </Typography>
                       </React.Fragment>
                     }
@@ -50,10 +54,10 @@ const JobList = ({ jobs = [], onJobSelect }) => {
                           variant="body2"
                           color="text.primary"
                         >
-                          {job.jobType}
+                          {job.jobType} {/* Job type */}
                         </Typography>
                         <br />
-                        {job.company} - {job.location}  
+                        {job.company} - {job.location} {/* Company and location */}
                       </React.Fragment>
                     }
                   />
@@ -62,6 +66,7 @@ const JobList = ({ jobs = [], onJobSelect }) => {
             </List>
           ))}
         </Box>
+        {/* Pagination controls */}
         <Box sx={{ justifyContent: 'center', display: 'flex', flexWrap: 'wrap', maxWidth: 320, mt: 2 }}>
           <Pagination 
             count={Math.ceil(jobs.length / itemsPerPage)} 

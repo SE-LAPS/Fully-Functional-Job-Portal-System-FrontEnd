@@ -18,7 +18,7 @@ const AdminDashboard = () => {
       setJobs(response.data);
     } catch (err) {
       console.error("Error fetching jobs:", err);
-      setError("Failed to fetch jobs. Please try again.");
+      setError("Failed to fetch jobs. Please try again");
     }
   };
 

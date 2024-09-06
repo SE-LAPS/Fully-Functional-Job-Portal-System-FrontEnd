@@ -29,6 +29,7 @@ const SideNav = () => {
       <Link to="/employers">Employers</Link>
       <Link to="/contact">Contact</Link>
       <Link to="/faqs">FAQs</Link>
+
     </div>
   );
 };

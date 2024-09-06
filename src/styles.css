@@ -1,3 +1,4 @@
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
@@ -818,60 +819,7 @@ button:hover {
 }
 */
 
-/* src/components/JobAlerts.css */
-.job-alerts-page {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-}
 
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.job-alerts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.job-alert {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.job-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #0073e6;
-}
-
-.job-details {
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-.job-description {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.apply-button {
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.apply-button:hover {
-    background-color: #005bb5;
-}
 
 /*job list page css update*/
 /* src/styles.css */
@@ -1524,3 +1472,4 @@ h2 {
     font-size: 1em;
     color: #666;
 }
+

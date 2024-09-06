@@ -103,13 +103,7 @@ body {
    background-color: #0056b3;
  }
  
- button:last-child {
-   background-color: #dc3545;
- }
- 
- button:last-child:hover {
-   background-color: #c82333;
- }
+
  
  /* Responsive Design */
  @media (max-width: 768px) {
