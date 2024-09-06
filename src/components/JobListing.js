@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/JobListing.css';
 
+// Sample job data
 const jobs = [
   {
     id: 1,
@@ -70,32 +71,37 @@ const jobs = [
 ];
 
 const JobListing = () => {
-  const [filter, setFilter] = useState('All');
-  const navigate = useNavigate();
+  const [filter, setFilter] = useState('All'); // State - manage job type filter
+  const navigate = useNavigate(); // Hook - programmatically navigate
 
+  // Function - handle filter button clicks
   const handleFilterClick = (filterType) => {
     setFilter(filterType);
   };
 
+  // Filter jobs on the selected type
   const filteredJobs = filter === 'All'
     ? jobs
     : jobs.filter((job) => job.type === filter);
 
+  // Function - handle job details view
   const handleViewDetailsClick = (job) => {
-    navigate('/view_job_details', { state: { job } });
+    navigate('/view_job_details', { state: { job } }); // Navigate to job details page with job data
   };
 
   return (
     <div className="job-listing">
       <h2 className="heading">JOB LISTING</h2>
-      <br></br>
+      <br />
       <div className="filters">
+        {/* Filter buttons for job types */}
         <button className="filter-button" onClick={() => handleFilterClick('All')}>Featured</button>
         <button className="filter-button" onClick={() => handleFilterClick('Full Time')}>Full Time</button>
         <button className="filter-button" onClick={() => handleFilterClick('Part Time')}>Part Time</button>
       </div>
-      <br></br>
+      <br />
       <div className="job-cards">
+        {/* Render filtered job cards */}
         {filteredJobs.map((job) => (
           <div key={job.id} className="job-card">
             <img src={job.companyLogo} alt={`${job.title} logo`} className="company-logo" />
