@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const PostJobForm = ({ onJobPosted }) => {
+  // manage form data and submission status
   const [formData, setFormData] = useState({
     positionTitle: '',
     category: '',
@@ -18,6 +19,7 @@ const PostJobForm = ({ onJobPosted }) => {
 
   const [submitted, setSubmitted] = useState(false);
 
+  // Handle - changes in form fields
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -26,9 +28,11 @@ const PostJobForm = ({ onJobPosted }) => {
     });
   };
 
+  // Handle-  form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Send form data to the API
     const response = await fetch('http://localhost:8080/api/jobs', {
       method: 'POST',
       headers: {
@@ -41,7 +45,8 @@ const PostJobForm = ({ onJobPosted }) => {
       console.log('Job position submitted successfully');
       setSubmitted(true);
 
-      if (onJobPosted) onJobPosted(); // Trigger a re-fetch of job posts if provided
+      // Trigger callback if provided (e.g., to re-fetch job posts)
+      if (onJobPosted) onJobPosted();
     } else {
       console.error('Failed to submit job position');
     }
@@ -52,6 +57,7 @@ const PostJobForm = ({ onJobPosted }) => {
       <h2>Reach one of the largest remote job communities</h2>
       <h3>First, tell us about the position</h3>
       <form onSubmit={handleSubmit}>
+        {/* Position Title Input */}
         <div>
           <label>Position Title</label>
           <input
@@ -63,6 +69,7 @@ const PostJobForm = ({ onJobPosted }) => {
             required
           />
         </div>
+        {/* Category Select */}
         <div>
           <label>Category</label>
           <select name="category" value={formData.category} onChange={handleChange}>
@@ -74,7 +81,7 @@ const PostJobForm = ({ onJobPosted }) => {
             <option value="QA Engineer">QA Engineer</option>
           </select>
         </div>
-
+        {/* Salary Range Input */}
         <div>
           <label>Salary Range</label>
           <input
@@ -85,7 +92,7 @@ const PostJobForm = ({ onJobPosted }) => {
             onChange={handleChange}
           />
         </div>
-        
+        {/* Job Type Radio Buttons */}
         <div>
           <label>Job Type</label>
           <input
@@ -110,6 +117,7 @@ const PostJobForm = ({ onJobPosted }) => {
             onChange={handleChange}
           /> Contract
         </div>
+        {/* Application Link or Email Input */}
         <div>
           <label>Application Link or Email</label>
           <input
@@ -121,6 +129,7 @@ const PostJobForm = ({ onJobPosted }) => {
             required
           />
         </div>
+        {/* Position Description Textarea */}
         <div>
           <label>Position Description</label>
           <textarea
@@ -131,6 +140,7 @@ const PostJobForm = ({ onJobPosted }) => {
           ></textarea>
         </div>
         <center><h3>Second, tell us about your company</h3></center>
+        {/* Company Name Input */}
         <div>
           <label>Company Name</label>
           <input
@@ -142,6 +152,7 @@ const PostJobForm = ({ onJobPosted }) => {
             required
           />
         </div>
+        {/* Company Website Input */}
         <div>
           <label>Company Website</label>
           <input
@@ -152,6 +163,7 @@ const PostJobForm = ({ onJobPosted }) => {
             onChange={handleChange}
           />
         </div>
+        {/* Email Address Input */}
         <div>
           <label>Email Address</label>
           <input
@@ -163,6 +175,7 @@ const PostJobForm = ({ onJobPosted }) => {
             required
           />
         </div>
+        {/* Company Description Textarea */}
         <div>
           <label>Company Description</label>
           <textarea
@@ -172,6 +185,7 @@ const PostJobForm = ({ onJobPosted }) => {
             onChange={handleChange}
           ></textarea>
         </div>
+        {/* Location Input */}
         <div>
           <label>Location</label>
           <input
@@ -183,14 +197,15 @@ const PostJobForm = ({ onJobPosted }) => {
             required
           />
         </div>
-
         <center><h3>Finally, confirm and pay</h3></center>
         <div>
           <center><p>Featured positions will appear on top of the list Preview</p></center>
         </div>
+        {/* Submit Button */}
         <button type="submit">Proceed to Job Post</button>
       </form>
 
+      {/* Success message after submission */}
       {submitted && (
         <div className="submitted-message">
           <h3>Job position submitted successfully!</h3>

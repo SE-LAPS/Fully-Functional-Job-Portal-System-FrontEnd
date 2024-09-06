@@ -1,19 +1,23 @@
 const jobs = [
   { id: 1, company: 'AMAZON', title: 'Fullstack Developer', location: 'Colombo', category: 'Fullstack', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 150,000', jobPosted: '2024-07-20', jobExpiresIn: '30 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
   { id: 2, company: 'FLP', title: 'Digital Marketing', location: 'Colombo', category: 'Digital Marketing', jobType: 'Part-Time', workStyle: 'Remote', salary: 'LKR 80,000', jobPosted: '2024-07-22', jobExpiresIn: '45 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
-  { id: 3, company: 'PAYTM', title: 'Jr. Frontend Developer', location: 'Kandy', category: 'Frontend', jobType: 'Contract', workStyle: 'Hybrid', salary: 'LKR 100,000', jobPosted: '2024-07-25', jobExpiresIn: '60 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
+
+  { id: 3, company: 'PAYTM', title: 'Frontend Developer', location: 'Kandy', category: 'Frontend', jobType: 'Contract', workStyle: 'Hybrid', salary: 'LKR 100,000', jobPosted: '2024-07-25', jobExpiresIn: '60 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
   { id: 4, company: 'TESLA', title: 'Software Engineer', location: 'Galle', category: 'Full Stack', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 200,000', jobPosted: '2024-07-18', jobExpiresIn: '30 days', educationLevel: 'Bachelors', jobLevel: 'Mid Level' },
-  { id: 5, company: 'ELASTIC RUN', title: 'Jr. Backend Developer', location: 'Jaffna', category: 'Backend', jobType: 'Part-Time', workStyle: 'Remote', salary: 'LKR 90,000', jobPosted: '2024-07-23', jobExpiresIn: '50 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
-  { id: 6, company: 'TCS', title: 'Jr. Devops Engineer', location: 'Colombo', category: 'Devops', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 110,000', jobPosted: '2024-07-19', jobExpiresIn: '30 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
-  { id: 7, company: 'MYNTRA', title: 'Jr. Frontend Developer', location: 'Colombo', category: 'Frontend', jobType: 'Part-Time', workStyle: 'Hybrid', salary: 'LKR 95,000', jobPosted: '2024-07-21', jobExpiresIn: '40 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
+  { id: 5, company: 'ELASTIC RUN', title: 'Backend Developer', location: 'Jaffna', category: 'Backend', jobType: 'Part-Time', workStyle: 'Remote', salary: 'LKR 90,000', jobPosted: '2024-07-23', jobExpiresIn: '50 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
+  { id: 6, company: 'TCS', title: 'Devops Engineer', location: 'Colombo', category: 'Devops', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 110,000', jobPosted: '2024-07-19', jobExpiresIn: '30 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
+  { id: 7, company: 'MYNTRA', title: 'Frontend Developer', location: 'Colombo', category: 'Frontend', jobType: 'Part-Time', workStyle: 'Hybrid', salary: 'LKR 95,000', jobPosted: '2024-07-21', jobExpiresIn: '40 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
+
   { id: 8, company: 'SYNOPSYS', title: 'Full Stack Engineer', location: 'Negombo', category: 'Fullstack', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 180,000', jobPosted: '2024-07-20', jobExpiresIn: '35 days', educationLevel: 'Bachelors', jobLevel: 'Mid Level' },
   { id: 9, company: 'OPTUM', title: 'Front-End Developer', location: 'Colombo', category: 'Frontend', jobType: 'Full-Time', workStyle: 'Remote', salary: 'LKR 120,000', jobPosted: '2024-07-25', jobExpiresIn: '25 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
   { id: 10, company: 'INFOSYS', title: 'React Developer', location: 'Colombo', category: 'Frontend', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 130,000', jobPosted: '2024-07-22', jobExpiresIn: '30 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
   { id: 11, company: 'TECH MAHINDRA', title: 'NodeJS Developer', location: 'Jaffna', category: 'Backend', jobType: 'Full-Time', workStyle: 'Hybrid', salary: 'LKR 140,000', jobPosted: '2024-07-24', jobExpiresIn: '40 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
   { id: 12, company: 'CLOUD MENTOR', title: 'Software Engineer', location: 'Galle', category: 'Full Stack', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 190,000', jobPosted: '2024-07-19', jobExpiresIn: '35 days', educationLevel: 'Bachelors', jobLevel: 'Mid Level' },
-  { id: 13, company: 'FLIPKART', title: 'Sr. Devops Engineer', location: 'Kandy', category: 'Devops', jobType: 'Full-Time', workStyle: 'Remote', salary: 'LKR 220,000', jobPosted: '2024-07-25', jobExpiresIn: '25 days', educationLevel: 'Bachelors', jobLevel: 'Senior Level' },
+
+  { id: 13, company: 'FLIPKART', title: 'Devops Engineer', location: 'Kandy', category: 'Devops', jobType: 'Full-Time', workStyle: 'Remote', salary: 'LKR 220,000', jobPosted: '2024-07-25', jobExpiresIn: '25 days', educationLevel: 'Bachelors', jobLevel: 'Senior Level' },
   { id: 14, company: 'COGNIZANT', title: 'Front-End Developer', location: 'Negombo', category: 'Frontend', jobType: 'Full-Time', workStyle: 'On-Site', salary: 'LKR 130,000', jobPosted: '2024-07-23', jobExpiresIn: '30 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' },
-  { id: 15, company: 'IBM', title: 'Jr. Backend Developer', location: 'Colombo', category: 'Backend', jobType: 'Contract', workStyle: 'Hybrid', salary: 'LKR 100,000', jobPosted: '2024-07-20', jobExpiresIn: '45 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' }
+  { id: 15, company: 'IBM', title: 'Backend Developer', location: 'Colombo', category: 'Backend', jobType: 'Contract', workStyle: 'Hybrid', salary: 'LKR 100,000', jobPosted: '2024-07-20', jobExpiresIn: '45 days', educationLevel: 'Bachelors', jobLevel: 'Entry Level' }
+
 ];
 
 const jobDetails = [
@@ -110,5 +114,4 @@ const jobDetails = [
 ];
 
 export {jobs, jobDetails};
-
 

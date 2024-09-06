@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -79,32 +80,63 @@ const RegisterLink = styled.div`
   }
 `;
 
+const ErrorMessage = styled.p`
+  color: red;
+  margin-top: 10px;
+`;
+
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
-  const redirectTo = new URLSearchParams(location.search).get('redirect') || '/';
+  const redirectTo = new URLSearchParams(location.search).get('redirect') || '/dashboard';
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Perform login logic
-    localStorage.setItem('authToken', 'dummy-token'); // Example token, replace with real authentication
-    navigate(redirectTo);
+    setError('');
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/auth/login', {
+        email,
+        password
+      });
+
+      localStorage.setItem('token', response.data.token);
+      navigate(redirectTo);
+    } catch (error) {
+      setError(error.response?.data?.message || 'Invalid credentials');
+    }
   };
 
   return (
     <Container>
       <LoginBox>
         <Title>Login</Title>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleLogin}>
           <InputGroup>
             <Label>Email</Label>
-            <Input type="email" placeholder="Enter your email" required />
+            <Input 
+              type="email" 
+              placeholder="Enter your email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+            />
           </InputGroup>
           <InputGroup>
             <Label>Password</Label>
-            <Input type="password" placeholder="Enter your password" required />
+            <Input 
+              type="password" 
+              placeholder="Enter your password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required 
+            />
           </InputGroup>
           <Button type="submit">Login</Button>
+          {error && <ErrorMessage>{error}</ErrorMessage>}
         </Form>
         <RegisterLink>
           Don't have an account? <a href="/register">Register</a>

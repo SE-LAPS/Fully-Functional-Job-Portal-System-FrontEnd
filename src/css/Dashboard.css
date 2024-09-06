@@ -1,49 +1,27 @@
+
+.dashboard-container {
+  display: flex;
+}
+
 .dashboard {
-    padding: 20px;
-    background-color: #e9ecef;
-    font-family: 'Roboto', sans-serif;
+  flex: 1;
+  padding: 20px;
 }
 
-.metrics {
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    margin-bottom: 30px;
+.metrics,
+.recent-job-posts {
+  margin-bottom: 20px;
 }
 
-.metrics-summary {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
+.metrics-container {
+  display: flex;
+  justify-content: space-around;
 }
 
-.metric-item {
-    flex: 1;
-    padding: 15px;
-    margin: 0 10px;
-    background-color: #15ebeb;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.metric-item:hover {
-    transform: scale(1.05);
-}
-
-.metric-item h3 {
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.metric-item p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #007bff;
-}
-
-.chart-item {
-    margin-bottom: 20px;
+.metric {
+  border: 1px solid #ddd;
+  padding: 20px;
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
 }
