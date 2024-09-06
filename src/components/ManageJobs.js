@@ -39,6 +39,7 @@ const JobTable = () => {
 
   return (
     <div className="job-table">
+    <h2>Manage Jop Post</h2>
       <table>
         <thead>
           <tr>
