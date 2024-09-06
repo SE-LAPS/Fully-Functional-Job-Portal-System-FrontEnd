@@ -10,8 +10,8 @@ const GetMobileApps = () => {
       <div className="text-section">
         <h1>Get The Mobile Apps</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit
-          tempora adipisci impedit.
+          Search through millions of jobs and find the right fit. Simply
+          swipe right to apply.
         </p>
         <div className="button-container">
           <a href="https://www.apple.com/app-store/" className="store-button">

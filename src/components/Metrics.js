@@ -1,8 +1,10 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBriefcase, faClipboardList, faBookmark, faTimesCircle } from '@fortawesome/free-solid-svg-icons'; // Import Font Awesome icons
 import '../css/Metrics.css';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6347']; // Colors for pie chart segments
+const COLORS = ['#dc3545', '#007bff', '#28a745',' #ffc107']; // Colors for pie chart segments
 
 function Metrics({ metrics }) {
   const data = [
@@ -23,24 +25,30 @@ function Metrics({ metrics }) {
   return (
     <div className="metrics">
       <h2>Dashboard Metrics</h2>
-      <div className="metrics-summary">
-        <div className="metric-item">
-          <h3>Job Posts</h3>
-          <p>{metrics.totalJobPosts}</p>
-        </div>
-        <div className="metric-item">
-          <h3>Total Apply Jobs</h3>
-          <p>{metrics.totalApplications}</p>
-        </div>
-        <div className="metric-item">
-          <h3>Shortlisted Candidates</h3>
-          <p>{metrics.totalMeetings}</p>
-        </div>
-        <div className="metric-item">
-          <h3>Rejected Candidates</h3>
-          <p>{metrics.totalHirings}</p>
-        </div>
-      </div>
+    <div className="metrics-summary">
+    <div className="metric-item job-posts">
+      <FontAwesomeIcon icon={faBriefcase} size="2x" color="#fff" /> {/* Icon for Job Posts */}
+      <h3>Job Posts</h3>
+      <p>{metrics.totalJobPosts}</p>
+    </div>
+    <div className="metric-item apply-jobs">
+      <FontAwesomeIcon icon={faClipboardList} size="2x" color="#fff" /> {/* Icon for Total Apply Jobs */}
+      <h3>Total Apply Jobs</h3>
+      <p>{metrics.totalApplications}</p>
+    </div>
+    <div className="metric-item shortlisted">
+      <FontAwesomeIcon icon={faBookmark} size="2x" color="#fff" /> {/* Icon for Shortlisted Candidates */}
+      <h3>Shortlisted Candidates</h3>
+      <p>{metrics.totalMeetings}</p>
+    </div>
+    <div className="metric-item rejected">
+      <FontAwesomeIcon icon={faTimesCircle} size="2x" color="#fff" /> {/* Icon for Rejected Candidates */}
+      <h3>Rejected Candidates</h3>
+      <p>{metrics.totalHirings}</p>
+    </div>
+  </div>
+
+
 
       <div className="charts-container">
         <div className="bar-chart-container">
@@ -50,8 +58,8 @@ function Metrics({ metrics }) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="applications" fill="#8884d8" />
-            <Bar dataKey="hirings" fill="#82ca9d" />
+            <Bar dataKey="applications" fill="#007bff" />
+            <Bar dataKey="hirings" fill="#28a745" />
           </BarChart>
         </div>
 
