@@ -107,13 +107,20 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/api/users/register', 
-        JSON.stringify({
-          username,
-          email,
-          password,
-          role
-        }), 
+      const data = {
+        firstname,
+        lastname,
+        email,
+        password,
+        role
+      };
+    
+      // Print the JSON request to the console
+      console.log("JSON Request:", JSON.stringify(data, null, 2));
+    
+      const response = await axios.post(
+        'http://localhost:8080/api/v1/auth/register',
+        JSON.stringify(data),
         {
           headers: {
             'Content-Type': 'application/json'
@@ -150,8 +157,8 @@ const Register = () => {
                 <Radio
                   id="applicant"
                   name="role"
-                  value="JOB_SEEKER"
-                  checked={role === 'JOB_SEEKER'}
+                  value="APPLICANT"
+                  checked={role === 'APPLICANT'}
                   onChange={(e) => setRole(e.target.value)}
                 />
                 <label htmlFor="applicant">Job Seeker</label>
