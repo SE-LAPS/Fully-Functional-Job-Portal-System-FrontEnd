@@ -18,7 +18,7 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       
       // Set success message
-      setMessage({ text: 'Login successful! Redirecting...', type: 'success' });
+      setMessage({ text: 'Login successful! Redirecting to Home...', type: 'success' });
       
       // Redirect to home page or dashboard after a short delay
       setTimeout(() => {
