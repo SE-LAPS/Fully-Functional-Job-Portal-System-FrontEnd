@@ -7,12 +7,11 @@ const ChatBotUI = ({ isVisible, onClose }) => {
 
   // Predefined responses
   const responses = {
-    "What is the weather like today?": "I don't have real-time weather data access, but you can check the weather on your local news site or a weather app!",
-    "How can I reset my password?": "To reset your password, go to the login page, click on 'Forgot Password,' and follow the instructions. You’ll receive a password reset link in your email.",
-    "What are your business hours?": "Our business hours are from 9:00 AM to 6:00 PM, Monday through Friday. We're closed on weekends and public holidays.",
-    "Can you help me with my order status?": "Sure! Please provide your order number, and I’ll check the status for you.",
-    "What services do you offer?": "We offer a range of services including web development, mobile app development, and digital marketing. Feel free to ask for more details on any of these!",
-    "How can I contact customer support?": "You can reach our customer support via email at support@example.com or by calling (123) 456-7890. We're here to help!"
+    "How do I create an account?": "To create an account, click on the 'Sign Up' button on the homepage and fill in your details. You will receive a confirmation email to activate your account",
+    "How can I search for jobs?": "To search for jobs, use the search bar on the homepage. You can filter jobs by location, industry, and job type to find the best match.",
+    "What is the status of my application?": "To check your application status, go to the 'My Applications' section in your account dashboard. Each application will show its current status.",
+    "How can I update my resume?": "To update your resume, log in to your account and go to the 'My Profile' section. You can upload a new resume or edit your existing one.",
+    "How do I contact support?": "You can contact support by emailing us at DesignITBazzinga@jobportal.com or by calling our helpline at (123) 456-7890. We're here to assist you with any issues",
   };
 
   const handleSendMessage = () => {
@@ -36,7 +35,7 @@ const ChatBotUI = ({ isVisible, onClose }) => {
 
   return (
     <div className="chatbot-container">
-      <button className="chatbot-close" onClick={onClose}>X</button>
+      <button className="chatbot-close" onClick={onClose}>Close</button>
       <div className="chatbot-messages">
         {messages.map((message, index) => (
           <div
