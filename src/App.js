@@ -11,7 +11,7 @@ import Testimonial from './components/Testimonial';
 import Footer from './components/Footer';
 import SearchJobs from './pages/SearchJobs';
 import JobAlerts from './pages/job_alert';
-import Login from './pages/Login';
+import Login from './pages/Login'; 
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import JobDetails from './components/JobDetails';
@@ -25,14 +25,16 @@ import ViewJobDetails from './pages/ViewJobDetails';
 import WantJob from './pages/WantJob';
 import JobPositionTable from './components/JobPositionTable';
 import ApplyJobHistory from './components/ApplyJobHistory';
-import Dashboard from './components/Dashboard';  // Import Dashboard component
+import Dashboard from './components/Dashboard'; 
 import GetMobileApps from './components/GetMobileApps';
 import ManageJobs from './components/ManageJobs';
+import ChatBotUI from './components/ChatBotUI'; // Import ChatBotUI component
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [chatVisible, setChatVisible] = useState(false);
 
   useEffect(() => {
     const fakeDataFetch = () => {
@@ -46,6 +48,10 @@ const App = () => {
   if (isLoading) {
     return <Loader />;
   }
+
+  const toggleChatVisibility = () => {
+    setChatVisible(prev => !prev);
+  };
 
   return (
     <div className="app">
@@ -74,7 +80,7 @@ const App = () => {
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/post-job" element={<PostJobForm />} />
         <Route path="/employers" element={<Employers />} />
-        <Route path="/admin" element={<Dashboard />} /> {/* Changed to Dashboard */}
+        <Route path="/admin" element={<Dashboard />} />
         <Route path="/view_job_details" element={<ViewJobDetails />} />
         <Route path="/job-positions" element={<JobPositionTable />} />
         <Route path="/apply-job-history" element={<ApplyJobHistory/>} />
@@ -82,6 +88,10 @@ const App = () => {
         <Route path="/manage-jobs" element={<ManageJobs />} />
       </Routes>
       <Footer />
+      <div className="chat-icon" onClick={toggleChatVisibility}>
+        <i className="fas fa-comments"></i>
+      </div>
+      <ChatBotUI isVisible={chatVisible} onClose={() => setChatVisible(false)} />
     </div>
   );
 };
