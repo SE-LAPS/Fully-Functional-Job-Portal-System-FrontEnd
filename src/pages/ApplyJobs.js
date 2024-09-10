@@ -9,30 +9,30 @@ const ApplyJobs = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [resume, setResume] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !email || !resume) {
+    if (!name || !email) {
       alert('Please fill out all fields.');
       return;
     }
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('companyName', job.companyName);
-    formData.append('positionTitle', job.positionTitle);
-    formData.append('resume', resume);
+    const data = {
+      name,
+      email,
+      companyName: job?.companyName || '',
+      positionTitle: job?.positionTitle || '',
+    };
 
     try {
-      const response = await axios.post('http://localhost:8080/api/jobs/apply', formData, {
+      const response = await axios.post('http://localhost:8080/api/jobs/apply', data, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
       });
 
+      console.log('Response:', response); // Log response to debug
       if (response.status === 201) {
         alert('Your application has been submitted successfully!');
         // Optionally, redirect or clear form fields
@@ -75,16 +75,6 @@ const ApplyJobs = () => {
             placeholder="Enter Your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="resume">Resume:</label>
-          <input
-            type="file"
-            id="resume"
-            onChange={(e) => setResume(e.target.files[0])}
             className="form-control"
             required
           />

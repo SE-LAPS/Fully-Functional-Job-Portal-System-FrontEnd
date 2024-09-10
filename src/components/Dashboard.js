@@ -68,7 +68,7 @@ function Dashboard() {
         <div className="metrics">
           <Metrics metrics={metrics} />
         </div>
-        <div className="recent-job-posts">
+        <div className="job-position-table-container">
           <RecentJobPosts jobPosts={jobPosts} />
         </div>
         <div className="apply-job-history">
