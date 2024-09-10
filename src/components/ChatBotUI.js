@@ -40,8 +40,7 @@ const ChatBotUI = ({ isVisible, onClose }) => {
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`chatbot-message ${message.type === 'user' ? 'user-message' : 'ai-message'}`}
-          >
+            className={`chatbot-message ${message.type === 'user' ? 'user-message' : 'ai-message'}`}>
             {message.text}
           </div>
         ))}
