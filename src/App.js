@@ -29,6 +29,10 @@ import Dashboard from './components/Dashboard';
 import GetMobileApps from './components/GetMobileApps';
 import ManageJobs from './components/ManageJobs';
 import ChatBotUI from './components/ChatBotUI'; // Import ChatBotUI component
+
+import AdminDashboard from './components/AdminDashboard'; // Admin Dashboard containing all sections
+import AdminJobCategory from './components/AdminJobCategory'; // Separate page for job categories
+import AdminRegisterCompany from './components/AdminRegisterCompany';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
 
@@ -86,6 +90,9 @@ const App = () => {
         <Route path="/apply-job-history" element={<ApplyJobHistory/>} />
         <Route path="/want-job" element={<WantJob />} /> 
         <Route path="/manage-jobs" element={<ManageJobs />} />
+        <Route path="/dashboard" element={<AdminDashboard />} />
+        <Route path="/adminJobCategory" element={<AdminJobCategory />} />
+        <Route path="/register-company" element={<AdminRegisterCompany />} />
       </Routes>
       <Footer />
       <div className="chat-icon" onClick={toggleChatVisibility}>

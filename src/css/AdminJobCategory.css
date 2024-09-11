@@ -1,0 +1,28 @@
+.admin-job-category {
+    padding: 20px;
+}
+
+.job-category-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.job-category-table th,
+.job-category-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.job-category-table th {
+    background-color: #f4f4f4;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: white;
+}

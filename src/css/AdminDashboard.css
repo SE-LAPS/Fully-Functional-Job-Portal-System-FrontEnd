@@ -1,0 +1,13 @@
+.dashboard-container {
+    display: flex;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.register-company-section,
+.job-category-section {
+    margin-bottom: 20px;
+}
