@@ -28,6 +28,7 @@ import AdminDashboard from './components/AdminDashboard';
 import GetMobileApps from './components/GetMobileApps';
 import ManageJobs from './components/ManageJobs';
 import Resume from './pages/Resume';
+import UserProfile from './pages/UserProfile';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.css';
@@ -81,6 +82,7 @@ const App = () => {
         <Route path="/want-job" element={<WantJob />} /> 
         <Route path="/manage-jobs" element={<ManageJobs />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/user_profile" element={<UserProfile />} />
       </Routes>
       <Footer />
     </div>

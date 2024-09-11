@@ -1,58 +1,107 @@
 import React, { useState } from 'react';
-import { TextField, Button, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { TextField, Button, List, ListItem, ListItemText, IconButton, Grid } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const EducationForm = ({ resumeData, setResumeData }) => {
-  const [education, setEducation] = useState({ institution: '', degree: '', year: '' });
+  const [education, setEducation] = useState({
+    degree: '',
+    school: '',
+    gradDate: '',
+    grade: '',
+  });
 
   const handleAddEducation = () => {
+    if (
+      !education.degree ||
+      !education.school ||
+      !education.gradDate ||
+      !education.grade
+    ) {
+      alert('Please fill out all required fields');
+      return;
+    }
     setResumeData({
       ...resumeData,
-      education: [...resumeData.education, education],
+      degree: [...resumeData.degree, education],
     });
-    setEducation({ institution: '', degree: '', year: '' });
+    setEducation({
+      degree: '',
+      school: '',
+      gradDate: '',
+      grade: '',
+    });
   };
 
   const handleDeleteEducation = (index) => {
     setResumeData({
       ...resumeData,
-      education: resumeData.education.filter((_, i) => i !== index),
+      degree: resumeData.degree.filter((_, i) => i !== index),
     });
   };
 
   return (
     <form>
-      <TextField
-        label="Institution"
-        value={education.institution}
-        onChange={(e) => setEducation({ ...education, institution: e.target.value })}
-        fullWidth
-      />
-      <TextField
-        label="Degree"
-        value={education.degree}
-        onChange={(e) => setEducation({ ...education, degree: e.target.value })}
-        fullWidth
-        sx={{ mt: 2 }}
-      />
-      <TextField
-        label="Year"
-        value={education.year}
-        onChange={(e) => setEducation({ ...education, year: e.target.value })}
-        fullWidth
-        sx={{ mt: 2 }}
-      />
-      <Button variant="contained" onClick={handleAddEducation} sx={{ mt: 2 }} fullWidth>
-        Add Education
-      </Button>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Degree"
+            value={education.degree}
+            onChange={(e) => setEducation({ ...education, degree: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="School"
+            value={education.school}
+            onChange={(e) => setEducation({ ...education, school: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Graduation Date"
+            type="date"
+            InputLabelProps={{ shrink: true }}
+            value={education.gradDate}
+            onChange={(e) => setEducation({ ...education, gradDate: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Grade"
+            value={education.grade}
+            onChange={(e) => setEducation({ ...education, grade: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" onClick={handleAddEducation} fullWidth>
+            Add Education
+          </Button>
+        </Grid>
+      </Grid>
       <List>
-        {resumeData.education.map((edu, index) => (
-          <ListItem key={index} secondaryAction={
-            <IconButton edge="end" onClick={() => handleDeleteEducation(index)}>
-              <DeleteIcon />
-            </IconButton>
-          }>
-            <ListItemText primary={edu.institution} secondary={`${edu.degree}, ${edu.year}`} />
+        {resumeData.degree.map((edu, index) => (
+          <ListItem
+            key={index}
+            secondaryAction={
+              <IconButton edge="end" onClick={() => handleDeleteEducation(index)}>
+                <DeleteIcon />
+              </IconButton>
+            }
+          >
+            <ListItemText
+              primary={`${edu.degree} from ${edu.school}`}
+              secondary={
+                <>
+                  Grade: {edu.grade}
+                  <br />
+                  Graduation Date: {edu.gradDate}
+                </>
+              }
+            />
           </ListItem>
         ))}
       </List>

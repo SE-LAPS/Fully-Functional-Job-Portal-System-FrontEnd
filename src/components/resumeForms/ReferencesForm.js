@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
-import { TextField, Button, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { TextField, Button, List, ListItem, ListItemText, IconButton, Grid } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const ReferencesForm = ({ resumeData, setResumeData }) => {
-  const [reference, setReference] = useState({ name: '', contact: '' });
+  const [reference, setReference] = useState({
+    fullName: '',
+    organization: '',
+    phone: '',
+    email: '',
+  });
 
   const handleAddReference = () => {
+    if (!reference.fullName || !reference.organization || !reference.phone || !reference.email) {
+      alert('Please fill out all required fields');
+      return;
+    }
+
     setResumeData({
       ...resumeData,
       references: [...resumeData.references, reference],
     });
-    setReference({ name: '', contact: '' });
+
+    setReference({
+      fullName: '',
+      organization: '',
+      phone: '',
+      email: '',
+    });
   };
 
   const handleDeleteReference = (index) => {
@@ -22,30 +38,67 @@ const ReferencesForm = ({ resumeData, setResumeData }) => {
 
   return (
     <form>
-      <TextField
-        label="Name"
-        value={reference.name}
-        onChange={(e) => setReference({ ...reference, name: e.target.value })}
-        fullWidth
-      />
-      <TextField
-        label="Contact"
-        value={reference.contact}
-        onChange={(e) => setReference({ ...reference, contact: e.target.value })}
-        fullWidth
-        sx={{ mt: 2 }}
-      />
-      <Button variant="contained" onClick={handleAddReference} sx={{ mt: 2 }} fullWidth>
-        Add Reference
-      </Button>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Full Name"
+            value={reference.fullName}
+            onChange={(e) => setReference({ ...reference, fullName: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Organization"
+            value={reference.organization}
+            onChange={(e) => setReference({ ...reference, organization: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Phone"
+            value={reference.phone}
+            onChange={(e) => setReference({ ...reference, phone: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Email"
+            value={reference.email}
+            onChange={(e) => setReference({ ...reference, email: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" onClick={handleAddReference} fullWidth>
+            Add Reference
+          </Button>
+        </Grid>
+      </Grid>
       <List>
         {resumeData.references.map((ref, index) => (
-          <ListItem key={index} secondaryAction={
-            <IconButton edge="end" onClick={() => handleDeleteReference(index)}>
-              <DeleteIcon />
-            </IconButton>
-          }>
-            <ListItemText primary={ref.name} secondary={ref.contact} />
+          <ListItem
+            key={index}
+            secondaryAction={
+              <IconButton edge="end" onClick={() => handleDeleteReference(index)}>
+                <DeleteIcon />
+              </IconButton>
+            }
+          >
+            <ListItemText
+              primary={ref.fullName}
+              secondary={
+                <>
+                  Organization: {ref.organization}
+                  <br />
+                  Phone: {ref.phone}
+                  <br />
+                  Email: {ref.email}
+                </>
+              }
+            />
           </ListItem>
         ))}
       </List>

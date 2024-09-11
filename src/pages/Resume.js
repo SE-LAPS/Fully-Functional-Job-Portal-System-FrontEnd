@@ -11,49 +11,101 @@ import ResumeDisplay from '../components/ResumeDisplay';
 
 const ResumeBuilder = () => {
   const [resumeData, setResumeData] = useState({
-    fullName: '',
+    name: '',
+    position: '',
+    summary: '',
     email: '',
     phone: '',
-    summary: '',
+    location: '',
     skills: [],
-    projects: [],
+    workExperiences: [],
+    degree: [],
     links: [],
+    projects: [],
     references: [],
-    education: [],
-    workExperience: [],
   });
 
   // Mock Data
   const handleLoadMockData = () => {
     setResumeData({
-      fullName: 'John Doe',
-      email: 'john.doe@example.com',
-      phone: '555-123-4567',
-      summary: 'A passionate software engineer with 5 years of experience in web development.',
-      skills: ['JavaScript', 'React', 'Node.js', 'Express.js'],
+      name: 'Alex Johnson',
+      position: 'Senior Software Engineer',
+      summary: 'Experienced software engineer with expertise in full-stack development.',
+      email: 'alex.johnson@example.com',
+      phone: '+94 77 123 4567',
+      location: 'Colombo, Sri Lanka',
+      skills: [
+        { name: 'Java', years: 5 },
+        { name: 'React.js', years: 3 },
+        { name: 'MySQL', years: 4 }
+      ],
+      workExperiences: [
+        {
+          type: 'FULL_TIME',
+          jobTitle: 'Senior Software Engineer',
+          company: 'Tech Solutions Ltd.',
+          description: 'Led a team of 5 engineers in developing enterprise-level web applications using Java Spring Boot and React.js.',
+          location: 'Colombo, Sri Lanka',
+          startDate: '2019-01-15',
+          endDate: '2023-08-30',
+        },
+        {
+          type: 'PART_TIME',
+          jobTitle: 'Freelance Developer',
+          company: 'Self-Employed',
+          description: 'Worked on various freelance projects including e-commerce platforms and mobile applications.',
+          location: 'Remote',
+          startDate: '2021-05-01',
+          endDate: '2022-12-31',
+        }
+      ],
+      degree: [
+        {
+          degree: 'Bachelor of Science in Computer Science',
+          school: 'University of Colombo',
+          gradDate: '2018-07-10',
+          grade: 'First Class Honours',
+        }
+      ],
+      links: [
+        { label: 'GitHub', url: 'https://github.com/example' },
+        { label: 'LinkedIn', url: 'https://linkedin.com/in/example' }
+      ],
       projects: [
-        { title: 'Job Portal', description: 'A web application for job seekers and employers.' },
-        { title: 'E-commerce Website', description: 'An online platform for selling products.' },
+        {
+          title: 'Job Portal System',
+          description: 'Developed a full-stack job portal system using React.js for the front end and Java Spring Boot for the back end.',
+          duration: 6,
+          endDate: '2023-06-30',
+        },
+        {
+          title: 'E-Commerce Platform',
+          description: 'Built a scalable e-commerce platform with product management, shopping cart, and payment gateway integration.',
+          duration: 4,
+          endDate: '2022-09-15',
+        }
       ],
-      links: ['https://github.com/johndoe', 'https://linkedin.com/in/johndoe'],
       references: [
-        { name: 'Jane Smith', contact: 'jane.smith@example.com' },
-        { name: 'Mike Johnson', contact: 'mike.johnson@example.com' },
-      ],
-      education: [
-        { institution: 'ABC University', degree: 'BSc in Computer Science', year: '2020' },
-      ],
-      workExperience: [
-        { company: 'Tech Corp', role: 'Software Engineer', duration: '2020 - Present' },
-        { company: 'Web Solutions', role: 'Junior Developer', duration: '2018 - 2020' },
-      ],
+        {
+          fullName: 'John Doe',
+          organization: 'Tech Solutions Ltd.',
+          phone: '+94 77 123 4567',
+          email: 'john.doe@example.com'
+        },
+        {
+          fullName: 'Jane Smith',
+          organization: 'Freelance Client',
+          phone: '+94 77 765 4321',
+          email: 'jane.smith@example.com'
+        }
+      ]
     });
   };
 
   return (
     <Container sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom>
-        Resume
+        Resume Builder
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>

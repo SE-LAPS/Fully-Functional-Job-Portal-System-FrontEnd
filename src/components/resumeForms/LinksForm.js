@@ -3,14 +3,14 @@ import { TextField, Button, List, ListItem, ListItemText, IconButton } from '@mu
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const LinksForm = ({ resumeData, setResumeData }) => {
-  const [link, setLink] = useState('');
+  const [link, setLink] = useState({label: '', url: ''});
 
   const handleAddLink = () => {
     setResumeData({
       ...resumeData,
       links: [...resumeData.links, link],
     });
-    setLink('');
+    setLink({label: '', url: ''});
   };
 
   const handleDeleteLink = (index) => {
@@ -23,10 +23,17 @@ const LinksForm = ({ resumeData, setResumeData }) => {
   return (
     <form>
       <TextField
-        label="Link"
-        value={link}
-        onChange={(e) => setLink(e.target.value)}
+        label="Label"
+        value={link.label}
+        onChange={(e) => setLink({ ...link, label: e.target.value })}
         fullWidth
+      />
+      <TextField
+        label="URL"
+        value={link.url}
+        onChange={(e) => setLink({ ...link, url: e.target.value })}
+        fullWidth
+        sx={{ mt: 2 }}
       />
       <Button variant="contained" onClick={handleAddLink} sx={{ mt: 2 }} fullWidth>
         Add Link
@@ -38,7 +45,7 @@ const LinksForm = ({ resumeData, setResumeData }) => {
               <DeleteIcon />
             </IconButton>
           }>
-            <ListItemText primary={link} />
+            <ListItemText primary={`${link.label} from ${link.url}`} />
           </ListItem>
         ))}
       </List>

@@ -1,58 +1,149 @@
 import React, { useState } from 'react';
-import { TextField, Button, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { TextField, Button, List, ListItem, ListItemText, IconButton, Grid, MenuItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const WorkExperienceForm = ({ resumeData, setResumeData }) => {
-  const [workExperience, setWorkExperience] = useState({ company: '', role: '', duration: '' });
+  const [workExperience, setWorkExperience] = useState({
+    type: '',
+    jobTitle: '',
+    company: '',
+    description: '',
+    location: '',
+    startDate: '',
+    endDate: '',
+  });
 
   const handleAddWorkExperience = () => {
+    if (
+      !workExperience.jobTitle ||
+      !workExperience.company ||
+      !workExperience.startDate ||
+      !workExperience.endDate ||
+      !workExperience.type
+    ) {
+      // Handle validation if needed
+      alert('Please fill out all required fields');
+      return;
+    }
     setResumeData({
       ...resumeData,
-      workExperience: [...resumeData.workExperience, workExperience],
+      workExperiences: [...resumeData.workExperiences, workExperience],
     });
-    setWorkExperience({ company: '', role: '', duration: '' });
+    setWorkExperience({
+      type: '',
+      jobTitle: '',
+      company: '',
+      description: '',
+      location: '',
+      startDate: '',
+      endDate: '',
+    });
   };
 
   const handleDeleteWorkExperience = (index) => {
     setResumeData({
       ...resumeData,
-      workExperience: resumeData.workExperience.filter((_, i) => i !== index),
+      workExperiences: resumeData.workExperiences.filter((_, i) => i !== index),
     });
   };
 
   return (
     <form>
-      <TextField
-        label="Company"
-        value={workExperience.company}
-        onChange={(e) => setWorkExperience({ ...workExperience, company: e.target.value })}
-        fullWidth
-      />
-      <TextField
-        label="Role"
-        value={workExperience.role}
-        onChange={(e) => setWorkExperience({ ...workExperience, role: e.target.value })}
-        fullWidth
-        sx={{ mt: 2 }}
-      />
-      <TextField
-        label="Duration"
-        value={workExperience.duration}
-        onChange={(e) => setWorkExperience({ ...workExperience, duration: e.target.value })}
-        fullWidth
-        sx={{ mt: 2 }}
-      />
-      <Button variant="contained" onClick={handleAddWorkExperience} sx={{ mt: 2 }} fullWidth>
-        Add Work Experience
-      </Button>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Job Title"
+            value={workExperience.jobTitle}
+            onChange={(e) => setWorkExperience({ ...workExperience, jobTitle: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Company"
+            value={workExperience.company}
+            onChange={(e) => setWorkExperience({ ...workExperience, company: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Description"
+            multiline
+            rows={3}
+            value={workExperience.description}
+            onChange={(e) => setWorkExperience({ ...workExperience, description: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Location"
+            value={workExperience.location}
+            onChange={(e) => setWorkExperience({ ...workExperience, location: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Start Date"
+            type="date"
+            InputLabelProps={{ shrink: true }}
+            value={workExperience.startDate}
+            onChange={(e) => setWorkExperience({ ...workExperience, startDate: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="End Date"
+            type="date"
+            InputLabelProps={{ shrink: true }}
+            value={workExperience.endDate}
+            onChange={(e) => setWorkExperience({ ...workExperience, endDate: e.target.value })}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            select
+            label="Employment Type"
+            value={workExperience.type}
+            onChange={(e) => setWorkExperience({ ...workExperience, type: e.target.value })}
+          >
+            <MenuItem value="FULL_TIME">Full Time</MenuItem>
+            <MenuItem value="PART_TIME">Part Time</MenuItem>
+          </TextField>
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" onClick={handleAddWorkExperience} fullWidth>
+            Add Work Experience
+          </Button>
+        </Grid>
+      </Grid>
       <List>
-        {resumeData.workExperience.map((work, index) => (
-          <ListItem key={index} secondaryAction={
-            <IconButton edge="end" onClick={() => handleDeleteWorkExperience(index)}>
-              <DeleteIcon />
-            </IconButton>
-          }>
-            <ListItemText primary={work.company} secondary={`${work.role}, ${work.duration}`} />
+        {resumeData.workExperiences.map((work, index) => (
+          <ListItem
+            key={index}
+            secondaryAction={
+              <IconButton edge="end" onClick={() => handleDeleteWorkExperience(index)}>
+                <DeleteIcon />
+              </IconButton>
+            }
+          >
+            <ListItemText
+              primary={`${work.jobTitle} at ${work.company} (${work.type})`}
+              secondary={
+                <>
+                  {work.description}
+                  <br />
+                  Location: {work.location}
+                  <br />
+                  Duration: {work.startDate} - {work.endDate}
+                </>
+              }
+            />
           </ListItem>
         ))}
       </List>

@@ -10,9 +10,15 @@ const ResumeForm = ({ resumeData, setResumeData }) => {
     <form>
       <TextField 
         label="Full Name" 
-        name="fullName" 
+        name="name" 
         onChange={handleChange} 
         fullWidth 
+      /><br /><br />
+      <TextField 
+        label="Position" 
+        name="position" 
+        onChange={handleChange} 
+        fullWidth
       /><br /><br />
       <TextField 
         label="Email" 
@@ -25,6 +31,12 @@ const ResumeForm = ({ resumeData, setResumeData }) => {
         name="phone" 
         onChange={handleChange}
         fullWidth 
+      /><br /><br />
+      <TextField 
+        label="Location" 
+        name="location" 
+        onChange={handleChange} 
+        fullWidth
       /><br /><br />
       <TextField 
         label="Summary" 
