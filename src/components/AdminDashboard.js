@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import SideMenu from './AdminSideMenu'; // Sidebar for navigation
-import AdminRegisterCompany from './AdminRegisterCompany'; // Registered companies component
-import AdminJobCategory from './AdminJobCategory'; // Job categories component
-import AdminMetrics from './AdminMetrics'; // Admin metrics component
-import '../css/AdminDashboard.css'; // Custom styles
+import SideMenu from './AdminSideMenu'; 
+import AdminRegisterCompany from './AdminRegisterCompany'; 
+import AdminJobCategory from './AdminJobCategory'; 
+import AdminMetrics from './AdminMetrics'; 
+import '../css/AdminDashboard.css'; 
 
 const AdminDashboard = () => {
   const [companies, setCompanies] = useState([]);
@@ -36,10 +36,10 @@ const AdminDashboard = () => {
   }, []);
 
   // Metrics data (can be dynamically updated in a real app)
-  const loginCount = 123; // Example data for logged-in members
-  const registeredMembersCount = 200; // Example data for registered members
-  const registeredCompaniesCount = companies.length; // Calculate the number of registered companies
-  const jobCategoriesCount = jobCategories.length; // Dynamically calculate the number of job categories
+  const loginCount = 123; 
+  const registeredMembersCount = 200; 
+  const registeredCompaniesCount = companies.length; 
+  const jobCategoriesCount = jobCategories.length; 
 
   return (
     <div className="dashboard-container">
