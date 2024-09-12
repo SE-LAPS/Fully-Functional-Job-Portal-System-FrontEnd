@@ -1,34 +1,23 @@
-.employers-container {
-    padding: 20px;
+.register-company-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  margin-bottom: 20px;
 }
 
 .employers-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.employers-table th,
-.employers-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.employers-table th {
-    background-color: #f4f4f4;
-    text-align: left;
+.employers-table th, .employers-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
 .employer-logo {
-    width: 50px;
-    height: auto;
-}
-
-a {
-    color: #0073e6;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+  width: 50px;
+  height: auto;
 }
