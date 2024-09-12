@@ -31,7 +31,7 @@ const AdminDashboard = () => {
       { id: 1, name: 'Company A', industry: 'Tech', location: 'New York', contact: 'email@companya.com' },
       { id: 2, name: 'Company B', industry: 'Finance', location: 'London', contact: 'email@companyb.com' },
       { id: 1, name: 'Company A', industry: 'Tech', location: 'New York', contact: 'email@companya.com' },
-      { id: 2, name: 'Company B', industry: 'Finance', location: 'London', contact: 'email@companyb.com' },
+
     ]);
   }, []);
 
