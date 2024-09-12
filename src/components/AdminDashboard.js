@@ -36,8 +36,8 @@ const AdminDashboard = () => {
   }, []);
 
   // Metrics data (can be dynamically updated in a real app)
-  const loginCount = 123; 
-  const registeredMembersCount = 200; 
+  const loginCount = 25; 
+  const registeredMembersCount = 30; 
   const registeredCompaniesCount = companies.length; 
   const jobCategoriesCount = jobCategories.length; 
 
