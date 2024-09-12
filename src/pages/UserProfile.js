@@ -1,6 +1,30 @@
 import React from 'react';
-import { Avatar, Button, Container, Grid, Paper, Typography, Divider, List, ListItem, Stack,Box} from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Avatar, Button, Container, Grid, Paper, Typography, Divider, Box, Stack, List, ListItem, Card, CardContent, CardActions, CardMedia } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
+const mockData = {
+    name: "Prasitha Samaraarachchi",
+    title: "Software Engineer",
+    location: "New York, USA",
+    email: "prasitha@example.com",
+    phone: "+1 123 456 7890",
+    address: "123 Main Street, New York, USA",
+    jobHistory: [
+        { title: "Software Engineer", company: "Google", startDate: "2022", endDate: "Present" },
+        { title: "Intern", company: "Microsoft", startDate: "2021", endDate: "2022" }
+    ],
+    acceptedJobs: [
+        { company: "Google", position: "Software Engineer" }
+    ],
+    viewedJobs: [
+        { company: "Microsoft", position: "Data Analyst" },
+        { company: "Facebook", position: "Frontend Developer" }
+    ],
+    projects: [
+        { title: "Personal Portfolio Website", description: "Built using React" },
+        { title: "E-commerce Website", description: "Full-stack application with React and Node.js" }
+    ]
+};
 
 function UserProfile() {
     const navigate = useNavigate();
@@ -8,101 +32,126 @@ function UserProfile() {
     const handleResume = () => {
         navigate('/resume');
     };
+
+    const handleEditProfile = () => {
+        navigate('/edit_profile');
+    };
+
     return (
-    <Container maxWidth='lg' >
-        <Grid container spacing={1}>
-            <Grid item xs={4}>
-                <Paper elevation={3} style={{ padding: '20px', margin: '20px', flex: '1' }}>
-                    <Stack spacing={2}>
-                        <Avatar alt="Prasitha Samaraarachchi" src="/profile-pic.jpg" sx={{ width: 100, height: 100 }} />
-                        <Typography variant="h4">Prasitha Samaraarachchi</Typography>
-                        <Typography variant="subtitle1">Software Engineer</Typography>
-                        <Typography variant="body2">New York, USA</Typography>
-                    </Stack>
-                </Paper>
-                <Box display="flex" justifyContent="center">
-                        <Button variant="contained" >Edit Profile</Button>
-                </Box>
+        <Container maxWidth="lg" sx={{ margin: 4 }}>
+            <Grid container spacing={4}>
+                {/* Profile Section */}
+                <Grid item xs={12} sm={4}>
+                    <Card sx={{ backgroundColor: '#f5f5f5', padding: 2, borderRadius: 4 }}>
+                        <CardContent>
+                            <Stack spacing={2} alignItems="center">
+                                <Avatar alt={mockData.name} src="/profile-pic.jpg" sx={{ width: 120, height: 120 }} />
+                                <Typography variant="h5" fontWeight="bold">{mockData.name}</Typography>
+                                <Typography variant="subtitle1" color="textSecondary">{mockData.title}</Typography>
+                                <Typography variant="body2" color="textSecondary">{mockData.location}</Typography>
+                            </Stack>
+                        </CardContent>
+                        <CardActions sx={{ justifyContent: 'center' }}>
+                            <Button variant="contained" sx={{ backgroundColor: '#007bff', borderRadius: 20, px: 4 }} onClick={handleEditProfile}>
+                                Edit Profile
+                            </Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
+
+                {/* Main Content Section */}
+                <Grid item xs={12} sm={8}>
+                    <Paper elevation={4} sx={{ padding: 4, borderRadius: 4 }}>
+                        {/* Personal Information */}
+                        <Divider textAlign="left" sx={{ marginBottom: 3 }}>
+                            <Typography variant="overline" sx={{ fontSize: '1rem', color: '#007bff' }}>Personal Information</Typography>
+                        </Divider>
+                        <Grid container spacing={3}>
+                            <Grid item xs={12} sm={6}>
+                                <Typography variant="subtitle1" fontWeight="bold">Email</Typography>
+                                <Typography variant="body1">{mockData.email}</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <Typography variant="subtitle1" fontWeight="bold">Phone</Typography>
+                                <Typography variant="body1">{mockData.phone}</Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Typography variant="subtitle1" fontWeight="bold">Address</Typography>
+                                <Typography variant="body1">{mockData.address}</Typography>
+                            </Grid>
+                        </Grid>
+
+                        {/* Job History */}
+                        <Divider textAlign="left" sx={{ marginY: 3 }}>
+                            <Typography variant="overline" sx={{ fontSize: '1rem', color: '#007bff' }}>Job History</Typography>
+                        </Divider>
+                        <List>
+                            {mockData.jobHistory.map((job, index) => (
+                                <ListItem key={index}>{`${job.title} - ${job.company} (${job.startDate} - ${job.endDate})`}</ListItem>
+                            ))}
+                        </List>
+
+                        {/* Accepted Job Applications */}
+                        <Divider textAlign="left" sx={{ marginY: 3 }}>
+                            <Typography variant="overline" sx={{ fontSize: '1rem', color: '#007bff' }}>Accepted Job Applications</Typography>
+                        </Divider>
+                        <List>
+                            {mockData.acceptedJobs.map((job, index) => (
+                                <ListItem key={index}>{`${job.company} - ${job.position}`}</ListItem>
+                            ))}
+                        </List>
+
+                        {/* Viewed Job Applications */}
+                        <Divider textAlign="left" sx={{ marginY: 3 }}>
+                            <Typography variant="overline" sx={{ fontSize: '1rem', color: '#007bff' }}>Viewed Job Applications</Typography>
+                        </Divider>
+                        <List>
+                            {mockData.viewedJobs.map((job, index) => (
+                                <ListItem key={index}>{`${job.company} - ${job.position}`}</ListItem>
+                            ))}
+                        </List>
+
+                        {/* Project Portfolio */}
+                        <Divider textAlign="left" sx={{ marginY: 3 }}>
+                            <Typography variant="overline" sx={{ fontSize: '1rem', color: '#007bff' }}>Project Portfolio</Typography>
+                        </Divider>
+                        <Box sx={{ display: 'flex', overflowX: 'auto', padding: 1 }}>
+                            {mockData.projects.map((project, index) => (
+                                <Card key={index} sx={{ minWidth: 300, marginRight: 2 }}>
+                                    <CardMedia
+                                        component="img"
+                                        alt="Project Image"
+                                        height="140"
+                                        image="/static/images/cards/contemplative-reptile.jpg"
+                                    />
+                                    <CardContent>
+                                        <Typography variant="h6" fontWeight="bold">{project.title}</Typography>
+                                        <Typography variant="body2">{project.description}</Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small">More Details</Button>
+                                    </CardActions>
+                                </Card>
+                            ))}
+                        </Box>
+                        {/* Resume Upload */}
+                        <Divider textAlign="left" sx={{ marginY: 3 }}>
+                            <Typography variant="overline" sx={{ fontSize: '1rem', color: '#007bff' }}>Resume</Typography>
+                        </Divider>
+                        <Box sx={{ display: 'flex', gap: 2 }}>
+                            <Button variant="outlined" onClick={handleResume} sx={{ color: '#007bff', borderColor: '#007bff', borderRadius: 20 }}>
+                                Your Resumes
+                            </Button>
+                            <Button variant="outlined" component="label" sx={{ color: '#007bff', borderColor: '#007bff', borderRadius: 20 }}>
+                                Upload Resume
+                                <input type="file" hidden />
+                            </Button>
+                        </Box>
+                    </Paper>
+                </Grid>
             </Grid>
-            <Grid item xs={8}>
-                <Paper elevation={3} sx={{background: 'linear-gradient(to right, #ffffff, #007bff)',}} style={{ padding: '20px', margin: '20px', flex: '3' }}>  
-                    <br />
-                    {/* Personal Information */}
-                    <Divider textAlign="left">
-                        <Typography variant="overline" style={{ marginTop: '20px', color:'grey'}}>Personal Information</Typography>
-                    </Divider>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                            <Box display="flex" alignItems="center">
-                                <Typography variant="subtitle1">Email:&nbsp;</Typography>
-                                <Typography variant="body1">john.doe@example.com</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Box display="flex" alignItems="center">
-                                <Typography variant="subtitle1">Phone:&nbsp;</Typography>
-                                <Typography variant="body1">+1 123 456 7890</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Box display="flex" alignItems="center">
-                                <Typography variant="subtitle1">Address:&nbsp;</Typography>
-                                <Typography variant="body1">123 Main Street, New York, USA</Typography>
-                            </Box>
-                        </Grid>
-                    </Grid>
-
-                    {/* Professional Summary */}
-                    <Divider textAlign="left">
-                        <Typography variant="overline" style={{ marginTop: '20px', color:'grey'}}>Professional Summary</Typography>
-                    </Divider>
-                        <Typography variant="body1">
-                            A highly skilled software engineer with over 5 years of experience in developing web applications. Proficient in JavaScript, React, and Node.js. Strong problem-solving skills and a passion for learning new technologies.
-                        </Typography>
-                    {/* Education */}
-                    <Divider textAlign="left">
-                        <Typography variant="overline" style={{ marginTop: '20px', color:'grey'}}>Education</Typography>
-                    </Divider>
-                    <List>
-                        <ListItem>BS in Computer Science - MIT (2016 - 2020)</ListItem>
-                        <ListItem>MS in Software Engineering - Stanford University (2020 - 2022)</ListItem>
-                    </List>
-
-                    {/* Experience */}
-                    <Divider textAlign="left">
-                        <Typography variant="overline" style={{ marginTop: '20px', color:'grey'}}>Experience</Typography>
-                    </Divider>
-                    <List>
-                        <ListItem>Software Engineer - Google (2022 - Present)</ListItem>
-                        <ListItem>Intern - Microsoft (2021 - 2022)</ListItem>
-                    </List>
-
-                    {/* Skills */}
-                    <Divider textAlign="left">
-                        <Typography variant="overline" style={{ marginTop: '20px', color:'grey'}}>Skills</Typography>
-                    </Divider>
-                    <List>
-                        <ListItem>JavaScript</ListItem>
-                        <ListItem>React</ListItem>
-                        <ListItem>Node.js</ListItem>
-                    </List>
-
-                    {/* Resume Upload */}
-                    <Divider textAlign="left">
-                        <Typography variant="overline" style={{ marginTop: '20px', color:'grey'}}>Resume</Typography>
-                    </Divider>
-                    <Button variant="outlined" component="label" onClick={handleResume}>
-                        Your Resumes
-                    </Button>
-                    <Button variant="outlined" component="label">
-                        Upload Resume
-                        <input type="file" hidden />
-                    </Button>
-                </Paper>
-            </Grid>
-        </Grid>
-    </Container>
+        </Container>
     );
-};
+}
 
 export default UserProfile;
