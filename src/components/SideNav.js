@@ -25,6 +25,7 @@ const SideNav = () => {
         <Link to="/employers" className="nav-item">Employers</Link>
         <Link to="/contact" className="nav-item">Contact</Link>
         <Link to="/faqs" className="nav-item">FAQs</Link>
+        <Link to="/help" className='nav-item'>Help Desk</Link> {/* Link to Help Desk */}
         <Link to="/admin" className="nav-item">Company</Link>
         <Link to="/dashboard" className='nav-item'>Admin Dashboard</Link>
       </div>
