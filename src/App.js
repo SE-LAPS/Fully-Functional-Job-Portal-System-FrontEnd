@@ -28,6 +28,7 @@ import ApplyJobHistory from './components/ApplyJobHistory';
 import Dashboard from './components/Dashboard'; 
 import GetMobileApps from './components/GetMobileApps';
 import ManageJobs from './components/ManageJobs';
+import HelpDesk from "./components/HelpDesk";
 import ChatBotUI from './components/ChatBotUI'; // Import ChatBotUI component
 
 import AdminDashboard from './components/AdminDashboard'; // Admin Dashboard containing all sections
@@ -82,6 +83,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faqs" element={<Faqs />} />
+        <Route path="/help" component={HelpDesk} />
         <Route path="/post-job" element={<PostJobForm />} />
         <Route path="/employers" element={<Employers />} />
         <Route path="/admin" element={<Dashboard />} />
