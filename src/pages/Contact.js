@@ -8,30 +8,30 @@ const Contact = () => {
       <h2>Contact For Any Query</h2>
       <div className="contact-info">
         <div className="contact-item">
-          <i className="fas fa-map-marker-alt"></i> {/* Updated icon class */}
-          <p>123 Street, New York, USA</p>
+          <i className="fas fa-map-marker-alt"></i> 
+          <p>Homagama, Colombo</p>
         </div>
         <div className="contact-item">
-          <i className="fas fa-envelope"></i> {/* Updated icon class */}
-          <p>info@example.com</p>
+          <i className="fas fa-envelope"></i> 
+          <p>jobhunter@info.com</p>
         </div>
         <div className="contact-item">
-          <i className="fas fa-phone"></i> {/* Updated icon class */}
-          <p>+012 345 6789</p>
+          <i className="fas fa-phone"></i> 
+          <p>+94 712 425 308</p>
         </div>
       </div>
       <div className="contact-content">
-        <div className="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.490953412857!2d-74.00601568459352!3d40.71277577933024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316f934c05%3A0x3c8b0b5e4b14e720!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1598795123456!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            title="New York Location"
-          ></iframe>
-        </div>
+      <div className="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4047271.3116457!2d78.46169491892919!3d7.851730318231425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2593cf65a1e9d%3A0xe13da4b400e2d38c!2sSri%20Lanka!5e0!3m2!1sen!2sus!4v1631524246045!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          title="Sri Lanka Location"
+        ></iframe>
+      </div>
         <div className="contact-form">
           <p>
             The contact form is currently inactive. Get a functional and working
