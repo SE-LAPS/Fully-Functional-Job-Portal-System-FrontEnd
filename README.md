@@ -7,6 +7,14 @@
 
 ![Screenshot 2024-06-29 094812](https://github.com/SE-LAPS/Fully-functional-Job-Portal-System/assets/87580847/23eaa99d-23c9-4486-9c72-54986a48efd2)
 
+# ◀ Project Demo In YouTube ▶
+
+[CodeShow LapZ YouTube Channel](https://tinyurl.com/YouTubeLapZ)
+
+<p align="center">  
+<img src="https://github.com/user-attachments/assets/f9011461-ffd4-4a3b-98ca-8e0b63ab7685" />
+</p>
+
 # 🟨 FrontEnd Project Structure 🟨
 
 <p align="center">
