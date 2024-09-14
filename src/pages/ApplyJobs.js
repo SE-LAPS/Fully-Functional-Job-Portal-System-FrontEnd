@@ -1,19 +1,48 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import axios from 'axios';
+import '../css/applyjobs.css'; 
 
 const ApplyJobs = () => {
   const location = useLocation();
-  const job = location.state?.job; // Access job details from navigation state
+  const job = location.state?.job; 
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [resume, setResume] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Application Submitted:', { name, email, resume, job });
+
+    if (!name || !email) {
+      alert('Please fill out all fields.');
+      return;
+    }
+
+    const data = {
+      name,
+      email,
+      companyName: job?.companyName || '',
+      positionTitle: job?.positionTitle || '',
+    };
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/job/apply', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log('Response:', response); // Log response to debug
+      if (response.status === 201) {
+        alert('Your application has been submitted successfully!');
+        // Optionally, redirect or clear form fields
+      } else {
+        alert('Failed to submit your application. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting the application:', error);
+      alert('An error occurred while submitting your application.');
+    }
   };
 
   return (
@@ -21,8 +50,8 @@ const ApplyJobs = () => {
       <h1>Apply for a Job</h1>
       {job && (
         <div className="job-details-preview">
-          <h2>Applying for: {job.title}</h2>
-          <p><strong>Company:</strong> {job.company}</p>
+          <h2>Applying for: {job.positionTitle}</h2>
+          <p><strong>Company:</strong> {job.companyName}</p>
         </div>
       )}
       <form onSubmit={handleSubmit} className="apply-form">
@@ -35,6 +64,7 @@ const ApplyJobs = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="form-control"
+            required
           />
         </div>
         <div className="form-group">
@@ -46,15 +76,7 @@ const ApplyJobs = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="form-control"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="resume">Resume:</label>
-          <input
-            type="file"
-            id="resume"
-            onChange={(e) => setResume(e.target.files[0])}
-            className="form-control"
+            required
           />
         </div>
         <button type="submit" className="submit-button">Submit Application</button>
