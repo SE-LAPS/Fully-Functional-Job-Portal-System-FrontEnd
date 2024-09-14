@@ -9,7 +9,11 @@
 
 # ◀ Project Demo In YouTube ▶
 
+<div align="center">
+
 [CodeShow LapZ YouTube Channel](https://tinyurl.com/YouTubeLapZ)
+
+</div>
 
 <p align="center">  
 <img src="https://github.com/user-attachments/assets/f9011461-ffd4-4a3b-98ca-8e0b63ab7685" />
