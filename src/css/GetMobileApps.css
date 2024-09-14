@@ -26,6 +26,18 @@
    display: flex;
    gap: 20px;
 }
+.store-button {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   color: #ffffff; /* Text color */
+   text-decoration: none; /* Remove underline */
+ }
+ 
+ .store-button img {
+   filter: invert(1); /* Turns the image color to white */
+ }
+ 
 
 /* Adjustments for button animation */
 .store-button {
@@ -45,6 +57,14 @@
    transform: scale(1.05);
 }
 
+h1 {
+   margin-left: -200px; /* Adjust this value as needed */
+ }
+
+p {
+   color:#000000;
+}
+ 
 .store-button img {
    width: 20px;
    height: auto;
@@ -62,6 +82,8 @@
 .store-button:hover img {
    transform: rotate(15deg);
 }
+
+ 
 .phone-img {
    max-width: 80%;
    height: auto;
