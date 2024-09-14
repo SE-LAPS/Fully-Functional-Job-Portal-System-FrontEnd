@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import JobList from '../components/JobList';
 import JobDetails from '../components/JobDetails'; 
-import {jobs} from '../api/jobs_api'; 
-
+import { jobs, jobDetails } from '../api/jobs_api'; 
 
 import Container from '@mui/material/Container';
 import InputLabel from '@mui/material/InputLabel';
@@ -43,8 +42,16 @@ function SearchJobs() {
     }
   }, [jobTitle, loc, jobType, handleFindJobsClick]);
 
+  useEffect(() => {
+    // Set the first job's details as default when loading or refreshing
+    if (jobs.length > 0) {
+      setSelectedJob({ ...jobs[0], ...jobDetails[0] });
+    }
+  }, []);
+
   const handleJobSelect = (job) => {
-    setSelectedJob(job);
+    const fullJobDetails = { ...job, ...jobDetails.find(detail => detail.id === job.id) };
+    setSelectedJob(fullJobDetails);
   };
 
   return (
@@ -114,7 +121,7 @@ function SearchJobs() {
               jobs={filteredJobs} 
               searchTerm={searchTerm} 
               type={type} 
-              location={location} 
+              location={jobLocation} 
               onJobSelect={handleJobSelect} 
             />            
           </div>
